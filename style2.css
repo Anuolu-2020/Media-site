@@ -1,0 +1,111 @@
+body 
+{
+    background-image: linear-gradient(to right top, #051937, #1d223e, #2e2d45, #3d384c, #4b4453);
+    /*background-color: #4B4453;*/
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.Registration 
+{
+    background-color: #4a4057;
+    /*background-color:  #4B4453;*/
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    padding: 50px;
+    margin: 8% auto 8% auto;
+    text-align: center;
+    line-height: 10px;
+}
+
+button
+{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+}
+
+.signup-btn
+{
+  background-color: #3b5998;
+}
+
+.Nav
+{
+ color: #fff;
+ text-decoration: none; 
+ line-height: 30px;
+}
+
+#space
+{
+  margin-right: 15px;
+}
+
+#space2
+{
+ margin-left: 15px;
+}
+
+.Nav:hover
+{
+  border-bottom: 3px solid #fff;
+  transform: scaleX(0);
+}
+
+hr
+{
+  margin-top: 20px;
+  width: 80%;
+}
+
+.or
+{
+  background: #4a4057;
+  width: 30px;
+  margin: -14px auto 10px;
+  color: #B0A8B9;
+  font-weight: bold;
+}
+
+.signup-btn
+{
+  background-image: url(./facelogo.png);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position-x: 20px;
+  background-position-y: 5px;
+}
+
+.input-box
+{
+   padding: 10px;
+   margin: 10px 0;
+   width: 100%;
+   border: 1px solid #B0A8B9;
+   outline: none;
+   line-height: 20px;
+}
+
+.DOB
+{
+  color: #B0A8B9;
+  margin-top: 5px;
+}
+.submit-btn
+{
+ background-color: #294D46;
+}
+
+#in
+{
+    margin-top: -3px;
+}

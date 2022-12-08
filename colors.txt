@@ -1,0 +1,30 @@
+Sign in/ signup page colors: 
+Dominant: #4B4453
+2nd Dominant:#294D46
+3rd Dominant: #B0A8B9
+#2C6166
+alternative: #53596E
+
+facebook color:#3b5998
+
+#847187
+#687890
+#38485E *
+#247D82
+#524155
+#3D7489
+
+#E9F3ED
+#97B1AB
+
+#02373b **
+
+#044044 ***
+
+background-image: linear-gradient(to right top, #051937, #002a45, #033b50, #184b58, #2f5c60);
+
+#051937
+
+background-image: linear-gradient(to right top, #051937, #1d223e, #2e2d45, #3d384c, #4b4453);
+
+#4a4057
