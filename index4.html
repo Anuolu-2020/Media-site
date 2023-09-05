@@ -2,33 +2,14 @@
 <!-- saved from url=(0016)chrome://newtab/ -->
 <html>
   <head>
-    <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANUSIC</title>
-    <link href="./style3.css" rel="stylesheet">
-    
+    <link href="./style3.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <a href="#"><img src="./musiclogo.png" class="logo" width="170px"></a>
+      <a href="#"><img src="./musiclogo.png" class="logo" width="170px" /></a>
     </header>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-      $("#profileImage").click(function(e) {
-        $("#imageUpload").click();
-      });
-      function fasterPreview( uploader ) {
-       if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-          window.URL.createObjectURL(uploader.files[0]) );
-        }
-      }
-  
-     $("#imageUpload").change(function(){
-       fasterPreview( this );
-      });
-    </script>
-    <input id="imageUpload" type="file" 
-    name="profile_photo" placeholder="Photo" required="" capture>
   </body>
 </html>
