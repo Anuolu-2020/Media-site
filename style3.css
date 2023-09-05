@@ -52,3 +52,7 @@ body {
   width: 60px;
   margin: 10px;
 }
+
+.profile:hover {
+  cursor: pointer;
+}
