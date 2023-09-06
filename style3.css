@@ -27,8 +27,7 @@ body {
   /* justify-content: space-between; */
   align-items: center;
   height: 70px;
-  width: 100%;
-  flex-shrink: 0;
+  /* width: 100%; */
   background-image: linear-gradient(
     to right top,
     #051937,
@@ -54,7 +53,7 @@ body {
 }
 
 .left-items {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .right-items {
@@ -103,6 +102,7 @@ a {
   border: 2px medium gray;
   color: white;
   margin: 5px;
+  flex-shrink: 2;
 }
 
 #search-bar::placeholder {
@@ -126,14 +126,15 @@ a {
   background-repeat: no-repeat;
   border: none;
   background-position: 1px center;
-  background-size: cover;
+  background-size: 35px 50px;
   /* background: none; */
-  padding: 1px;
+  /* padding: 1px; */
   margin: 20px;
   cursor: pointer;
   width: 35px;
   height: 50px;
   background-color: transparent;
+  flex-shrink: 0;
 }
 
 #main-menu:hover {
