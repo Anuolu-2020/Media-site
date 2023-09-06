@@ -109,6 +109,18 @@ a {
   color: white;
 }
 
+#search-bar::-webkit-search-cancel-button {
+  appearance: none; /* Remove the default appearance */
+  background-image: url(./ICONS/close\ icon.png); /* Replace with your custom icon */
+  background-size: 35px 35px; /* Set the size of your custom icon */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15px; /* Adjust width and height as needed */
+  height: 15px;
+  border: none; /* Remove any border or outline */
+  cursor: pointer;
+}
+
 #main-menu {
   background-image: url(./ICONS/menu.png);
   background-repeat: no-repeat;
