@@ -66,14 +66,13 @@ body {
   align-items: center;
   gap: 10px;
   position: fixed;
-  width: 60px;
+  width: fit-content;
   height: 100%;
   background-color: #2e2d45;
 }
 
 .sidebar {
-  margin: 15px;
-  max-width: 40px;
+  margin: 8px;
   max-width: 40px;
   color: white;
 }
@@ -140,4 +139,15 @@ a {
 #main-menu:hover {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-items: center; */
+}
+.sidebar-text {
+  color: white;
+  margin: 7px;
 }

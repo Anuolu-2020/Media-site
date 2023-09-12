@@ -1,31 +1,33 @@
-* 
-{
+* {
   margin: 0;
   padding: 0;
 }
 
-body
-{
-  background-color:#4a4057;
+body {
+  background-color: #4a4057;
 }
 
 @font-face {
-    font-family: 'Futura Bold';
-    src: url(./fonts/Futura\ Bold\ font.ttf)
-   format('truetype');
+  font-family: "Futura Bold";
+  src: url(./fonts/Futura\ Bold\ font.ttf) format("truetype");
 }
 
-.logo
-{
- position: fixed;
- top: 20px;
- left: 20px;
- z-index: 1;
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
 }
 
-header
-{
-  background-image: linear-gradient(to right top, #051937, #1d223e, #2e2d45, #3d384c, #4b4453);
+header {
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #1d223e,
+    #2e2d45,
+    #3d384c,
+    #4b4453
+  );
   position: fixed;
   /*background-color: #294D46;*/
   height: 80px;
@@ -33,16 +35,14 @@ header
   width: 2000px;
 }
 
-#imageUpload
-{
+#imageUpload {
   display: none;
 }
-  
-#profileImage
-{
+
+#profileImage {
   cursor: pointer;
 }
-  
+
 #profile-container {
   width: 150px;
   height: 150px;
@@ -53,8 +53,9 @@ header
   -o-border-radius: 50%;
   border-radius: 50%;
 }
-  
+
 #profile-container img {
   width: 150px;
   height: 150px;
 }
+
