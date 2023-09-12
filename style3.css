@@ -149,4 +149,5 @@ a {
 .sidebar-text {
   color: white;
   margin: 7px;
+  display: none;
 }
