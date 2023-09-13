@@ -25,7 +25,37 @@
           placeholder="Search songs, artist, albums" />
       </section>
       <nav class="right-items" id="profile-pic">
-        <img src="./images/user.png" class="profile" />
+        <img
+          src="./images/user.png"
+          class="profile"
+          onclick="profileToggle()" />
+        <nav id="settings-container">
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/profile.png"
+              class="profile-icon"
+              alt="profile pic" />
+            <h4>Profile</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/setting.png"
+              class="profile-icon"
+              alt="settings icon" />
+            <h4>Settings</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img src="./ICONS/help.png" class="profile-icon" alt="help icon" />
+            <h4>Help</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/logout.png"
+              class="profile-icon"
+              alt="logout icon" />
+            <h4>Log out</h4></a
+          >
+        </nav>
       </nav>
     </header>
     <main>

@@ -27,7 +27,7 @@ body {
   /* justify-content: space-between; */
   align-items: center;
   height: 70px;
-  /* width: 100%; */
+  width: 100%;
   background-image: linear-gradient(
     to right top,
     #051937,
@@ -45,11 +45,47 @@ body {
 .profile {
   height: 60px;
   width: 60px;
-  margin: 25px;
+  margin-right: 80px;
 }
 
 .profile:hover {
   cursor: pointer;
+}
+
+#profile-pic {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.profile-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.profile-link:hover {
+  transform: scale(1.07);
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+}
+#settings-container {
+  /* display: inline-flex; */
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  gap: 20px;
+  background-color: azure;
+  padding: 10px;
+  margin-right: 20px;
+  border-radius: 3px;
+  display: none;
 }
 
 .left-items {
@@ -58,6 +94,7 @@ body {
 
 .right-items {
   margin-left: auto;
+  align-self: normal;
 }
 
 .sidebar-container {
@@ -86,6 +123,7 @@ body {
 a {
   margin: 0px;
   padding: 0px;
+  text-decoration: none;
 }
 
 #search-bar {
@@ -93,14 +131,13 @@ a {
   background-repeat: no-repeat;
   background-position: 5px center;
   background-color: rgb(122, 117, 117);
-  padding: 15px 15px 12px 35px;
+  padding: 15px 7px 12px 35px;
   font-size: 16px;
   font-weight: bold;
   background-size: 25px 25px;
   border: 2px medium gray;
   color: white;
   margin: 5px;
-  flex-shrink: 2;
 }
 
 #search-bar::placeholder {
@@ -109,12 +146,12 @@ a {
 
 #search-bar::-webkit-search-cancel-button {
   appearance: none; /* Remove the default appearance */
-  background-image: url(./ICONS/close\ icon.png); /* Replace with your custom icon */
-  background-size: 35px 35px; /* Set the size of your custom icon */
+  background-image: url(./ICONS/close-icon.png); /* Replace with your custom icon */
+  background-size: 30px 30px; /* Set the size of your custom icon */
   background-repeat: no-repeat;
   background-position: center;
-  width: 15px; /* Adjust width and height as needed */
-  height: 15px;
+  width: 30px; /* Adjust width and height as needed */
+  height: 30px;
   border: none; /* Remove any border or outline */
   cursor: pointer;
 }

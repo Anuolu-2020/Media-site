@@ -8,3 +8,12 @@ function sidebarCollapse() {
     }
   });
 }
+
+function profileToggle() {
+  let profilebar = document.getElementById("settings-container");
+  if (profilebar.style.display === "none") {
+    profilebar.style.display = "inline-flex";
+  } else {
+    profilebar.style.display = "none";
+  }
+}
