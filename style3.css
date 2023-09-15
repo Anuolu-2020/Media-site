@@ -1,4 +1,4 @@
-* {
+body {
   margin: 0;
   padding: 0;
 }
@@ -13,7 +13,6 @@ body {
 }
 
 .logo {
-  /* position: fixed; */
   margin: 5px;
   z-index: 1;
   width: 170px;
@@ -188,3 +187,30 @@ a {
   margin: 7px;
   display: none;
 }
+
+#music-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.music-card {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card {
+  border: 2px solid white;
+  width: 200px;
+  height: 200px;
+  background-image: url(./songs-cover/work\ of\ art.jpeg);
+  /* justify-self: center; */
+}
+
+/* #top-songs {
+  display: block;
+  margin: 4px;
+} */
