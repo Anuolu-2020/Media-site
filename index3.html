@@ -2,72 +2,92 @@
 <!-- saved from url=(0016)chrome://newtab/ -->
 <html>
   <head>
-    <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANUSIC</title>
-    <link href="./style3.css" rel="stylesheet">
-    
+    <link href="./style3.css" rel="stylesheet" />
+    <script src="./script2.js" defer></script>
   </head>
   <body>
-    <header>
-      <a href="#"><img src="./musiclogo.png" class="logo" width="170px"></a>
-    </header>
-    <nav class="navhead">
-      <a href="#" class="nav">Home</a>
-      <a href="#" class="nav">Library</a>
-      <a href="#" class="nav">Search</a>
-    </nav>
-    <div class="icon">
-      <nav class="user">
-        <img src="images/user.png" class="user-pic" onclick="toggleMenu()">
-
-        <div class="sub-menu-wrap" id="subMenu">
-          <div class="sub-menu">
-            <div class="user-info">
-              <img src="images/user.png">
-              <h3>Anonymous</h3>
-            </div>
-            <hr>
-
-            <a href="#" class="sub-menu-link">
-              <img src="images/profile.png">
-              <p>Edit Profile</p>
-              <span>></span>
-            </a>
-            <a href="#" class="sub-menu-link">
-              <img src="images/setting.png">
-              <p>Settings & Privacy</p>
-              <span>></span>
-            </a>
-            <a href="#" class="sub-menu-link">
-              <img src="images/help.png">
-              <p>Help & Support</p>
-              <span>></span>
-            </a>
-            <a href="./index.html" class="sub-menu-link">
-              <img src="images/logout.png">
-              <p>Logout</p>
-              <span>></span>
-            </a>
-          </div>
-        </div>
+    <header id="main-header">
+      <button
+        class="left-items"
+        id="main-menu"
+        onclick="sidebarCollapse()"></button>
+      <a class="left-items" href="#" id="logo-link"
+        ><img src="./musiclogo.png" class="logo"
+      /></a>
+      <section class="left-items">
+        <input
+          type="search"
+          id="search-bar"
+          style="height: 40px; width: 400px; border-radius: 2px"
+          placeholder="Search songs, artist, albums" />
+      </section>
+      <nav class="right-items" id="profile-pic">
+        <img
+          src="./images/user.png"
+          class="profile"
+          onclick="profileToggle()" />
+        <nav id="settings-container">
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/profile.png"
+              class="profile-icon"
+              alt="profile pic" />
+            <h4>Profile</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/setting.png"
+              class="profile-icon"
+              alt="settings icon" />
+            <h4>Settings</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img src="./ICONS/help.png" class="profile-icon" alt="help icon" />
+            <h4>Help</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/logout.png"
+              class="profile-icon"
+              alt="logout icon" />
+            <h4>Log out</h4></a
+          >
+        </nav>
       </nav>
-    </div>
- 
-
-    <script>
-      let subMenu = document.getElementById("subMenu");
-      
-      function toggleMenu()
-      {
-        subMenu.classList.toggle("open-menu");
-      }
-    </script>
-
-    <!--<div class="artist"><img src="./Artist.jpg"></div>-->
-    <div class="container">
-      <div class="Box"></div>
-      <div class="Box"></div>
-    </div>
+    </header>
+    <main>
+      <section class="sidebar-container">
+        <a class="sidebar-link"
+          ><img src="./ICONS/home icon.png" class="sidebar" />
+          <b class="sidebar-text">HOME</b></a
+        >
+        <a class="sidebar-link"
+          ><img src="./ICONS/library music icon.png" class="sidebar" /><b
+            class="sidebar-text"
+            >LIBRARY</b
+          ></a
+        >
+        <a class="sidebar-link"
+          ><img src="./ICONS/bookmark icon.png" class="sidebar" /><b
+            class="sidebar-text"
+            >BOOKMARKS</b
+          ></a
+        >
+        <!-- <p id="text" style="color: aliceblue">MY NAME</p> -->
+      </section>
+      <section class="music-card">
+        <img class="card1" />
+        <img class="card2" />
+        <img class="card3" />
+        <img class="card4" />
+        <img class="card5" />
+        <img class="card6" />
+        <img class="card7" />
+        <img class="card8" />
+      </section>
+    </main>
   </body>
 </html>
