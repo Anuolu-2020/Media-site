@@ -18,7 +18,7 @@ function sidebarCollapse() {
   let sidebarTexts = document.querySelectorAll(".sidebar-text");
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
-      sidebarText.style.display = "block";
+      sidebarText.style.display = "inline-flex";
     } else {
       sidebarText.style.display = "none";
     }
