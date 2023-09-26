@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANUSIC</title>
     <link href="./style3.css" rel="stylesheet" />
-    <script src="./script2.js" defer></script>
+    <script src="./links.js" type="module"></script>
+    <script src="./script2.js" type="module"></script>
   </head>
   <body>
     <header id="main-header">
-      <button
-        class="left-items"
-        id="main-menu"
-        onclick="sidebarCollapse()"></button>
+      <button class="left-items" id="main-menu"></button>
       <a class="left-items" href="#" id="logo-link"
         ><img src="./musiclogo.png" class="logo"
       /></a>
@@ -25,11 +23,13 @@
           placeholder="Search songs, artist, albums" />
       </section>
       <nav class="right-items" id="profile-pic">
-        <img
-          src="./images/user.png"
-          class="profile"
-          onclick="profileToggle()" />
+        <img id="profile-img" class="profile" />
+        />
         <nav id="settings-container">
+          <a href="#"
+            ><img id="settings-profile" />
+            <h4>Anonymous</h4></a
+          >
           <a href="#" class="profile-link"
             ><img
               src="./ICONS/profile.png"
@@ -58,27 +58,28 @@
         </nav>
       </nav>
     </header>
+    <section class="sidebar-container">
+      <a class="sidebar-link"
+        ><img src="./ICONS/home icon.png" class="sidebar" />
+        <b class="sidebar-text">HOME</b></a
+      >
+      <a class="sidebar-link"
+        ><img src="./ICONS/library music icon.png" class="sidebar" /><b
+          class="sidebar-text"
+          >LIBRARY</b
+        ></a
+      >
+      <a class="sidebar-link"
+        ><img src="./ICONS/bookmark icon.png" class="sidebar" /><b
+          class="sidebar-text"
+          >BOOKMARKS</b
+        ></a
+      >
+    </section>
     <main id="music-page">
-      <section class="sidebar-container">
-        <a class="sidebar-link"
-          ><img src="./ICONS/home icon.png" class="sidebar" />
-          <b class="sidebar-text">HOME</b></a
-        >
-        <a class="sidebar-link"
-          ><img src="./ICONS/library music icon.png" class="sidebar" /><b
-            class="sidebar-text"
-            >LIBRARY</b
-          ></a
-        >
-        <a class="sidebar-link"
-          ><img src="./ICONS/bookmark icon.png" class="sidebar" /><b
-            class="sidebar-text"
-            >BOOKMARKS</b
-          ></a
-        >
-      </section>
       <h4 id="top-songs">Today's Top Songs</h4>
       <section class="music-card">
+        <section class="card"></section>
         <section class="card"></section>
         <section class="card"></section>
         <section class="card"></section>

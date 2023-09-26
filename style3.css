@@ -45,6 +45,13 @@ body {
   height: 60px;
   width: 60px;
   margin-right: 80px;
+  border-radius: 50%;
+}
+
+#settings-profile {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
 }
 
 .profile:hover {
@@ -63,7 +70,7 @@ body {
   flex-direction: row;
   align-items: center;
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in;
 }
 
 .profile-link:hover {
@@ -74,6 +81,7 @@ body {
   width: 40px;
   height: 40px;
 }
+
 #settings-container {
   /* display: inline-flex; */
   flex-direction: column;
@@ -85,6 +93,7 @@ body {
   margin-right: 20px;
   border-radius: 3px;
   display: none;
+  z-index: 2;
 }
 
 .left-items {
@@ -97,9 +106,10 @@ body {
 }
 
 .sidebar-container {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 15px;
+  flex: 1;
   position: fixed;
   width: fit-content;
   height: 100%;
@@ -177,7 +187,7 @@ a {
 }
 
 .sidebar-link {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   /* justify-items: center; */
@@ -190,11 +200,15 @@ a {
 
 #music-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex: 1;
+  width: fit-content;
+  height: 100%;
+  margin-left: 80px;
 }
 
 .music-card {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
@@ -203,14 +217,13 @@ a {
 }
 
 .card {
-  border: 2px solid white;
-  width: 200px;
-  height: 200px;
-  background-image: url(./songs-cover/work\ of\ art.jpeg);
+  border-radius: 4px;
+  width: 160px;
+  height: 160px;
+  /* background-image: url(https://archive.org/download/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc-35986079889_thumb250.jpg); */
   /* justify-self: center; */
 }
 
-/* #top-songs {
-  display: block;
-  margin: 4px;
-} */
+#top-songs {
+  margin: 8px;
+}
