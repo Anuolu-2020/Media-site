@@ -1,5 +1,3 @@
-import { reason } from "./songlinks";
-
 function myFunction() {
   var x = document.getElementById("myInput");
   if (x.type === "password") {

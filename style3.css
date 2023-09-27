@@ -207,35 +207,69 @@ a {
 }
 .sidebar-text {
   color: white;
-  margin: 7px;
-  display: inline-flex;
+  margin: 5px;
+  font-size: 16px;
+  display: none;
 }
 
 #music-page {
   display: flex;
   flex-direction: column;
   flex-shrink: 2;
-  align-items: center;
-  margin-left: 80px;
-  margin-right: 10px;
+  /* align-items: center; */
+  margin-left: 90px;
+  margin-right: 20px;
   margin-top: 80px;
 }
 
 .music-card {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex: 1;
   gap: 20px;
   align-items: center;
+  justify-items: center;
   margin-top: 10px;
+  box-sizing: border-box;
 }
 
 .card {
   border-radius: 4px;
-  width: 160px;
+  flex-basis: 155px;
   height: 160px;
   /* background-image: url(https://archive.org/download/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc-35986079889_thumb250.jpg); */
   /* justify-self: center; */
+}
+
+/* Adjust the flex item size for larger screens */
+@media (min-width: 1000px) {
+  .card {
+    flex: 2;
+    /* As the screen width increases, each flex item will take up more space */
+  }
+}
+
+@media (max-width: 967px) {
+  .music-card {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 723px) {
+  #search-bar {
+    width: auto;
+  }
+  #main-menu {
+    margin: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  #search-bar {
+    display: none;
+  }
 }
 
 #top-songs {

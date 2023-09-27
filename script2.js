@@ -16,11 +16,17 @@ songCards.forEach((card) => {
 
 function sidebarCollapse() {
   let sidebarTexts = document.querySelectorAll(".sidebar-text");
+  let marginIncrease = document.getElementById("music-page");
+  // const currentMargin = window.getComputedStyle(marginIncrease).marginLeft;
+  // const newMargin = parseInt(currentMargin) + 20 + "px";
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
       sidebarText.style.display = "inline-flex";
+      // currentMargin.style.marginLeft = newMargin;
+      marginIncrease.style.marginLeft = "180px";
     } else {
       sidebarText.style.display = "none";
+      marginIncrease.style.marginLeft = "90px";
     }
   });
 }
