@@ -1,6 +1,6 @@
-import { songLinks, name, otherLinks } from "./links.js";
+import { songLinks, albumLinks, otherLinks } from "./links.js";
 
-console.log(songLinks.reason, name);
+console.log(songLinks.reason, albumLinks.trenchToTriumph);
 
 let profile_pic = document.getElementById("profile-img");
 profile_pic.src = otherLinks.profile_pic;
@@ -8,7 +8,8 @@ profile_pic.src = otherLinks.profile_pic;
 let settingsImg = document.getElementById("settings-profile");
 settingsImg.src = otherLinks.profile_pic;
 
-let songCards = document.querySelectorAll(".card");
+let songCards = document.querySelectorAll(".songCover");
+let albumsCards = document.querySelectorAll(".albumCover");
 
 let topSongs = [
   songLinks.workOfArt,
@@ -18,15 +19,26 @@ let topSongs = [
   songLinks.reason,
 ];
 
+let albums = [
+  albumLinks.trenchToTriumph,
+  albumLinks.thyKingdomCome,
+  albumLinks.timeless,
+  albumLinks.boyAlone,
+  albumLinks.raveRoses,
+];
+
 songCards.forEach((card, idx) => {
-  card.style.backgroundImage = `url(${topSongs[idx]})`;
+  card.src = `${topSongs[idx]}`;
+});
+
+albumsCards.forEach((albumCard, idx) => {
+  albumCard.src = `${albums[idx]}`;
 });
 
 function sidebarCollapse() {
   let sidebarTexts = document.querySelectorAll(".sidebar-text");
   let marginIncrease = document.getElementById("music-page");
-  // const currentMargin = window.getComputedStyle(marginIncrease).marginLeft;
-  // const newMargin = parseInt(currentMargin) + 20 + "px";
+
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
       sidebarText.style.display = "inline-flex";

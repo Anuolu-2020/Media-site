@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@700&family=Roboto:wght@100&display=swap");
+
 body {
   display: flex;
   flex-direction: column;
@@ -266,6 +268,12 @@ a {
 .card {
   display: flex;
   flex-direction: column;
+  gap: 1px;
+}
+
+.songCover, .albumCover {
+  display: flex;
+  flex-direction: column;
   gap: 0;
   border-radius: 4px;
   flex-basis: 155px;
@@ -274,9 +282,24 @@ a {
 }
 
 .topSongsName,
-.topSongsArtist {
-  position: relative;
-  top: 10px;
+.albumName {
+  font-family: "Gabarito", cursive;
+  color: wheat;
+  font-size: 25px;
+}
+
+.topSongsArtist,
+.albumArtist {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 15px;
+}
+
+.topSongsName,
+.topSongsArtist,
+.albumArtist,
+.albumName {
+  margin: 0;
 }
 
 /* Adjust the flex item size for larger screens */
@@ -324,4 +347,12 @@ a {
 }
 #top-songs {
   margin: 8px;
+  font-size: 20px;
+  font-family: "Gabarito", cursive;
+}
+
+#albumsTitle {
+  margin-top: 25px;
+  font-size: 20px;
+  font-family: "Gabarito", cursive;
 }

@@ -9,8 +9,34 @@ export const songLinks = {
   holiday: "./songs-cover/holiday.jpeg",
   Ngozi: "./songs-cover/Ngozi.jpeg",
   modupe: "./songs-cover/modupe.jpeg",
-  manOfTheYear: "./songs-cover/manOfTheYear",
+  manOfTheYear: "./songs-cover/manOfTheYear.jpeg",
   chemical: "./songs-cover/chemical.jpeg",
+};
+
+export const topSongTitle = {
+  num1: "Basquiat",
+  num2: "Ngozi",
+  num3: "Modupe",
+  num4: "Charm",
+  num5: "Reason",
+};
+
+export const songArtists = {
+  art1: "Rema",
+  art2: "Asake",
+  art3: "Crayon",
+  art4: "Crayon & Ayra Starr",
+  art5: "Seyi Vibez",
+  art6: "Davido",
+  art7: "Omah Lay",
+  art8: "Post Malone",
+};
+export const albumLinks = {
+  trenchToTriumph: "./songs-cover/Ngozi.jpeg",
+  thyKingdomCome: "./songs-cover/manOfTheYear.jpeg",
+  timeless: "./songs-cover/timeless.jpeg",
+  boyAlone: "./songs-cover/reason.jpeg",
+  raveRoses: "./songs-cover/charm.jpeg",
 };
 
 export const otherLinks = {
