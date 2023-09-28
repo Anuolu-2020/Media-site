@@ -243,7 +243,7 @@ a {
   color: white;
   margin: 5px;
   font-size: 16px;
-  display: none;
+  display: flex;
 }
 
 #music-page {
@@ -251,7 +251,7 @@ a {
   flex-direction: column;
   flex-shrink: 2;
   /* align-items: center; */
-  margin-left: 90px;
+  margin-left: 180px;
   margin-right: 10px;
   margin-top: 80px;
   margin-bottom: 10px;
@@ -290,7 +290,6 @@ a {
 .albumName {
   font-family: "Gabarito", cursive;
   color: wheat;
-  /* font-size: 1.8em; */
   font-size: 25px;
 }
 

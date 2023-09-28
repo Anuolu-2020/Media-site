@@ -100,7 +100,7 @@ function sidebarCollapse() {
 
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
-      sidebarText.style.display = "inline-flex";
+      sidebarText.style.display = "flex";
       // currentMargin.style.marginLeft = newMargin;
       marginIncrease.style.marginLeft = "180px";
     } else {
