@@ -308,14 +308,14 @@ a {
 }
 
 /* Adjust the flex item size for larger screens */
-@media (min-width: 1000px) {
+@media (min-width: 1080px) {
   .card {
     flex: 2;
     /* As the screen width increases, each flex item will take up more space */
   }
 }
 
-@media (max-width: 967px) {
+@media (max-width: 1080px) {
   .music-card {
     flex-wrap: wrap;
     align-items: center;
@@ -349,7 +349,27 @@ a {
   #mobile-search-input {
     left: 60px;
   }
+
+  .sidebar-text {
+    color: white;
+    margin: 5px;
+    font-size: 16px;
+    display: none;
+  }
+
+  #music-page {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 2;
+    /* align-items: center; */
+    margin-left: 90px;
+    margin-right: 10px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    height: 100%;
+  }
 }
+
 #top-songs {
   margin: 8px;
   font-size: 20px;
