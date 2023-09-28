@@ -1,4 +1,10 @@
-import { songLinks, albumLinks, otherLinks } from "./links.js";
+import {
+  songLinks,
+  albumLinks,
+  otherLinks,
+  topSongTitle,
+  songArtists,
+} from "./links.js";
 
 console.log(songLinks.reason, albumLinks.trenchToTriumph);
 
@@ -10,6 +16,8 @@ settingsImg.src = otherLinks.profile_pic;
 
 let songCards = document.querySelectorAll(".songCover");
 let albumsCards = document.querySelectorAll(".albumCover");
+let topSongNames = document.querySelectorAll(".topSongsName");
+let topSongsArtist = document.querySelectorAll(".topSongsArtist");
 
 let topSongs = [
   songLinks.workOfArt,
@@ -17,6 +25,22 @@ let topSongs = [
   songLinks.modupe,
   songLinks.charm,
   songLinks.reason,
+];
+
+let topSongTitles = [
+  topSongTitle.num1,
+  topSongTitle.num2,
+  topSongTitle.num3,
+  topSongTitle.num4,
+  topSongTitle.num5,
+];
+
+let topSongArtist = [
+  songArtists.art2,
+  songArtists.art4,
+  songArtists.art3,
+  songArtists.art1,
+  songArtists.art7,
 ];
 
 let albums = [
@@ -29,6 +53,14 @@ let albums = [
 
 songCards.forEach((card, idx) => {
   card.src = `${topSongs[idx]}`;
+});
+
+topSongNames.forEach((name, idx) => {
+  name.innerHTML = topSongTitles[idx];
+});
+
+topSongsArtist.forEach((artist, idx) => {
+  artist.innerHTML = topSongArtist[idx];
 });
 
 albumsCards.forEach((albumCard, idx) => {
