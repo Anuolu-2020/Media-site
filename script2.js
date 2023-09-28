@@ -10,8 +10,16 @@ settingsImg.src = otherLinks.profile_pic;
 
 let songCards = document.querySelectorAll(".card");
 
-songCards.forEach((card) => {
-  card.style.backgroundImage = `url(${songLinks.workOfArt})`;
+let topSongs = [
+  songLinks.workOfArt,
+  songLinks.Ngozi,
+  songLinks.modupe,
+  songLinks.charm,
+  songLinks.reason,
+];
+
+songCards.forEach((card, idx) => {
+  card.style.backgroundImage = `url(${topSongs[idx]})`;
 });
 
 function sidebarCollapse() {
@@ -40,5 +48,16 @@ function profileToggle() {
   }
 }
 
+function mobileSearchBar() {
+  let searchInput = document.getElementById("mobile-search-input");
+  if (searchInput.style.display === "none") {
+    searchInput.style.display = "flex";
+  } else {
+    searchInput.style.display = "none";
+  }
+}
 document.getElementById("profile-img").addEventListener("click", profileToggle);
 document.getElementById("main-menu").addEventListener("click", sidebarCollapse);
+document
+  .getElementById("mobile-searchbar")
+  .addEventListener("click", mobileSearchBar);

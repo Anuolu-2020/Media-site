@@ -178,14 +178,45 @@ a {
   cursor: pointer;
 }
 
+#mobile-search-container {
+  display: none;
+}
+
+#mobile-searchbar {
+  display: none;
+  margin: 6px;
+  width: 30px;
+  height: 30px;
+}
+
+#mobile-search-input {
+  display: none;
+  margin-top: 60px;
+  position: absolute;
+  border: 2px medium gray;
+  color: white;
+  background-color: rgb(122, 117, 117);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#mobile-search-input::-webkit-search-cancel-button {
+  appearance: none; /* Remove the default appearance */
+  background-image: url(./ICONS/close-icon.png); /* Replace with your custom icon */
+  background-size: 30px 30px; /* Set the size of your custom icon */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px; /* Adjust width and height as needed */
+  height: 30px;
+  border: none; /* Remove any border or outline */
+  cursor: pointer;
+}
 #main-menu {
   background-image: url(./ICONS/menu.png);
   background-repeat: no-repeat;
   border: none;
   background-position: 1px center;
   background-size: 35px 50px;
-  /* background: none; */
-  /* padding: 1px; */
   margin: 20px;
   cursor: pointer;
   width: 35px;
@@ -203,7 +234,6 @@ a {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  /* justify-items: center; */
 }
 .sidebar-text {
   color: white;
@@ -234,11 +264,19 @@ a {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   border-radius: 4px;
   flex-basis: 155px;
   height: 160px;
-  /* background-image: url(https://archive.org/download/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc/mbid-1da8bbef-1950-4172-a565-7c84ebe8c0dc-35986079889_thumb250.jpg); */
-  /* justify-self: center; */
+  background-repeat: no-repeat;
+}
+
+.topSongsName,
+.topSongsArtist {
+  position: relative;
+  top: 10px;
 }
 
 /* Adjust the flex item size for larger screens */
@@ -258,9 +296,6 @@ a {
 }
 
 @media (max-width: 723px) {
-  #search-bar {
-    width: auto;
-  }
   #main-menu {
     margin: 0;
   }
@@ -270,8 +305,23 @@ a {
   #search-bar {
     display: none;
   }
+
+  #mobile-searchbar {
+    display: block;
+    cursor: pointer;
+  }
+
+  #mobile-search-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+@media (max-width: 583px) {
+  #mobile-search-input {
+    left: 60px;
+  }
+}
 #top-songs {
   margin: 8px;
 }

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANUSIC</title>
+    <link href="./musiclogo.png" rel="icon" type="image/x-icon" />
     <link href="./style3.css" rel="stylesheet" />
     <script src="./links.js" type="module"></script>
     <script src="./script2.js" type="module"></script>
@@ -16,6 +17,18 @@
         ><img src="./musiclogo.png" class="logo"
       /></a>
       <section class="left-items">
+        <div id="mobile-search-container">
+          <img
+            id="mobile-searchbar"
+            src="./ICONS/search icon.png
+        " />
+          <input
+            type="search"
+            id="mobile-search-input"
+            style="height: 40px; width: 350px; border-radius: 2px; flex: 1"
+            placeholder="Search songs, artist, albums" />
+        </div>
+
         <input
           type="search"
           id="search-bar"
@@ -77,13 +90,28 @@
       >
     </section>
     <main id="music-page">
-      <h4 id="top-songs">Today's Top Songs</h4>
+      <h4 id="top-songs" style="color: whitesmoke">Today's Top Songs</h4>
       <section class="music-card">
-        <section class="card"></section>
-        <section class="card"></section>
-        <section class="card"></section>
-        <section class="card"></section>
-        <section class="card"></section>
+        <section class="card">
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
       </section>
     </main>
   </body>
