@@ -31,12 +31,29 @@ export const songArtists = {
   art7: "Omah Lay",
   art8: "Post Malone",
 };
+
 export const albumLinks = {
   trenchToTriumph: "./songs-cover/Ngozi.jpeg",
   thyKingdomCome: "./songs-cover/manOfTheYear.jpeg",
   timeless: "./songs-cover/timeless.jpeg",
   boyAlone: "./songs-cover/reason.jpeg",
   raveRoses: "./songs-cover/charm.jpeg",
+};
+
+export const albumArtists = {
+  num1: songArtists.art3,
+  num2: songArtists.art5,
+  num3: songArtists.art6,
+  num4: songArtists.art7,
+  num5: songArtists.art1,
+};
+
+export const albumName = {
+  num1: "Trench To Triumph",
+  num2: "Thy Kingdom Come",
+  num3: "Timeless",
+  num4: "Boy Alone",
+  num5: "Rave & Roses (Ultra)",
 };
 
 export const otherLinks = {

@@ -6,6 +6,8 @@ body {
   background-color: #4a4057;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 @font-face {
@@ -250,8 +252,10 @@ a {
   flex-shrink: 2;
   /* align-items: center; */
   margin-left: 90px;
-  margin-right: 20px;
+  margin-right: 10px;
   margin-top: 80px;
+  margin-bottom: 10px;
+  height: 100%;
 }
 
 .music-card {
@@ -259,10 +263,10 @@ a {
   flex-direction: row;
   flex: 1;
   gap: 20px;
-  align-items: center;
+  /* align-items: center; */
   justify-items: center;
   margin-top: 10px;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .card {
@@ -271,7 +275,8 @@ a {
   gap: 1px;
 }
 
-.songCover, .albumCover {
+.songCover,
+.albumCover {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -285,6 +290,7 @@ a {
 .albumName {
   font-family: "Gabarito", cursive;
   color: wheat;
+  /* font-size: 1.8em; */
   font-size: 25px;
 }
 
@@ -353,6 +359,7 @@ a {
 
 #albumsTitle {
   margin-top: 25px;
+  margin-bottom: 5px;
   font-size: 20px;
   font-family: "Gabarito", cursive;
 }

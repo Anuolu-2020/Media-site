@@ -4,6 +4,8 @@ import {
   otherLinks,
   topSongTitle,
   songArtists,
+  albumArtists,
+  albumName,
 } from "./links.js";
 
 console.log(songLinks.reason, albumLinks.trenchToTriumph);
@@ -18,6 +20,8 @@ let songCards = document.querySelectorAll(".songCover");
 let albumsCards = document.querySelectorAll(".albumCover");
 let topSongNames = document.querySelectorAll(".topSongsName");
 let topSongsArtist = document.querySelectorAll(".topSongsArtist");
+let albumsNameTxt = document.querySelectorAll(".albumName");
+let albumArtistTxt = document.querySelectorAll(".albumArtist");
 
 let topSongs = [
   songLinks.workOfArt,
@@ -51,6 +55,21 @@ let albums = [
   albumLinks.raveRoses,
 ];
 
+let albumNames = [
+  albumName.num1,
+  albumName.num2,
+  albumName.num3,
+  albumName.num4,
+  albumName.num5,
+];
+
+let albumsArtist = [
+  albumArtists.num1,
+  albumArtists.num2,
+  albumArtists.num3,
+  albumArtists.num4,
+  albumArtists.num5,
+];
 songCards.forEach((card, idx) => {
   card.src = `${topSongs[idx]}`;
 });
@@ -65,6 +84,14 @@ topSongsArtist.forEach((artist, idx) => {
 
 albumsCards.forEach((albumCard, idx) => {
   albumCard.src = `${albums[idx]}`;
+});
+
+albumsNameTxt.forEach((albumname, idx) => {
+  albumname.innerHTML = albumNames[idx];
+});
+
+albumArtistTxt.forEach((albumArt, idx) => {
+  albumArt.innerHTML = albumsArtist[idx];
 });
 
 function sidebarCollapse() {
