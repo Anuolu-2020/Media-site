@@ -16,8 +16,10 @@
   font-size: 17px;
   align-self: center;
 }
-.overlay{
 
+.overlay {
+  margin: 0;
+  display: flex;
 }
 
 .favorite-button {

@@ -262,17 +262,18 @@ a {
 .music-card {
   display: flex;
   flex-direction: row;
-  flex: 1;
+  align-items: flex-start;
+  /* flex: 1; */
   gap: 20px;
-  /* align-items: center; */
   justify-items: center;
   margin-top: 10px;
-  /* box-sizing: border-box; */
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   gap: 1px;
+  align-self: flex-start;
   /* width: 30%; */
 }
 
@@ -309,7 +310,7 @@ a {
 }
 
 /* Adjust the flex item size for larger screens */
-@media (min-width: 1080px) {
+@media (min-width: 900px) {
   .card {
     flex: 2;
     /* As the screen width increases, each flex item will take up more space */
