@@ -279,13 +279,20 @@ a {
 
 .songCover,
 .albumCover {
-  display: block;
+  display: flex;
   /* flex-direction: column; */
+  height: 100vh;
   gap: 0;
   border-radius: 4px;
   flex-basis: 155px;
   height: 160px;
   background-repeat: no-repeat;
+}
+
+.songCover:hover,
+.albumCover:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .topSongsName,
@@ -310,7 +317,7 @@ a {
 }
 
 /* Adjust the flex item size for larger screens */
-@media (min-width: 900px) {
+@media (min-width: 1120px) {
   .card {
     flex: 2;
     /* As the screen width increases, each flex item will take up more space */

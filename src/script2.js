@@ -204,3 +204,48 @@ favoriteIcon.forEach((favorite) => {
 libraryIcon.forEach((library) => {
   library.src = "./ICONS/library.png";
 });
+
+songCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    let playIcon = card.querySelector(".play-button");
+    let favoriteIcon = card.querySelector(".favorite-button");
+    let libraryIcon = card.querySelector(".add-button");
+
+    playIcon.style.opacity = "0.7";
+    favoriteIcon.style.opacity = "0.7";
+    libraryIcon.style.opacity = "0.7";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    let playIcon = card.querySelector(".play-button");
+    let favoriteIcon = card.querySelector(".favorite-button");
+    let libraryIcon = card.querySelector(".add-button");
+
+    playIcon.style.opacity = "0";
+    favoriteIcon.style.opacity = "0";
+    libraryIcon.style.opacity = "0";
+  });
+});
+
+albumsCards.forEach((albmCard) => {
+  console.log(albmCard);
+  albmCard.addEventListener("mouseenter", () => {
+    let playIcon = albmCard.querySelector(".play-button");
+    let favoriteIcon = albmCard.querySelector(".favorite-button");
+    let libraryIcon = albmCard.querySelector(".add-button");
+    
+    playIcon.style.opacity = "0.7";
+    favoriteIcon.style.opacity = "0.7";
+    libraryIcon.style.opacity = "0.7";
+  });
+
+  albmCard.addEventListener("mouseleave", () => {
+    let playIcon = albmCard.querySelector(".play-button");
+    let favoriteIcon = albmCard.querySelector(".favorite-button");
+    let libraryIcon = albmCard.querySelector(".add-button");
+
+    playIcon.style.opacity = "0";
+    favoriteIcon.style.opacity = "0";
+    libraryIcon.style.opacity = "0";
+  });
+});

@@ -1,6 +1,8 @@
 :root {
   --icon-height--: 40px;
-  --icon-width--: 40px;
+  --icon-width--: 10px;
+  --play-height--: 45px;
+  --play-width--: 25px;
 }
 
 .artist {
@@ -8,6 +10,7 @@
   height: 100px;
   width: 100px;
   align-self: center;
+  justify-self: flex-end;
 }
 
 .artistName {
@@ -17,22 +20,30 @@
   align-self: center;
 }
 
-.overlay {
-  margin: 0;
-  display: flex;
-}
-
 .favorite-button {
+  position: relative;
   height: var(--icon-height--);
   width: var(--icon-width--);
+  opacity: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .add-button {
+  position: relative;
   height: var(--icon-height--);
   width: var(--icon-width--);
+  flex-shrink: 1;
+  opacity: 0;
+  flex-grow: 1;
 }
 
 .play-button {
-  height: var(--icon-height--);
-  width: var(--icon-width--);
+  position: relative;
+  height: var(--play-height--);
+  width: var(--play-width--);
+  align-self: flex-end;
+  opacity: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
