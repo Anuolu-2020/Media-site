@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANUSIC</title>
     <link href="./musiclogo.png" rel="icon" type="image/x-icon" />
-    <link href="./style3.css" rel="stylesheet" />
-    <script src="./links.js" type="module"></script>
-    <script src="./script2.js" type="module"></script>
+    <link href="./styles/mainPage.css" rel="stylesheet" />
+    <link href="./styles/artistStyle.css" rel="stylesheet" />
+    <script src="./src/links.js" type="module"></script>
+    <script src="./src/script2.js" type="module"></script>
   </head>
   <body>
     <header id="main-header">
@@ -77,15 +78,15 @@
         <b class="sidebar-text">HOME</b></a
       >
       <a class="sidebar-link"
-        ><img src="./ICONS/library music icon.png" class="sidebar" /><b
+        ><img src="./ICONS/library.png" class="sidebar" /><b
           class="sidebar-text"
           >LIBRARY</b
         ></a
       >
       <a class="sidebar-link"
-        ><img src="./ICONS/bookmark icon.png" class="sidebar" /><b
+        ><img src="./ICONS/favourite-icon.png" class="sidebar" /><b
           class="sidebar-text"
-          >BOOKMARKS</b
+          >FAVORITES</b
         ></a
       >
     </section>
@@ -93,27 +94,57 @@
       <h4 id="top-songs" style="color: whitesmoke">Today's Top Songs</h4>
       <section class="music-card">
         <section class="card">
-          <img class="songCover" />
+          <section class="songCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="topSongsName">Song Name</h3>
           <h3 class="topSongsArtist">Song Artist</h3>
         </section>
         <section class="card">
-          <img class="songCover" />
+          <section class="songCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="topSongsName">Song Name</h3>
           <h3 class="topSongsArtist">Song Artist</h3>
         </section>
         <section class="card">
-          <img class="songCover" />
+          <section class="songCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="topSongsName">Song Name</h3>
           <h3 class="topSongsArtist">Song Artist</h3>
         </section>
         <section class="card">
-          <img class="songCover" />
+          <section class="songCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="topSongsName">Song Name</h3>
           <h3 class="topSongsArtist">Song Artist</h3>
         </section>
         <section class="card">
-          <img class="songCover" />
+          <section class="songCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="topSongsName">Song Name</h3>
           <h3 class="topSongsArtist">Song Artist</h3>
         </section>
@@ -121,29 +152,90 @@
       <h4 id="albumsTitle" style="color: whitesmoke">Albums</h4>
       <section class="music-card">
         <section class="card">
-          <img class="albumCover" />
+          <section class="albumCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="albumName">Album Name</h3>
           <h3 class="albumArtist">Album Artist</h3>
         </section>
         <section class="card">
-          <img class="albumCover" />
+          <section class="albumCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="albumName">Album Name</h3>
           <h3 class="albumArtist">Album Artist</h3>
         </section>
         <section class="card">
-          <img class="albumCover" />
+          <section class="albumCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="albumName">Album Name</h3>
           <h3 class="albumArtist">Album Artist</h3>
         </section>
         <section class="card">
-          <img class="albumCover" />
+          <section class="albumCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="albumName">Album Name</h3>
           <h3 class="albumArtist">Album Artist</h3>
         </section>
         <section class="card">
-          <img class="albumCover" />
+          <section class="albumCover">
+            <div class="overlay">
+              <img class="play-button" />
+              <img class="add-button" />
+              <img class="favorite-button" />
+            </div>
+          </section>
           <h3 class="albumName">Album Name</h3>
           <h3 class="albumArtist">Album Artist</h3>
+        </section>
+      </section>
+      <h4 id="albumsTitle" style="color: whitesmoke">Artists</h4>
+      <section class="music-card">
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
         </section>
       </section>
     </main>

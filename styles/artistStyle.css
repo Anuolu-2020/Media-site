@@ -1,0 +1,36 @@
+:root {
+  --icon-height--: 40px;
+  --icon-width--: 40px;
+}
+
+.artist {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  align-self: center;
+}
+
+.artistName {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 17px;
+  align-self: center;
+}
+.overlay{
+
+}
+
+.favorite-button {
+  height: var(--icon-height--);
+  width: var(--icon-width--);
+}
+
+.add-button {
+  height: var(--icon-height--);
+  width: var(--icon-width--);
+}
+
+.play-button {
+  height: var(--icon-height--);
+  width: var(--icon-width--);
+}

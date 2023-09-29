@@ -1,3 +1,4 @@
+//links to images of topSongs
 export const songLinks = {
   reason:
     "https://archive.org/download/mbid-881add67-260c-43b4-ab87-40bc209e2d8d/mbid-881add67-260c-43b4-ab87-40bc209e2d8d-36110627835_thumb250.jpg",
@@ -13,6 +14,7 @@ export const songLinks = {
   chemical: "./songs-cover/chemical.jpeg",
 };
 
+//links to title of top songs
 export const topSongTitle = {
   num1: "Basquiat",
   num2: "Ngozi",
@@ -21,6 +23,7 @@ export const topSongTitle = {
   num5: "Reason",
 };
 
+//links to artists names
 export const songArtists = {
   art1: "Rema",
   art2: "Asake",
@@ -32,6 +35,7 @@ export const songArtists = {
   art8: "Post Malone",
 };
 
+//links to images of albums
 export const albumLinks = {
   trenchToTriumph: "./songs-cover/Ngozi.jpeg",
   thyKingdomCome: "./songs-cover/manOfTheYear.jpeg",
@@ -40,6 +44,7 @@ export const albumLinks = {
   raveRoses: "./songs-cover/charm.jpeg",
 };
 
+//links to name of album artist
 export const albumArtists = {
   num1: songArtists.art3,
   num2: songArtists.art5,
@@ -48,6 +53,7 @@ export const albumArtists = {
   num5: songArtists.art1,
 };
 
+//links to names of albums
 export const albumName = {
   num1: "Trench To Triumph",
   num2: "Thy Kingdom Come",
@@ -56,8 +62,21 @@ export const albumName = {
   num5: "Rave & Roses (Ultra)",
 };
 
+//links to artists images
+export const artistImage = {
+  rema: "./Artists/Rema.jpeg",
+  asake: "./Artists/Asake.jpeg",
+  crayon: "./Artists/Crayon.jpeg",
+  seyiVibez: "./Artists/SeyiVibez.jpeg",
+  davido: "./Artists/davido.jpeg",
+  omahLay: "./Artists/omahLay.jpeg",
+  postMalone: "./Artists/postMalone.jpeg",
+};
+
+//link to profile icon
 export const otherLinks = {
   profile_pic: "https://reqres.in/img/faces/7-image.jpg",
 };
 
+//for testing
 export let name = "Emmanuel";
