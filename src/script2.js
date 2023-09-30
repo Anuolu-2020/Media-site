@@ -233,7 +233,7 @@ albumsCards.forEach((albmCard) => {
     let playIcon = albmCard.querySelector(".play-button");
     let favoriteIcon = albmCard.querySelector(".favorite-button");
     let libraryIcon = albmCard.querySelector(".add-button");
-    
+
     playIcon.style.opacity = "0.7";
     favoriteIcon.style.opacity = "0.7";
     libraryIcon.style.opacity = "0.7";

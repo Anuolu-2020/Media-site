@@ -251,7 +251,6 @@ a {
   display: flex;
   flex-direction: column;
   flex-shrink: 2;
-  /* align-items: center; */
   margin-left: 180px;
   margin-right: 10px;
   margin-top: 80px;
@@ -262,11 +261,11 @@ a {
 .music-card {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  /* flex: 1; */
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
   justify-items: center;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -274,19 +273,28 @@ a {
   flex-direction: column;
   gap: 1px;
   align-self: flex-start;
+  align-content: flex-start;
+  width: max-content;
+  height: 250px;
   /* width: 30%; */
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-self: flex-start;
 }
 
 .songCover,
 .albumCover {
   display: flex;
-  /* flex-direction: column; */
-  height: 100vh;
   gap: 0;
   border-radius: 4px;
-  flex-basis: 155px;
-  height: 160px;
+  width: 200px;
+  height: 400px;
   background-repeat: no-repeat;
+  flex: 1;
 }
 
 .songCover:hover,
@@ -299,7 +307,7 @@ a {
 .albumName {
   font-family: "Gabarito", cursive;
   color: wheat;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .topSongsArtist,
@@ -317,18 +325,16 @@ a {
 }
 
 /* Adjust the flex item size for larger screens */
-@media (min-width: 1120px) {
-  .card {
-    flex: 2;
-    /* As the screen width increases, each flex item will take up more space */
-  }
-}
 
-@media (max-width: 1080px) {
+@media (min-width: 1080px) {
   .music-card {
-    flex-wrap: wrap;
+    flex: 2;
     align-items: center;
     justify-items: center;
+  }
+  .card,
+  .card2 {
+    flex: 2;
   }
 }
 
@@ -369,7 +375,7 @@ a {
   #music-page {
     display: flex;
     flex-direction: column;
-    flex-shrink: 2;
+    flex-shrink: 1;
     /* align-items: center; */
     margin-left: 90px;
     margin-right: 10px;
