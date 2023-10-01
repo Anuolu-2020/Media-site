@@ -324,22 +324,6 @@ a {
   margin: 0;
 }
 
-.artist:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.play-button,
-.favorite-button,
-.add-button {
-  transition: 0.2s ease-in;
-}
-
-.favorite-button:hover,
-.add-button:hover {
-  transform: scale(1.1);
-}
-
 @media (min-width: 1080px) {
   .music-card {
     flex: 2;

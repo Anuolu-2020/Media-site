@@ -1,0 +1,8 @@
+#audioPlayer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  background-color: #2d2438;
+  width: 100%;
+}

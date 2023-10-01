@@ -1,6 +1,6 @@
 :root {
-  --icon-height--: 40px;
-  --icon-width--: 10px;
+  --icon-height--: 50px;
+  --icon-width--: 5px;
   --play-height--: 45px;
   --play-width--: 25px;
 }
@@ -11,6 +11,11 @@
   width: 100px;
   align-self: center;
   justify-self: flex-end;
+}
+
+.artist:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .artistName {
@@ -46,4 +51,15 @@
   opacity: 0;
   flex-grow: 1;
   flex-shrink: 1;
+}
+
+.play-button,
+.favorite-button,
+.add-button {
+  transition: 0.2s ease-in;
+}
+
+.favorite-button:hover,
+.add-button:hover {
+  transform: scale(1.1);
 }
