@@ -192,9 +192,22 @@ document
 let playIcon = document.querySelectorAll(".play-button");
 let favoriteIcon = document.querySelectorAll(".favorite-button");
 let libraryIcon = document.querySelectorAll(".add-button");
+let isHovered = false;
 
 playIcon.forEach((play) => {
   play.src = "./ICONS/play-icon.png";
+
+  play.addEventListener("mouseover", () => {
+    isHovered = true;
+    if (isHovered) {
+      play.src = "./ICONS/play-checked.png";
+    }
+  });
+
+  play.addEventListener("mouseout", () => {
+    play.src = "./ICONS/play-icon.png";
+    isHovered = false;
+  });
 });
 
 favoriteIcon.forEach((favorite) => {
