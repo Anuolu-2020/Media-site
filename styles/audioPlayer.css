@@ -114,6 +114,10 @@ input[type="range"] {
   transform: scale(1.2);
 }
 
+#songImg {
+  margin: 0px;
+}
+
 @media (max-width: 767px) {
   #audioPlayer {
     display: flex;
