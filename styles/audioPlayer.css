@@ -90,6 +90,7 @@ input[type="range"] {
 }
 
 #volumeBtn {
+  visibility: hidden;
   width: 100px;
   height: 5px;
 }
