@@ -3,6 +3,8 @@
 :root {
   --audio-icon-height--: 40px;
   --audio-icon-width--: 40px;
+  --audio-icon-mobile-height--: 30px;
+  --audio-icon-mobile-width--: 30px;
 }
 
 #audioPlayer {
@@ -85,7 +87,6 @@
 
 input[type="range"] {
   accent-color: coral;
-  background: rgba(255, 255, 255, 0.6);
 }
 
 #volumeBtn {
@@ -110,4 +111,268 @@ input[type="range"] {
 
 #volumeBtn::-moz-range-thumb:active {
   transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+  #audioPlayer {
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    background-color: #2d2438;
+    width: 100%;
+  }
+
+  #left-items {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  #repeatBtn,
+  #shuffleBtn {
+    margin: 4px;
+  }
+
+  #previousBtn,
+  #playPauseBtn,
+  #nextBtn {
+    height: 45px;
+    width: 45px;
+  }
+
+  #volumeIcon,
+  #repeatBtn,
+  #shuffleBtn {
+    height: var(--audio-icon-mobile-height--);
+    width: var(--audio-icon-mobile-width--);
+  }
+
+  #audioName {
+    font-family: "Gabrito", cursive;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  #volumeBtn {
+    width: 100px;
+    height: 5px;
+  }
+
+  #songDuration {
+    color: white;
+    font-family: "Mukta", sans-serif;
+    font-size: 18px;
+  }
+
+  #audioArtist {
+    font-family: "AR One Sans", sans-serif;
+    font-size: 18px;
+  }
+
+  #audioCollapse {
+    height: 35px;
+    width: 40px;
+    margin: 12px;
+  }
+}
+
+@media (max-width: 650px) {
+  #audioPlayer {
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    background-color: #2d2438;
+    width: 100%;
+  }
+
+  #left-items {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  #repeatBtn,
+  #shuffleBtn {
+    margin: 4px;
+  }
+
+  #previousBtn,
+  #playPauseBtn,
+  #nextBtn {
+    height: 40px;
+    width: 40px;
+  }
+
+  #volumeIcon,
+  #repeatBtn,
+  #shuffleBtn {
+    height: var(--audio-icon-mobile-height--);
+    width: var(--audio-icon-mobile-width--);
+  }
+
+  #audioName {
+    font-family: "Gabrito", cursive;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+
+  #volumeBtn {
+    width: 50px;
+    height: 5px;
+  }
+
+  #songDuration {
+    color: white;
+    font-family: "Mukta", sans-serif;
+    font-size: 15px;
+  }
+
+  #audioArtist {
+    font-family: "AR One Sans", sans-serif;
+    font-size: 15px;
+  }
+
+  #audioCollapse {
+    height: 35px;
+    width: 40px;
+    margin: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  #audioPlayer {
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    background-color: #2d2438;
+    width: 100%;
+  }
+
+  #left-items {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  #repeatBtn,
+  #shuffleBtn {
+    margin: 4px;
+  }
+
+  #previousBtn,
+  #playPauseBtn,
+  #nextBtn {
+    height: 40px;
+    width: 40px;
+  }
+
+  #volumeIcon,
+  #repeatBtn,
+  #shuffleBtn {
+    height: var(--audio-icon-mobile-height--);
+    width: var(--audio-icon-mobile-width--);
+  }
+
+  #audioName {
+    font-family: "Gabrito", cursive;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+
+  #volumeBtn {
+    width: 50px;
+    height: 5px;
+  }
+
+  #songDuration {
+    color: white;
+    font-family: "Mukta", sans-serif;
+    font-size: 15px;
+  }
+
+  #audioArtist {
+    font-family: "AR One Sans", sans-serif;
+    font-size: 10px;
+  }
+
+  #audioCollapse {
+    height: 30px;
+    width: 35px;
+    margin: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  #audioPlayer {
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    background-color: #2d2438;
+    width: 100%;
+  }
+
+  #left-items {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  #repeatBtn,
+  #shuffleBtn {
+    margin: 2px;
+  }
+
+  #previousBtn,
+  #playPauseBtn,
+  #nextBtn {
+    height: 35px;
+    width: 35px;
+  }
+
+  #volumeIcon,
+  #repeatBtn,
+  #shuffleBtn {
+    height: var(--audio-icon-mobile-height--);
+    width: var(--audio-icon-mobile-width--);
+  }
+
+  #audioName {
+    font-family: "Gabrito", cursive;
+    font-weight: bolder;
+    font-size: 10px;
+  }
+
+  #volumeBtn {
+    width: 50px;
+    height: 5px;
+  }
+
+  #songDuration {
+    color: white;
+    font-family: "Mukta", sans-serif;
+    font-size: 12px;
+  }
+
+  #audioArtist {
+    font-family: "AR One Sans", sans-serif;
+    font-size: 8px;
+  }
+
+  #audioCollapse {
+    height: 25px;
+    width: 30px;
+    margin: 7px;
+  }
 }
