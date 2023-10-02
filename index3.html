@@ -223,15 +223,23 @@
     </main>
     <section id="audioPlayer">
       <audio id="audio"></audio>
-      <div id="previousBtn"></div>
-      <div id="playPauseBtn"></div>
-      <div id="nextBtn"></div>
-      <div id="artistName"></div>
-      <div id="songName"></div>
-      <input id="volumeBtn" type="range" />
-      <div id="repeatBtn"></div>
-      <div id="shuffleBtn"></div>
-      <div id="audioCollapse"></div>
+      <div id="left-items">
+        <img id="previousBtn" />
+        <img id="playPauseBtn" />
+        <img id="nextBtn" />
+        <h4 id="songDuration">NaN / NaN</h4>
+      </div>
+      <div id="audioSongInfo">
+        <div id="audioName">SONG NAME</div>
+        <div id="audioArtist">ARTIST</div>
+      </div>
+      <div id="right-items">
+        <input id="volumeBtn" type="range" value="50" min="0" max="100" />
+        <img id="volumeIcon" />
+        <img id="repeatBtn" />
+        <img id="shuffleBtn" />
+        <img id="audioCollapse" />
+      </div>
     </section>
   </body>
 </html>

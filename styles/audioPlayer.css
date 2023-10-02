@@ -1,8 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Gabarito:wght@700&family=Mukta&family=Roboto:wght@100&display=swap");
+
+:root {
+  --audio-icon-height--: 40px;
+  --audio-icon-width--: 40px;
+}
+
 #audioPlayer {
   display: flex;
+  align-items: center;
   position: fixed;
   bottom: 0;
   height: 70px;
   background-color: #2d2438;
   width: 100%;
+  justify-content: space-between;
+}
+
+#previousBtn,
+#playPauseBtn,
+#nextBtn {
+  height: 50px;
+  width: 50px;
+}
+
+#volumeIcon,
+#repeatBtn,
+#shuffleBtn {
+  height: var(--audio-icon-height--);
+  width: var(--audio-icon-width--);
+}
+
+#right-items {
+  display: flex;
+  align-items: center;
+}
+
+#songDuration {
+  color: white;
+  font-family: "Mukta", sans-serif;
+}
+
+#audioSongInfo {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+#audioName {
+  font-family: "Gabrito", cursive;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+#audioArtist {
+  font-family: "AR One Sans", sans-serif;
+}
+
+#left-items {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+#repeatBtn,
+#shuffleBtn {
+  margin: 5px;
+}
+
+#audioCollapse {
+  height: 30px;
+  width: 35px;
+  margin: 10px;
+}
+
+#audioCollapse:hover,
+#repeatBtn:hover,
+#shuffleBtn:hover,
+#volumeIcon:hover,
+#previousBtn:hover,
+#playPauseBtn:hover,
+#nextBtn:hover {
+  cursor: pointer;
+}
+
+input[type="range"] {
+  accent-color: coral;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#volumeBtn {
+  width: 100px;
+  height: 5px;
+}
+
+#volumeBtn::-webkit-slider-thumb {
+  box-shadow: 0 0 2px 0 #555;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+#volumeBtn::-moz-range-thumb {
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+#volumeBtn::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+#volumeBtn::-moz-range-thumb:active {
+  transform: scale(1.2);
 }
