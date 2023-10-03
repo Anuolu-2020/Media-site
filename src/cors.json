@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["media-site-app.appspot.com"],
+    "responseHeader": ["Content-Type"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]

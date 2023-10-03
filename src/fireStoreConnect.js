@@ -5,6 +5,7 @@ import {
   getStorage,
   ref,
   getDownloadURL,
+  getBlob,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -29,10 +30,13 @@ const analytics = getAnalytics(app);
 const storage = getStorage(app);
 const fileRef = ref(storage, "/Songs/Charm - Rema.m4a");
 
-getDownloadURL(fileRef)
-  .then((url) => {
-    console.log("File download URL:", url);
-    // Use this URL for downloading or streaming the file
+getBlob(fileRef)
+  .then((blob) => {
+    console.log("File download URL:", blob);
+    const audioPlayer = document.getElementById("audio");
+    const audioUrl = URL.createObjectURL(blob);
+    audioPlayer.src = audioUrl;
+    audioPlayer.play();
   })
   .catch((error) => {
     console.error("Error getting download URL:", error);
