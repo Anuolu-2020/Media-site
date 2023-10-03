@@ -12,6 +12,7 @@
     <script src="./src/links.js" type="module"></script>
     <script src="./src/audioPlayer.js" type="module"></script>
     <script src="./src/script2.js" type="module"></script>
+    <script src="./src/fireStoreConnect.js" type="module"></script>
   </head>
   <body>
     <header id="main-header">
@@ -229,10 +230,12 @@
         <img id="nextBtn" />
         <h4 id="songDuration">NaN / NaN</h4>
       </div>
-      <img id="songImg" width="70px" height="40px" />
-      <div id="audioSongInfo">
-        <div id="audioName">SONG NAME</div>
-        <div id="audioArtist">ARTIST</div>
+      <div id="songInfo">
+        <img id="songImg" width="70px" height="40px" />
+        <div id="audioSongInfo">
+          <div id="audioName">SONG NAME</div>
+          <div id="audioArtist">ARTIST</div>
+        </div>
       </div>
       <div id="right-items">
         <input id="volumeBtn" type="range" value="50" min="0" max="100" />

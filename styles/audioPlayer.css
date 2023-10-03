@@ -118,6 +118,13 @@ input[type="range"] {
   margin: 0px;
 }
 
+#songInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
 @media (max-width: 767px) {
   #audioPlayer {
     display: flex;
@@ -181,6 +188,17 @@ input[type="range"] {
     height: 35px;
     width: 40px;
     margin: 12px;
+  }
+
+  #songInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  #songImg {
+    width: 50px;
+    height: 20px;
   }
 }
 
@@ -314,6 +332,10 @@ input[type="range"] {
     width: 35px;
     margin: 9px;
   }
+
+  #songImg {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -379,5 +401,9 @@ input[type="range"] {
     height: 25px;
     width: 30px;
     margin: 7px;
+  }
+
+  #songImg {
+    display: none;
   }
 }
