@@ -18,7 +18,7 @@
   justify-content: space-between;
 }
 
-#progressBar {
+#progressSlide {
   position: fixed;
   align-self: flex-start;
   width: 100%;

@@ -223,7 +223,13 @@
         </section>
       </section>
     </main>
-    <input id="progressBar" type="range" />
+    <input
+      id="progressSlide"
+      min="0"
+      max="100"
+      step="0.01"
+      value="0"
+      type="range" />
     <section id="audioPlayer">
       <audio id="audio"></audio>
       <div id="left-items">
@@ -240,7 +246,13 @@
         </div>
       </div>
       <div id="right-items">
-        <input id="volumeBtn" type="range" value="50" min="0" max="100" />
+        <input
+          id="volumeBtn"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.5" />
         <img id="volumeIcon" />
         <img id="repeatBtn" />
         <img id="shuffleBtn" />
