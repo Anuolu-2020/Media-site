@@ -184,6 +184,7 @@ function mobileSearchBar() {
 //Event listners for sidebar, profile icon and mobile search bar
 document.getElementById("profile-img").addEventListener("click", profileToggle);
 document.getElementById("main-menu").addEventListener("click", sidebarCollapse);
+//For mobile searchbar
 document
   .getElementById("mobile-searchbar")
   .addEventListener("click", mobileSearchBar);
@@ -222,6 +223,7 @@ libraryIcon.forEach((library) => {
 function hasAccelerometer() {
   return "DeviceMotionEvent" in window;
 }
+
 function isTouchDevice() {
   return "ontouchstart" in window || navigator.maxTouchPoints;
 }

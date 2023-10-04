@@ -238,6 +238,7 @@ a {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 8px;
 }
 .sidebar-text {
   color: white;
