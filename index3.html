@@ -15,6 +15,7 @@
     <script src="./src/script2.js" type="module"></script>
     <script src="./src/musicLinks.js" type="module"></script>
     <script src="./src/fireStoreConnect.js" type="module"></script>
+        <script src="./src/audioScreen.js" type="module"></script>
   </head>
   <body>
     <header id="main-header">
@@ -264,21 +265,26 @@
       <img id="screen" />
       <section id="audio-screen-sidebar">
         <div id="sidebar-select">
-          <div class="sidebar-select-txt">UP NEXT</div>
-          <div class="sidebar-select-txt">LYRICS</div>
+          <div class="sidebar-select-txt" id="upNext-select">UP NEXT</div>
+          <div class="sidebar-select-txt" id="lyrics-select">LYRICS</div>
         </div>
         <div id="playlist-origin">Playing from Top Songs</div>
         <div id="playlist">
           <div class="songs">
             <img class="playlist-img" />
-            <div id="playlist-info">
+            <div class="playlist-info">
               <div class="playlist-songName">Basquiat</div>
               <div class="playlist-songArtist">Asake</div>
             </div>
             <div class="playlist-duration">2:14</div>
           </div>
         </div>
-        <div id="lyrics"></div>
+        <div id="lyrics">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          cumque perferendis voluptatum est illo voluptate eaque in deserunt
+          minima, ipsa veritatis eveniet incidunt dolor pariatur doloremque enim
+          maxime saepe iusto!
+        </div>
       </section>
     </section>
   </body>
