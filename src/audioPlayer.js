@@ -123,6 +123,7 @@ playPauseBtn.addEventListener("click", () => {
   }
 });
 
+//audio pause function
 function pauseSong() {
   audio.pause();
   isPlaying = false;

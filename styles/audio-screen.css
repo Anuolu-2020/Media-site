@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Gabarito:wght@700&family=Lilita+One&family=Mukta&family=Roboto:wght@100&display=swap");
+
+#audio-screen {
+  display: flex;
+  position: fixed;
+  z-index: 0;
+  bottom: 65px;
+  right: 1px;
+  width: 1195px;
+  height: 680px;
+  border: 1px solid white;
+  background-color: #2d2438;
+}
+
+#screen {
+  position: fixed;
+  top: 70px;
+  width: 749px;
+  height: 680px;
+  border: 1px solid white;
+  background-color: grey;
+}
+
+#audio-screen-sidebar {
+  display: flex;
+  position: fixed;
+  right: 1px;
+  top: 70px;
+  flex-direction: column;
+  background-color: brown;
+  height: 680px;
+  width: 445px;
+}
+
+#sidebar-select {
+  display: flex;
+  /* margin-left: 60px; */
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  height: 50px;
+}
+
+.sidebar-select-txt {
+  color: white;
+  font-family: "Lilita One", cursive;
+  font-size: 25px;
+  align-self: center;
+}
+
+#playlist-origin {
+  font-family: "Gabarito", cursive;
+  font-size: 20px;
+  margin-left: 10px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+#playlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.songs {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+  height: 60px;
+  align-items: center;
+}
+
+.playlist-img {
+  src: "../songs-cover/work\ of\ art.jpeg";
+  height: 40px;
+  width: 50px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+#playlist-info {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.playlist-songName {
+  font-family: "Gabarito", cursive;
+  font-size: 20px;
+  color: white;
+}
+
+.playlist-songArtist {
+  font-family: "AR One Sans", sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+.playlist-duration {
+  position: relative;
+  font-family: "Gabarito", cursive;
+  color: white;
+  left: 230px;
+  margin-right: 10px;
+}

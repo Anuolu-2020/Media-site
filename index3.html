@@ -9,6 +9,7 @@
     <link href="./styles/mainPage.css" rel="stylesheet" />
     <link href="./styles/artistStyle.css" rel="stylesheet" />
     <link href="./styles/audioPlayer.css" rel="stylesheet" />
+    <link href="./styles/audio-screen.css" rel="stylesheet" />
     <script src="./src/links.js" type="module"></script>
     <script src="./src/audioPlayer.js" type="module"></script>
     <script src="./src/script2.js" type="module"></script>
@@ -42,7 +43,7 @@
       </section>
       <nav class="right-items" id="profile-pic">
         <img id="profile-img" class="profile" />
-        />
+
         <nav id="settings-container">
           <a href="#"
             ><img id="settings-profile" />
@@ -258,6 +259,27 @@
         <img id="shuffleBtn" />
         <img id="audioCollapse" />
       </div>
+    </section>
+    <section id="audio-screen">
+      <img id="screen" />
+      <section id="audio-screen-sidebar">
+        <div id="sidebar-select">
+          <div class="sidebar-select-txt">UP NEXT</div>
+          <div class="sidebar-select-txt">LYRICS</div>
+        </div>
+        <div id="playlist-origin">Playing from Top Songs</div>
+        <div id="playlist">
+          <div class="songs">
+            <img class="playlist-img" />
+            <div id="playlist-info">
+              <div class="playlist-songName">Basquiat</div>
+              <div class="playlist-songArtist">Asake</div>
+            </div>
+            <div class="playlist-duration">2:14</div>
+          </div>
+        </div>
+        <div id="lyrics"></div>
+      </section>
     </section>
   </body>
 </html>
