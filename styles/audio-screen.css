@@ -72,6 +72,8 @@
 #playlist {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 800px;
 }
 
 .songs {
@@ -234,9 +236,8 @@
   }
 
   #playlist {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15px;
+    overflow-y: auto;
+    height: 100px;
   }
 }
 
