@@ -1,5 +1,12 @@
 import { musicLinks } from "./musicLinks.js";
-import { songLinks, songArtists, topSongTitle } from "./links.js";
+import {
+  songLinks,
+  songArtists,
+  topSongTitle,
+  albumLinks,
+  albumArtists,
+  albumName,
+} from "./links.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import {
   getStorage,
@@ -66,6 +73,7 @@ let topSongsUrl = [
   musicLinks.reason,
 ];
 
+//top songs audio cover
 let songCover = [
   songLinks.workOfArt,
   songLinks.Ngozi,
@@ -74,6 +82,7 @@ let songCover = [
   songLinks.reason,
 ];
 
+//top songs name
 let topSongName = [
   topSongTitle.num1,
   topSongTitle.num2,
@@ -82,6 +91,7 @@ let topSongName = [
   topSongTitle.num5,
 ];
 
+//Top songs artist names
 let topSongArtist = [
   songArtists.art2,
   songArtists.art4,
@@ -89,6 +99,51 @@ let topSongArtist = [
   songArtists.art1,
   songArtists.art7,
 ];
+
+//albums
+const albums = [
+  {
+    //Trench to Triumph
+    name: albumName.num1,
+    artist: albumArtists.num1,
+    cover: albumLinks.trenchToTriumph,
+    songsName: ["Ngozi ft Arya Starr", "Modupe"],
+    url: [musicLinks.Ngozi, musicLinks.modupe],
+  },
+  {
+    //Thy Kingdom come
+    name: albumName.num2,
+    artist: albumArtists.num2,
+    cover: albumLinks.thyKingdomCome,
+    songsName: ["Man of the year"],
+    url: [musicLinks.manOfTheYear],
+  },
+  {
+    //Timeless
+    name: albumName.num3,
+    artist: albumArtists.num3,
+    cover: albumLinks.timeless,
+    songsName: ["Unavailable"],
+    url: [musicLinks.unavailable],
+  },
+  {
+    //Boy Alone
+    name: albumName.num4,
+    artist: albumArtists.num4,
+    cover: albumLinks.boyAlone,
+    songsName: ["Reason"],
+    url: [musicLinks.reason],
+  },
+  {
+    //Rave & roses
+    name: albumName.num5,
+    artist: albumArtists.num5,
+    cover: albumLinks.raveRoses,
+    songsName: ["Calm Down ft Selena Gomez", "Charm", "Holiday"],
+    url: [musicLinks.calmDown, musicLinks.charm, musicLinks.holiday],
+  },
+];
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -100,10 +155,33 @@ let currentSongIndex = 0;
 let isRepeatActive = false; //Track repeat state
 let isPlaying = false; //Track Playing state
 let isShuffleActive = false; //Track Shuffle state
+let isPlayingAlbum = false; //Tracking for playing album
+let albumIndex = 0;
 
 //topSongs fetch
 function playSong(index) {
   const fileRef = ref(storage, topSongsUrl[index]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
+
+//Each album references
+
+// let trenchToTriumph = albums[0];
+// let thyKingdomCome = albums[1];
+// let timeless = albums[2];
+// let boyAlone = albums[3];
+// let raveRoses = albums[4];
+
+function playAlbum(index, songIndex) {
+  let album = albums[index];
+  let albumUrl = album.url;
+  const fileRef = ref(storage, albumUrl[songIndex]);
   getBlob(fileRef).then((blob) => {
     let url = URL.createObjectURL(blob);
     audio.src = url;
@@ -131,13 +209,58 @@ function pauseSong() {
 }
 
 // Add event listeners to play buttons
+// let albumCard = document.querySelectorAll(".albumCover");
+
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    songImg.src = songCover[idx];
-    songName.innerHTML = topSongName[idx];
-    artistName.innerHTML = topSongArtist[idx];
-    currentSongIndex = idx; // Update the current song index
-    playSong(currentSongIndex);
+    if (idx === 5) {
+      let album = albums[0];
+      songImg.src = album.cover;
+      songName.innerHTML = album.songsName[0];
+      artistName.innerHTML = album.artist;
+      albumIndex = 0; // Update the current song index
+      isPlayingAlbum = true;
+      playAlbum(albumIndex, 0);
+    } else if (idx === 6) {
+      let album = albums[1];
+      songImg.src = album.cover;
+      songName.innerHTML = album.songsName[0];
+      artistName.innerHTML = album.artist;
+      albumIndex = 1; // Update the current song index
+      isPlaying = true;
+      playAlbum(albumIndex, 0);
+    } else if (idx === 7) {
+      let album = albums[2];
+      songImg.src = album.cover;
+      songName.innerHTML = album.songsName[0];
+      artistName.innerHTML = album.artist;
+      albumIndex = 2; // Update the current song index
+      isPlaying = true;
+      playAlbum(albumIndex, 0);
+    } else if (idx === 8) {
+      let album = albums[3];
+      songImg.src = album.cover;
+      songName.innerHTML = album.songsName[0];
+      artistName.innerHTML = album.artist;
+      albumIndex = 3; // Update the current song index
+      isPlayingAlbum = true;
+      playAlbum(albumIndex, 0);
+    } else if (idx === 9) {
+      let album = albums[4];
+      songImg.src = album.cover;
+      songName.innerHTML = album.songsName[0];
+      artistName.innerHTML = album.artist;
+      albumIndex = 4; // Update the current song index
+      isPlayingAlbum = true;
+      playAlbum(albumIndex, 0);
+    } else {
+      songImg.src = songCover[idx];
+      songName.innerHTML = topSongName[idx];
+      artistName.innerHTML = topSongArtist[idx];
+      currentSongIndex = idx; // Update the current song index
+      isPlayingAlbum = false;
+      playSong(currentSongIndex);
+    }
   });
 });
 
@@ -172,6 +295,19 @@ audio.addEventListener("ended", () => {
   } else if (isShuffleActive) {
     currentSongIndex = Math.floor(Math.random() * topSongsUrl.length);
     playSong(currentSongIndex);
+  } else if (isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumSongName = album.songsName;
+    let albumArtist = album.artist;
+    let albumCover = album.cover;
+    let albumUrl = album.url;
+    // let albumSongs = albumUrl[albumIndex];
+    // console.log(albumSongs);
+    currentSongIndex = (currentSongIndex + 1) % albumUrl.length;
+    songName.innerHTML = albumSongName[currentSongIndex];
+    songImg.src = albumCover;
+    artistName.innerHTML = albumArtist;
+    playAlbum(albumIndex, currentSongIndex);
   } else {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;

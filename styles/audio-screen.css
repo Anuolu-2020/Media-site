@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Gabarito:wght@700&family=Lilita+One&family=Mukta&family=Roboto:wght@100&display=swap");
 
 #audio-screen {
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 0;
   bottom: 65px;
@@ -11,6 +11,21 @@
   margin-left: 140px;
   border: 1px solid white;
   background-color: #2d2438;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2d2438;
+  border-radius: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #686464d2;
+  width: 3px;
 }
 
 #screen {
@@ -58,7 +73,13 @@
 }
 
 #upNext-select {
-  text-decoration: underline;
+  border-bottom: 2px solid white;
+  padding: 5px;
+}
+
+#lyrics-select {
+  border-bottom: 2px solid white;
+  padding: 5px;
 }
 
 #playlist-origin {
