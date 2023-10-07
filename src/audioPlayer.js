@@ -170,14 +170,6 @@ function playSong(index) {
   });
 }
 
-//Each album references
-
-// let trenchToTriumph = albums[0];
-// let thyKingdomCome = albums[1];
-// let timeless = albums[2];
-// let boyAlone = albums[3];
-// let raveRoses = albums[4];
-
 function playAlbum(index, songIndex) {
   let album = albums[index];
   let albumUrl = album.url;
@@ -288,21 +280,27 @@ shuffleBtn.addEventListener("click", () => {
 });
 
 // Listen for the 'ended' event on the audio element to play the next song
+//Autoplay handler
 audio.addEventListener("ended", () => {
   if (isRepeatActive) {
     audio.currentTime = 0;
     audio.play();
   } else if (isShuffleActive) {
+    //top songs shuffling
     currentSongIndex = Math.floor(Math.random() * topSongsUrl.length);
     playSong(currentSongIndex);
+  } else if (isShuffleActive && isPlayingAlbum) {
+    //Album song shuffling //not working yet
+    currentSongIndex = Math.floor(Math.random() * albumUrl.length);
+    console.log(currentSongIndex);
+    playAlbum(albumIndex, currentSongIndex);
   } else if (isPlayingAlbum) {
+    //Auto play to the next song in an album
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
     let albumArtist = album.artist;
     let albumCover = album.cover;
     let albumUrl = album.url;
-    // let albumSongs = albumUrl[albumIndex];
-    // console.log(albumSongs);
     currentSongIndex = (currentSongIndex + 1) % albumUrl.length;
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
@@ -318,31 +316,65 @@ audio.addEventListener("ended", () => {
   }
 });
 
+function prevBtnForAlbum() {}
 //previous button to go to the previoua song
 previousBtn.addEventListener("click", () => {
-  // decrement the current song index and play the next song
-  if (currentSongIndex === 0) {
-    currentSongIndex = topSongsUrl.length - 1;
-  } else {
-    currentSongIndex = (currentSongIndex - 1) % topSongsUrl.length;
-  }
-  songName.innerHTML = topSongName[currentSongIndex];
-  songImg.src = songCover[currentSongIndex];
-  artistName.innerHTML = topSongArtist[currentSongIndex];
+  if (isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumSongName = album.songsName;
+    let albumArtist = album.artist;
+    let albumCover = album.cover;
+    let albumUrl = album.url;
+    if (currentSongIndex === 0) {
+      currentSongIndex = albumUrl.length - 1;
+    } else {
+      currentSongIndex = (currentSongIndex - 1) % albumUrl.length;
+    }
+    songName.innerHTML = albumSongName[currentSongIndex];
+    songImg.src = albumCover;
+    artistName.innerHTML = albumArtist;
 
-  playSong(currentSongIndex);
+    playAlbum(albumIndex, currentSongIndex);
+  } else {
+    // decrement the current song index and play the next song
+    if (currentSongIndex === 0) {
+      currentSongIndex = topSongsUrl.length - 1;
+    } else {
+      currentSongIndex = (currentSongIndex - 1) % topSongsUrl.length;
+    }
+    songName.innerHTML = topSongName[currentSongIndex];
+    songImg.src = songCover[currentSongIndex];
+    artistName.innerHTML = topSongArtist[currentSongIndex];
+
+    playSong(currentSongIndex);
+  }
 });
 
 //next button to go to the next song
 nextBtn.addEventListener("click", () => {
-  // Increment the current song index and play the next song
-  currentSongIndex =
-    (currentSongIndex - 1 + topSongsUrl.length) % topSongsUrl.length;
-  songName.innerHTML = topSongName[currentSongIndex];
-  songImg.src = songCover[currentSongIndex];
-  artistName.innerHTML = topSongArtist[currentSongIndex];
+  if (isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumSongName = album.songsName;
+    let albumArtist = album.artist;
+    let albumCover = album.cover;
+    let albumUrl = album.url;
+    currentSongIndex =
+      (currentSongIndex - 1 + albumUrl.length) % albumUrl.length;
+    songName.innerHTML = albumSongName[currentSongIndex];
+    songImg.src = albumCover;
+    artistName.innerHTML = albumArtist;
 
-  playSong(currentSongIndex);
+    playAlbum(albumIndex, currentSongIndex);
+  } else {
+    // Increment the current song index and play the next song
+    currentSongIndex =
+      (currentSongIndex - 1 + topSongsUrl.length) % topSongsUrl.length;
+    songName.innerHTML = topSongName[currentSongIndex];
+    songImg.src = songCover[currentSongIndex];
+    artistName.innerHTML = topSongArtist[currentSongIndex];
+
+    playSong(currentSongIndex);
+  }
 });
 
 //audio volume
