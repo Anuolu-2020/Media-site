@@ -15,7 +15,7 @@ import {
   getBlob,
   getBytes,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
-
+import { constructPlaylistSong } from "./audioScreen.js";
 import { firebaseConfig } from "./fireStoreConnect.js";
 
 // Get all the references to the audio player button
@@ -205,6 +205,7 @@ function pauseSong() {
 
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
+    constructPlaylistSong();
     if (idx === 5) {
       let album = albums[0];
       songImg.src = album.cover;
@@ -264,21 +265,6 @@ repeatBtn.addEventListener("click", () => {
     : "./ICONS/replay.png";
 });
 
-//Shuffle button
-shuffleBtn.addEventListener("click", () => {
-  isShuffleActive = !isShuffleActive;
-  shuffleBtn.src = isShuffleActive
-    ? "./ICONS/shuffle-checked.png"
-    : "./ICONS/shuffle.png";
-
-  if (isShuffleActive) {
-    for (let i = topSongsUrl.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [topSongsUrl[i], topSongsUrl[j]] = [topSongsUrl[j], topSongsUrl[i]];
-    }
-  }
-});
-
 // Listen for the 'ended' event on the audio element to play the next song
 //Autoplay handler
 audio.addEventListener("ended", () => {
@@ -291,8 +277,9 @@ audio.addEventListener("ended", () => {
     playSong(currentSongIndex);
   } else if (isShuffleActive && isPlayingAlbum) {
     //Album song shuffling //not working yet
+    let album = albums[albumIndex];
+    let albumUrl = album.url;
     currentSongIndex = Math.floor(Math.random() * albumUrl.length);
-    console.log(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else if (isPlayingAlbum) {
     //Auto play to the next song in an album
@@ -316,7 +303,29 @@ audio.addEventListener("ended", () => {
   }
 });
 
-function prevBtnForAlbum() {}
+//Shuffle button
+shuffleBtn.addEventListener("click", () => {
+  isShuffleActive = !isShuffleActive;
+  shuffleBtn.src = isShuffleActive
+    ? "./ICONS/shuffle-checked.png"
+    : "./ICONS/shuffle.png";
+
+  //Experimental not working yet
+  if (isShuffleActive && isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumUrl = album.url;
+    for (let i = albumUrl.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [albumUrl[i], albumUrl[j]] = [albumUrl[j], albumUrl[i]];
+    }
+  } else if (isShuffleActive) {
+    for (let i = topSongsUrl.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [topSongsUrl[i], topSongsUrl[j]] = [topSongsUrl[j], topSongsUrl[i]];
+    }
+  }
+});
+
 //previous button to go to the previoua song
 previousBtn.addEventListener("click", () => {
   if (isPlayingAlbum) {
