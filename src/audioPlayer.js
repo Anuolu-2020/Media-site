@@ -74,7 +74,7 @@ let topSongsUrl = [
 ];
 
 //top songs audio cover
-let songCover = [
+export let songCover = [
   songLinks.workOfArt,
   songLinks.Ngozi,
   songLinks.modupe,
