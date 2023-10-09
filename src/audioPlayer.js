@@ -15,7 +15,11 @@ import {
   getBlob,
   getBytes,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
-import { playlistTopSongUi, highlightPlaylistSong } from "./audioScreen.js";
+import {
+  playlistTopSongUi,
+  highlightPlaylistSong,
+  playlistAlbumSongUi,
+} from "./audioScreen.js";
 import { firebaseConfig } from "./fireStoreConnect.js";
 
 // Get all the references to the audio player button
@@ -65,7 +69,7 @@ if (hasAccelerometer() && isTouchDevice()) {
 let playButton = document.querySelectorAll(".play-button");
 
 //Top songs url arrray
-let topSongsUrl = [
+export let topSongsUrl = [
   musicLinks.basquiat,
   musicLinks.Ngozi,
   musicLinks.modupe,
@@ -101,7 +105,7 @@ export let topSongArtist = [
 ];
 
 //albums
-const albums = [
+export const albums = [
   {
     //Trench to Triumph
     name: albumName.num1,
@@ -209,45 +213,61 @@ playButton.forEach((btn, idx) => {
     if (idx === 5) {
       let album = albums[0];
       songImg.src = album.cover;
+      audioScreenImg.src = album.cover;
       songName.innerHTML = album.songsName[0];
       artistName.innerHTML = album.artist;
       albumIndex = 0; // Update the current song index
       isPlayingAlbum = true;
+      // highlightPlaylistSong(0);
+      playlistAlbumSongUi(albumIndex);
       playAlbum(albumIndex, 0);
     } else if (idx === 6) {
       let album = albums[1];
       songImg.src = album.cover;
+      audioScreenImg.src = album.cover;
       songName.innerHTML = album.songsName[0];
       artistName.innerHTML = album.artist;
       albumIndex = 1; // Update the current song index
       isPlaying = true;
+      // highlightPlaylistSong(0);
+      playlistAlbumSongUi(albumIndex);
       playAlbum(albumIndex, 0);
     } else if (idx === 7) {
       let album = albums[2];
       songImg.src = album.cover;
+      audioScreenImg.src = album.cover;
       songName.innerHTML = album.songsName[0];
       artistName.innerHTML = album.artist;
       albumIndex = 2; // Update the current song index
       isPlaying = true;
+      // highlightPlaylistSong(0);
+      playlistAlbumSongUi(albumIndex);
       playAlbum(albumIndex, 0);
     } else if (idx === 8) {
       let album = albums[3];
       songImg.src = album.cover;
+      audioScreenImg.src = album.cover;
       songName.innerHTML = album.songsName[0];
       artistName.innerHTML = album.artist;
       albumIndex = 3; // Update the current song index
       isPlayingAlbum = true;
+      // highlightPlaylistSong(0);
+      playlistAlbumSongUi(albumIndex);
       playAlbum(albumIndex, 0);
     } else if (idx === 9) {
       let album = albums[4];
       songImg.src = album.cover;
+      audioScreenImg.src = album.cover;
       songName.innerHTML = album.songsName[0];
       artistName.innerHTML = album.artist;
       albumIndex = 4; // Update the current song index
       isPlayingAlbum = true;
+      // highlightPlaylistSong(0);
+      playlistAlbumSongUi(albumIndex);
       playAlbum(albumIndex, 0);
     } else {
       songImg.src = songCover[idx];
+      //img for audio screen
       audioScreenImg.src = songCover[idx];
       songName.innerHTML = topSongName[idx];
       artistName.innerHTML = topSongArtist[idx];
@@ -295,6 +315,7 @@ audio.addEventListener("ended", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
+    // highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // Increment the current song index and play the next song
@@ -333,6 +354,7 @@ shuffleBtn.addEventListener("click", () => {
 
 //previous button to go to the previoua song
 previousBtn.addEventListener("click", () => {
+  audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
@@ -347,7 +369,7 @@ previousBtn.addEventListener("click", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-
+    // highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // decrement the current song index and play the next song
@@ -366,6 +388,7 @@ previousBtn.addEventListener("click", () => {
 
 //next button to go to the next song
 nextBtn.addEventListener("click", () => {
+  audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
@@ -377,7 +400,7 @@ nextBtn.addEventListener("click", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-
+    // highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // Increment the current song index and play the next song
