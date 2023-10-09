@@ -83,6 +83,7 @@
   height: 30px;
   width: 35px;
   margin: 10px;
+  transition: transform 0.5s;
 }
 
 #audioCollapse:hover,

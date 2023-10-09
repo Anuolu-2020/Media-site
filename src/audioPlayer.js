@@ -298,6 +298,7 @@ audio.addEventListener("ended", () => {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;
     songName.innerHTML = topSongName[currentSongIndex];
+    audioScreenImg.src = songCover[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
     playSong(currentSongIndex);
@@ -391,7 +392,9 @@ nextBtn.addEventListener("click", () => {
 let audioScreen = document.getElementById("audio-screen");
 let audioCollapse = document.getElementById("audioCollapse");
 let collapsed = true;
+
 audioCollapse.addEventListener("click", () => {
+  rotateAudioCollapse();
   if (collapsed) {
     audioScreen.style.display = "flex";
     document.body.style.overflowY = "hidden";
@@ -402,6 +405,12 @@ audioCollapse.addEventListener("click", () => {
     collapsed = true;
   }
 });
+
+let rotationDegree = 0;
+function rotateAudioCollapse() {
+  rotationDegree += 180;
+  audioCollapse.style.transform = `rotate(${rotationDegree}deg)`;
+}
 
 //audio volume
 volume.addEventListener("input", () => {
