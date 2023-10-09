@@ -15,7 +15,7 @@ import {
   getBlob,
   getBytes,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
-import { playlistTopSongUi } from "./audioScreen.js";
+import { playlistTopSongUi, highlightPlaylistSong } from "./audioScreen.js";
 import { firebaseConfig } from "./fireStoreConnect.js";
 
 // Get all the references to the audio player button
@@ -159,7 +159,7 @@ let isPlayingAlbum = false; //Tracking for playing album
 let albumIndex = 0;
 
 //topSongs fetch
-function playSong(index) {
+export function playSong(index) {
   const fileRef = ref(storage, topSongsUrl[index]);
   getBlob(fileRef).then((blob) => {
     let url = URL.createObjectURL(blob);
@@ -253,6 +253,7 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = topSongArtist[idx];
       currentSongIndex = idx; // Update the current song index
       isPlayingAlbum = false;
+      highlightPlaylistSong(currentSongIndex);
       playSong(currentSongIndex);
     }
   });
@@ -275,6 +276,7 @@ audio.addEventListener("ended", () => {
   } else if (isShuffleActive) {
     //top songs shuffling
     currentSongIndex = Math.floor(Math.random() * topSongsUrl.length);
+    highlightPlaylistSong(currentSongIndex);
     playSong(currentSongIndex);
   } else if (isShuffleActive && isPlayingAlbum) {
     //Album song shuffling //not working yet
@@ -301,6 +303,7 @@ audio.addEventListener("ended", () => {
     audioScreenImg.src = songCover[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
+    highlightPlaylistSong(currentSongIndex);
     playSong(currentSongIndex);
   }
 });
@@ -356,7 +359,7 @@ previousBtn.addEventListener("click", () => {
     songName.innerHTML = topSongName[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
-
+    highlightPlaylistSong(currentSongIndex);
     playSong(currentSongIndex);
   }
 });
@@ -383,7 +386,7 @@ nextBtn.addEventListener("click", () => {
     songName.innerHTML = topSongName[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
-
+    highlightPlaylistSong(currentSongIndex);
     playSong(currentSongIndex);
   }
 });

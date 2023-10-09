@@ -1,4 +1,9 @@
-import { songCover, topSongName, topSongArtist } from "./audioPlayer.js";
+import {
+  songCover,
+  topSongName,
+  topSongArtist,
+  playSong,
+} from "./audioPlayer.js";
 
 //Top Songs duration in order
 let topSongDuration = ["2:14", "3:41", "2:55", "3:24", "2:27"];
@@ -67,3 +72,23 @@ export function playlistTopSongUi() {
   }
   isPlaylistVisible = true;
 }
+
+export function highlightPlaylistSong(index) {
+  //playlistUi static Hover effect
+  let songsUi = document.querySelectorAll(".songs");
+  songsUi.forEach((song, idx) => {
+    if (idx === index) {
+      song.style.backgroundColor = "rgb(138, 45, 138)";
+    } else {
+      // Reset the background color for other songs
+      song.style.backgroundColor = "";
+    }
+  });
+}
+
+let songsUi = document.querySelectorAll(".songs");
+songsUi.forEach((song, idx) => {
+  song.addEventListener("click", () => {
+    playSong(idx);
+  });
+});

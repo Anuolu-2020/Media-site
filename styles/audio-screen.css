@@ -107,6 +107,11 @@
   padding-right: 4px;
 }
 
+.songs:hover {
+  cursor: pointer;
+  background-color: rgb(138, 45, 138);
+}
+
 .playlist-img {
   src: "../songs-cover/work\ of\ art.jpeg";
   height: 40px;
