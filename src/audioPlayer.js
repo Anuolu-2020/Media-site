@@ -15,7 +15,7 @@ import {
   getBlob,
   getBytes,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
-import { constructPlaylistSong } from "./audioScreen.js";
+import { playlistTopSongUi } from "./audioScreen.js";
 import { firebaseConfig } from "./fireStoreConnect.js";
 
 // Get all the references to the audio player button
@@ -83,7 +83,7 @@ export let songCover = [
 ];
 
 //top songs name
-let topSongName = [
+export let topSongName = [
   topSongTitle.num1,
   topSongTitle.num2,
   topSongTitle.num3,
@@ -92,7 +92,7 @@ let topSongName = [
 ];
 
 //Top songs artist names
-let topSongArtist = [
+export let topSongArtist = [
   songArtists.art2,
   songArtists.art4,
   songArtists.art3,
@@ -202,10 +202,10 @@ function pauseSong() {
 
 // Add event listeners to play buttons
 // let albumCard = document.querySelectorAll(".albumCover");
-
+let audioScreenImg = document.getElementById("screen");
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    constructPlaylistSong();
+    playlistTopSongUi();
     if (idx === 5) {
       let album = albums[0];
       songImg.src = album.cover;
@@ -248,6 +248,7 @@ playButton.forEach((btn, idx) => {
       playAlbum(albumIndex, 0);
     } else {
       songImg.src = songCover[idx];
+      audioScreenImg.src = songCover[idx];
       songName.innerHTML = topSongName[idx];
       artistName.innerHTML = topSongArtist[idx];
       currentSongIndex = idx; // Update the current song index
@@ -383,6 +384,22 @@ nextBtn.addEventListener("click", () => {
     artistName.innerHTML = topSongArtist[currentSongIndex];
 
     playSong(currentSongIndex);
+  }
+});
+
+//audio screen collapse button
+let audioScreen = document.getElementById("audio-screen");
+let audioCollapse = document.getElementById("audioCollapse");
+let collapsed = true;
+audioCollapse.addEventListener("click", () => {
+  if (collapsed) {
+    audioScreen.style.display = "flex";
+    document.body.style.overflowY = "hidden";
+    collapsed = false;
+  } else {
+    audioScreen.style.display = "none";
+    document.body.style.overflowY = "auto";
+    collapsed = true;
   }
 });
 

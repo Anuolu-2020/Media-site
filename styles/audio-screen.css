@@ -34,8 +34,8 @@
   left: 140px;
   width: 500px;
   height: 420px;
-  border: 1px solid white;
-  background-color: grey;
+  /* border: 1px solid white;
+  background-color: grey; */
   align-self: center;
   margin-left: 20px;
 }

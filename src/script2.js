@@ -148,18 +148,13 @@ artistNames.forEach((names, idx) => {
 function sidebarCollapse() {
   let sidebarTexts = document.querySelectorAll(".sidebar-text");
   let marginIncrease = document.getElementById("music-page");
-  // let audioScreen = document.getElementById("audio-screen");
-  //increase/reduce main page margin based on sidebar
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
       sidebarText.style.display = "flex";
-      // currentMargin.style.marginLeft = newMargin;
       marginIncrease.style.marginLeft = "180px";
-      // audioScreen.style.width = "940px";
     } else {
       sidebarText.style.display = "none";
       marginIncrease.style.marginLeft = "90px";
-      // audioScreen.style.width = "1030px";
     }
   });
 }
