@@ -207,8 +207,10 @@ function pauseSong() {
 // Add event listeners to play buttons
 // let albumCard = document.querySelectorAll(".albumCover");
 let audioScreenImg = document.getElementById("screen");
+
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
+    displayAudioBar();
     playlistTopSongUi();
     if (idx === 5) {
       let album = albums[0];
@@ -218,8 +220,8 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = album.artist;
       albumIndex = 0; // Update the current song index
       isPlayingAlbum = true;
-      // highlightPlaylistSong(0);
       playlistAlbumSongUi(albumIndex);
+      highlightPlaylistSong(0);
       playAlbum(albumIndex, 0);
     } else if (idx === 6) {
       let album = albums[1];
@@ -229,8 +231,8 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = album.artist;
       albumIndex = 1; // Update the current song index
       isPlaying = true;
-      // highlightPlaylistSong(0);
       playlistAlbumSongUi(albumIndex);
+      highlightPlaylistSong(0);
       playAlbum(albumIndex, 0);
     } else if (idx === 7) {
       let album = albums[2];
@@ -240,8 +242,8 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = album.artist;
       albumIndex = 2; // Update the current song index
       isPlaying = true;
-      // highlightPlaylistSong(0);
       playlistAlbumSongUi(albumIndex);
+      highlightPlaylistSong(0);
       playAlbum(albumIndex, 0);
     } else if (idx === 8) {
       let album = albums[3];
@@ -251,8 +253,8 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = album.artist;
       albumIndex = 3; // Update the current song index
       isPlayingAlbum = true;
-      // highlightPlaylistSong(0);
       playlistAlbumSongUi(albumIndex);
+      highlightPlaylistSong(0);
       playAlbum(albumIndex, 0);
     } else if (idx === 9) {
       let album = albums[4];
@@ -262,8 +264,8 @@ playButton.forEach((btn, idx) => {
       artistName.innerHTML = album.artist;
       albumIndex = 4; // Update the current song index
       isPlayingAlbum = true;
-      // highlightPlaylistSong(0);
       playlistAlbumSongUi(albumIndex);
+      highlightPlaylistSong(0);
       playAlbum(albumIndex, 0);
     } else {
       songImg.src = songCover[idx];
@@ -315,7 +317,7 @@ audio.addEventListener("ended", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-    // highlightPlaylistSong(currentSongIndex);
+    highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // Increment the current song index and play the next song
@@ -369,7 +371,7 @@ previousBtn.addEventListener("click", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-    // highlightPlaylistSong(currentSongIndex);
+    highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // decrement the current song index and play the next song
@@ -400,7 +402,7 @@ nextBtn.addEventListener("click", () => {
     songName.innerHTML = albumSongName[currentSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-    // highlightPlaylistSong(currentSongIndex);
+    highlightPlaylistSong(currentSongIndex);
     playAlbum(albumIndex, currentSongIndex);
   } else {
     // Increment the current song index and play the next song
@@ -478,3 +480,8 @@ audio.addEventListener("timeupdate", () => {
     )}`;
   }
 });
+
+function displayAudioBar() {
+  audioPlayer.style.display = "flex";
+  progressSlide.style.display = "block";
+}

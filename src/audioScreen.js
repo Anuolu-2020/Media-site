@@ -161,7 +161,7 @@ export function playlistAlbumSongUi(albumIndex) {
   isPlaylistVisible = true;
 }
 
-export function highlightPlaylistSong(songIndex) {
+export function highlightPlaylistSong(index) {
   //playlistUi static Hover effect
   let songsUi = document.querySelectorAll(".songs");
   songsUi.forEach((song, idx) => {
