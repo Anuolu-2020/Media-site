@@ -198,7 +198,7 @@ export function highlightPlaylistAlbum(albumIndex, index) {
   songsUi.forEach((song, idx) => {
     song.addEventListener("click", () => {
       let album = albums[albumIndex];
-      audio.pause();
+      // audio.pause();
       playAlbum(albumIndex, idx);
       songImg.src = album.cover;
       //img for audio screen

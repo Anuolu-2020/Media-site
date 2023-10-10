@@ -211,7 +211,7 @@ export let audioScreenImg = document.getElementById("screen");
 
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    audio.pause();
+    // audio.pause();
     displayAudioBar();
     playlistTopSongUi();
     if (idx === 5) {
@@ -358,7 +358,7 @@ shuffleBtn.addEventListener("click", () => {
 
 //previous button to go to the previoua song
 previousBtn.addEventListener("click", () => {
-  audio.pause();
+  // audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
@@ -392,7 +392,7 @@ previousBtn.addEventListener("click", () => {
 
 //next button to go to the next song
 nextBtn.addEventListener("click", () => {
-  audio.pause();
+  // audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
