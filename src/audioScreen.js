@@ -3,6 +3,12 @@ import {
   topSongName,
   topSongArtist,
   albums,
+  playSong,
+  audioScreenImg,
+  artistName,
+  songName,
+  audio,
+  playAlbum,
 } from "./audioPlayer.js";
 
 // import { albumName } from "./links.js";
@@ -165,6 +171,18 @@ export function highlightPlaylistSong(index) {
   //playlistUi static Hover effect
   let songsUi = document.querySelectorAll(".songs");
   songsUi.forEach((song, idx) => {
+    song.addEventListener("click", () => {
+      audio.pause();
+      playSong(idx);
+      songImg.src = songCover[idx];
+      //img for audio screen
+      audioScreenImg.src = songCover[idx];
+      songName.innerHTML = topSongName[idx];
+      artistName.innerHTML = topSongArtist[idx];
+      if (idx === index) {
+        song.style.backgroundColor = "rgb(138, 45, 138)";
+      }
+    });
     if (idx === index) {
       song.style.backgroundColor = "rgb(138, 45, 138)";
     } else {
@@ -174,6 +192,31 @@ export function highlightPlaylistSong(index) {
   });
 }
 
+export function highlightPlaylistAlbum(albumIndex, index) {
+  //playlistUi static Hover effect
+  let songsUi = document.querySelectorAll(".songs");
+  songsUi.forEach((song, idx) => {
+    song.addEventListener("click", () => {
+      let album = albums[albumIndex];
+      audio.pause();
+      playAlbum(albumIndex, idx);
+      songImg.src = album.cover;
+      //img for audio screen
+      audioScreenImg.src = album.cover;
+      songName.innerHTML = album.songsName[idx];
+      artistName.innerHTML = album.artist;
+      if (idx === index) {
+        song.style.backgroundColor = "rgb(138, 45, 138)";
+      }
+    });
+    if (idx === index) {
+      song.style.backgroundColor = "rgb(138, 45, 138)";
+    } else {
+      // Reset the background color for other songs
+      song.style.backgroundColor = "";
+    }
+  });
+}
 // export function highlightPlaylistSong(songIndex) {
 //   //playlistUi static Hover effect
 //   let songsUi = document.querySelectorAll(".songs");
