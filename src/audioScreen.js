@@ -3,13 +3,13 @@ import {
   topSongName,
   topSongArtist,
   albums,
-  playSong,
   audioScreenImg,
   artistName,
   songName,
   audio,
   playAlbum,
 } from "./audioPlayer.js";
+import { artistSongs } from "./artistPlaylist.js";
 
 // import { albumName } from "./links.js";
 //Top Songs duration in order
@@ -18,6 +18,9 @@ let audioScreen = document.getElementById("audio-screen");
 let sidebarTexts = document.querySelectorAll(".sidebar-text");
 let playlistOrigin = document.getElementById("playlist-origin");
 let audioCollapse = document.getElementById("audioCollapse");
+let audioPlayer = document.getElementById("audioPlayer");
+let progressSlide = document.getElementById("progressSlide");
+
 let rotationDegree = 180;
 let isPlaylistVisible = false;
 
@@ -82,14 +85,6 @@ export function playlistTopSongUi() {
   }
   isPlaylistVisible = true;
 }
-
-// let albumNames = [
-//   albumName.num1,
-//   albumName.num2,
-//   albumName.num3,
-//   albumName.num4,
-//   albumName.num5,
-// ];
 
 let albumSongsDuration = [
   ["3:41", "2:55", "3:11", "3:06"],
@@ -167,6 +162,74 @@ export function playlistAlbumSongUi(albumIndex) {
   isPlaylistVisible = true;
 }
 
+export function playlistArtistSongUi(songIndex) {
+  if (isPlaylistVisible) {
+    // Playlist UI is already visible, so return early
+    let songsUi = document.querySelectorAll(".songs");
+    songsUi.forEach((song) => {
+      song.remove();
+    });
+  }
+
+  let artistSong = artistSongs[songIndex];
+  let artistName = artistSong.name;
+  let artistSongName = artistSong.songsName; //array
+  let artistSongCover = artistSong.cover; //array
+  let artistSongDuration = artistSong.songDuration; //array
+
+  let playlist = document.getElementById("playlist");
+  audioScreen.style.display = "flex";
+  audioPlayer.style.display = "flex";
+  progressSlide.style.display = "flex";
+  document.body.style.overflowY = "hidden";
+  playlistOrigin.innerText = `Playing from ${artistName} songs`;
+
+  //Rotating animation of the collapse button
+  audioCollapse.style.transform = `rotate(${rotationDegree}deg)`;
+
+  sidebarTexts.forEach((text) => {
+    text.style.display = "none";
+  });
+
+  //Creating Songs ui based on the amount of songs available
+  for (let i = 0; i < artistSongName.length; i++) {
+    let songs = document.createElement("div");
+    songs.classList.add("songs");
+    playlist.appendChild(songs);
+    let playlistImg = document.createElement("img");
+    playlistImg.classList.add("playlist-img");
+
+    //images source for the playlist images
+    playlistImg.src = artistSongCover[i];
+    songs.appendChild(playlistImg);
+
+    let playlistInfo = document.createElement("div");
+    playlistInfo.classList.add("playlist-info");
+    songs.appendChild(playlistInfo);
+
+    let playlistSongName = document.createElement("div");
+    playlistSongName.classList.add("playlist-songName");
+
+    //playlist song name
+    playlistSongName.innerText = artistSongName[i];
+    playlistInfo.appendChild(playlistSongName);
+
+    let playlistSongArtist = document.createElement("div");
+    playlistSongArtist.classList.add("playlist-songArtist");
+
+    //Names of artist of the playlist
+    playlistSongArtist.innerText = artistName;
+    playlistInfo.appendChild(playlistSongArtist);
+
+    let playlistDuration = document.createElement("div");
+    playlistDuration.classList.add("playlist-duration");
+
+    //Songs duration for top songs
+    playlistDuration.innerText = artistSongDuration[i];
+    songs.appendChild(playlistDuration);
+  }
+  isPlaylistVisible = true;
+}
 // function highlightPlaylistSong(index) {
 //   //playlistUi static Hover effect
 //   let songsUi = document.querySelectorAll(".songs");

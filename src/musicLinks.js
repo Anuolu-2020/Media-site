@@ -4,6 +4,9 @@ export const musicLinks = {
   holiday: "/Songs/Holiday - Rema.m4a",
   basquiat: "/Songs/Basquiat - Asake.m4a",
   lonelyAtTheTop: "/Songs/Lonely At The Top - Asake.m4a",
+  twoThirty: "/Songs/Asake - 2.30.m4a",
+  remember: "/Songs/Asake - Remember.mp3",
+  sunshine: "/Songs/Asake - Sunshine.mp3",
   modupe: "/Songs/Modupe - Crayon.m4a",
   Ngozi: "/Songs/Ngozi - Crayon&Ayra Starr.m4a",
   belleFull: "/Songs/Crayon - Belle Full feat Victony & Ktizo.m4a",
@@ -20,4 +23,7 @@ export const musicLinks = {
   noCompetition: "/Songs/Davido ft Asake - No Competition.mp3",
   inTheGarden: "/Songs/Davido - IN THE GARDEN feat Morravey.mp3",
   chemical: "/Songs/Chemical - Post Malone.m4a",
+  betterNow: "/Songs/Post Malone - Better Now.mp3",
+  circles: "/Songs/Post malone - Circles.mp3",
+  sunflower: "/Songs/Post Malone, Swae Lee - Sunflower.mp3",
 };

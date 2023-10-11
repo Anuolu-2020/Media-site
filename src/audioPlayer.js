@@ -20,6 +20,8 @@ import {
   highlightPlaylistAlbum,
   playlistAlbumSongUi,
 } from "./audioScreen.js";
+import { artistSongs } from "./artistPlaylist.js";
+
 import { firebaseConfig } from "./fireStoreConnect.js";
 
 // Get all the references to the audio player button
@@ -138,7 +140,7 @@ export const albums = [
     artist: albumArtists.num3,
     cover: albumLinks.timeless,
     songsName: [
-      "Unavailable",
+      "Unavailable ft Musa Keys",
       "FEEL",
       "No Competition ft Asake",
       "In The Garden ft Morravey",
@@ -185,9 +187,10 @@ let isRepeatActive = false; //Track repeat state
 let isPlaying = false; //Track Playing state
 let isShuffleActive = false; //Track Shuffle state
 let isPlayingAlbum = false; //Tracking for playing album
-let albumIndex = 0;
+let isArtistPlaylist = false; //Tracking artist song playlist
+let albumIndex = 0; //Tracking album index
 
-//topSongs fetch
+//for playing topSongs fetch
 export function playSong(index) {
   const fileRef = ref(storage, topSongsUrl[index]);
   getBlob(fileRef).then((blob) => {
@@ -199,10 +202,25 @@ export function playSong(index) {
   });
 }
 
+//For playing album songs
 export function playAlbum(index, songIndex) {
   let album = albums[index];
   let albumUrl = album.url;
   const fileRef = ref(storage, albumUrl[songIndex]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
+
+//For playing artist songs
+export function playArtistSong(index, songIndex) {
+  let song = artistSongs[index];
+  let songUrl = song.url;
+  const fileRef = ref(storage, songUrl[songIndex]);
   getBlob(fileRef).then((blob) => {
     let url = URL.createObjectURL(blob);
     audio.src = url;
@@ -229,6 +247,17 @@ function pauseSong() {
   playPauseBtn.src = "./ICONS/play.png";
 }
 
+//for artist songs
+let artists = document.querySelectorAll(".card2");
+
+artists.forEach((art, idx) => {
+  isArtistPlaylist = true;
+  art.addEventListener("click", () => {
+    playlistArtistSongUi(idx);
+  });
+});
+
+
 //Displaying static highlight effect for current song playing
 function highlightPlaylistSong(index) {
   //playlistUi static Hover effect
@@ -236,7 +265,7 @@ function highlightPlaylistSong(index) {
   songsUi.forEach((song, idx) => {
     song.addEventListener("click", () => {
       audio.pause();
-      isPlayingAlbum = true;
+      // isPlayingAlbum = true;
       playSong(idx);
       songImg.src = songCover[idx];
       //img for audio screen
