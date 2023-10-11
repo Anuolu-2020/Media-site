@@ -17,7 +17,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 import {
   playlistTopSongUi,
-  highlightPlaylistSong,
   highlightPlaylistAlbum,
   playlistAlbumSongUi,
 } from "./audioScreen.js";
@@ -112,32 +111,57 @@ export const albums = [
     name: albumName.num1,
     artist: albumArtists.num1,
     cover: albumLinks.trenchToTriumph,
-    songsName: ["Ngozi ft Arya Starr", "Modupe"],
-    url: [musicLinks.Ngozi, musicLinks.modupe],
+    songsName: [
+      "Ngozi ft Arya Starr",
+      "Modupe",
+      "Belle Full ft Victony & Ktizo",
+      "Ijo (Laba Laba)",
+    ],
+    url: [
+      musicLinks.Ngozi,
+      musicLinks.modupe,
+      musicLinks.belleFull,
+      musicLinks.ijoLaba,
+    ],
   },
   {
     //Thy Kingdom come
     name: albumName.num2,
     artist: albumArtists.num2,
     cover: albumLinks.thyKingdomCome,
-    songsName: ["Man of the year"],
-    url: [musicLinks.manOfTheYear],
+    songsName: ["Man of the year", "Dejavu", "Karma"],
+    url: [musicLinks.manOfTheYear, musicLinks.dejavu, musicLinks.karma],
   },
   {
     //Timeless
     name: albumName.num3,
     artist: albumArtists.num3,
     cover: albumLinks.timeless,
-    songsName: ["Unavailable"],
-    url: [musicLinks.unavailable],
+    songsName: [
+      "Unavailable",
+      "FEEL",
+      "No Competition ft Asake",
+      "In The Garden ft Morravey",
+    ],
+    url: [
+      musicLinks.unavailable,
+      musicLinks.feel,
+      musicLinks.noCompetition,
+      musicLinks.inTheGarden,
+    ],
   },
   {
     //Boy Alone
     name: albumName.num4,
     artist: albumArtists.num4,
     cover: albumLinks.boyAlone,
-    songsName: ["Reason"],
-    url: [musicLinks.reason],
+    songsName: ["Reason", "Come Closer", "It's Yours", "Soso ft Ozuna"],
+    url: [
+      musicLinks.reason,
+      musicLinks.comeCloser,
+      musicLinks.itsYours,
+      musicLinks.soso,
+    ],
   },
   {
     //Rave & roses
@@ -203,6 +227,33 @@ function pauseSong() {
   audio.pause();
   isPlaying = false;
   playPauseBtn.src = "./ICONS/play.png";
+}
+
+//Displaying static highlight effect for current song playing
+function highlightPlaylistSong(index) {
+  //playlistUi static Hover effect
+  let songsUi = document.querySelectorAll(".songs");
+  songsUi.forEach((song, idx) => {
+    song.addEventListener("click", () => {
+      audio.pause();
+      isPlayingAlbum = true;
+      playSong(idx);
+      songImg.src = songCover[idx];
+      //img for audio screen
+      audioScreenImg.src = songCover[idx];
+      songName.innerHTML = topSongName[idx];
+      artistName.innerHTML = topSongArtist[idx];
+      if (idx === index) {
+        song.style.backgroundColor = "rgb(138, 45, 138)";
+      }
+    });
+    if (idx === index) {
+      song.style.backgroundColor = "rgb(138, 45, 138)";
+    } else {
+      // Reset the background color for other songs
+      song.style.backgroundColor = "";
+    }
+  });
 }
 
 // Add event listeners to play buttons
@@ -302,12 +353,6 @@ audio.addEventListener("ended", () => {
     currentSongIndex = Math.floor(Math.random() * topSongsUrl.length);
     highlightPlaylistSong(currentSongIndex);
     playSong(currentSongIndex);
-  } else if (isShuffleActive && isPlayingAlbum) {
-    //Album song shuffling //not working yet
-    let album = albums[albumIndex];
-    let albumUrl = album.url;
-    currentSongIndex = Math.floor(Math.random() * albumUrl.length);
-    playAlbum(albumIndex, currentSongIndex);
   } else if (isPlayingAlbum) {
     //Auto play to the next song in an album
     let album = albums[albumIndex];
@@ -358,7 +403,7 @@ shuffleBtn.addEventListener("click", () => {
 
 //previous button to go to the previoua song
 previousBtn.addEventListener("click", () => {
-  // audio.pause();
+  audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;
@@ -392,7 +437,7 @@ previousBtn.addEventListener("click", () => {
 
 //next button to go to the next song
 nextBtn.addEventListener("click", () => {
-  // audio.pause();
+  audio.pause();
   if (isPlayingAlbum) {
     let album = albums[albumIndex];
     let albumSongName = album.songsName;

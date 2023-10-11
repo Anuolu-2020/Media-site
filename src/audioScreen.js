@@ -92,10 +92,10 @@ export function playlistTopSongUi() {
 // ];
 
 let albumSongsDuration = [
-  ["3:41", "2:55"],
-  ["2:24"],
-  ["2:49"],
-  ["2:27"],
+  ["3:41", "2:55", "3:11", "3:06"],
+  ["2:24", "2:41", "2:34"],
+  ["2:49", "2:34", "2:36", "2:45"],
+  ["2:27", "2:35", "2:45", "3:22"],
   ["3:59", "2:39", "3:24"],
 ];
 
@@ -167,30 +167,31 @@ export function playlistAlbumSongUi(albumIndex) {
   isPlaylistVisible = true;
 }
 
-export function highlightPlaylistSong(index) {
-  //playlistUi static Hover effect
-  let songsUi = document.querySelectorAll(".songs");
-  songsUi.forEach((song, idx) => {
-    song.addEventListener("click", () => {
-      audio.pause();
-      playSong(idx);
-      songImg.src = songCover[idx];
-      //img for audio screen
-      audioScreenImg.src = songCover[idx];
-      songName.innerHTML = topSongName[idx];
-      artistName.innerHTML = topSongArtist[idx];
-      if (idx === index) {
-        song.style.backgroundColor = "rgb(138, 45, 138)";
-      }
-    });
-    if (idx === index) {
-      song.style.backgroundColor = "rgb(138, 45, 138)";
-    } else {
-      // Reset the background color for other songs
-      song.style.backgroundColor = "";
-    }
-  });
-}
+// function highlightPlaylistSong(index) {
+//   //playlistUi static Hover effect
+//   let songsUi = document.querySelectorAll(".songs");
+//   songsUi.forEach((song, idx) => {
+//     song.addEventListener("click", () => {
+//       audio.pause();
+//       isPlayingAlbum = true;
+//       playSong(idx);
+//       songImg.src = songCover[idx];
+//       //img for audio screen
+//       audioScreenImg.src = songCover[idx];
+//       songName.innerHTML = topSongName[idx];
+//       artistName.innerHTML = topSongArtist[idx];
+//       if (idx === index) {
+//         song.style.backgroundColor = "rgb(138, 45, 138)";
+//       }
+//     });
+//     if (idx === index) {
+//       song.style.backgroundColor = "rgb(138, 45, 138)";
+//     } else {
+//       // Reset the background color for other songs
+//       song.style.backgroundColor = "";
+//     }
+//   });
+// }
 
 export function highlightPlaylistAlbum(albumIndex, index) {
   //playlistUi static Hover effect
