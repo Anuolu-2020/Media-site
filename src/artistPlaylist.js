@@ -1,8 +1,7 @@
 import { songArtists } from "./links.js";
 import { musicLinks } from "./musicLinks.js";
-import { playlistArtistSongUi } from "./audioScreen.js";
+// import { playlistArtistSongUi } from "./audioScreen.js";
 import { playArtistSong } from "./audioPlayer.js";
-
 
 let musicCovers = {
   calmDown: "./songs-cover/calm down.jpeg",
@@ -153,32 +152,3 @@ export const artistSongs = [
     ],
   },
 ];
-
-export function highlightArtistPlaylist(artistIndex, index) {
-  if (isArtistPlaylist) {
-    let songsUi = document.querySelectorAll(".songs");
-    songsUi.forEach((song, idx) => {
-      song.addEventListener("click", () => {
-        let song = songArtists[artistIndex];
-        // audio.pause();
-        let songName = song.songsName;
-        let songCover = song.cover;
-        playArtistSong(artistIndex, idx);
-        songImg.src = songCover[idx];
-        //img for audio screen
-        audioScreenImg.src = songCover[idx];
-        songName.innerHTML = songName[idx];
-        artistName.innerHTML = song.artist;
-        if (idx === index) {
-          song.style.backgroundColor = "rgb(138, 45, 138)";
-        }
-      });
-      if (idx === index) {
-        song.style.backgroundColor = "rgb(138, 45, 138)";
-      } else {
-        // Reset the background color for other songs
-        song.style.backgroundColor = "";
-      }
-    });
-  }
-}

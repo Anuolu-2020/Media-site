@@ -19,6 +19,7 @@ import {
   playlistTopSongUi,
   highlightPlaylistAlbum,
   playlistAlbumSongUi,
+  playlistArtistSongUi,
 } from "./audioScreen.js";
 import { artistSongs } from "./artistPlaylist.js";
 
@@ -189,6 +190,7 @@ let isShuffleActive = false; //Track Shuffle state
 let isPlayingAlbum = false; //Tracking for playing album
 let isArtistPlaylist = false; //Tracking artist song playlist
 let albumIndex = 0; //Tracking album index
+let artistIndex = 0; //Tracking artist index
 
 //for playing topSongs fetch
 export function playSong(index) {
@@ -253,10 +255,39 @@ let artists = document.querySelectorAll(".card2");
 artists.forEach((art, idx) => {
   isArtistPlaylist = true;
   art.addEventListener("click", () => {
+    artistIndex = idx;
     playlistArtistSongUi(idx);
+
+    //play artist songs
+    let songsUi = document.querySelectorAll(".songs");
+    songsUi.forEach((song, idx) => {
+      if (isArtistPlaylist) {
+        song.addEventListener("click", () => {
+          let song = artistSongs[artistIndex];
+          // audio.pause();
+          let musicName = song.songsName;
+          let songCover = song.cover;
+          songImg.src = songCover[idx];
+          playArtistSong(artistIndex, idx);
+          //img for audio screen
+          audioScreenImg.src = songCover[idx];
+          songName.innerHTML = musicName[idx];
+          artistName.innerHTML = song.name;
+          let songIndex = idx;
+          if (idx === songIndex) {
+            song.style.backgroundColor = "rgb(138, 45, 138)";
+          }
+        });
+        if (idx === currentSongIndex) {
+          song.style.backgroundColor = "rgb(138, 45, 138)";
+        } else {
+          // Reset the background color for other songs
+          song.style.backgroundColor = "";
+        }
+      }
+    });
   });
 });
-
 
 //Displaying static highlight effect for current song playing
 function highlightPlaylistSong(index) {
