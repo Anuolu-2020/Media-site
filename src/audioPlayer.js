@@ -17,7 +17,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 import {
   playlistTopSongUi,
-  highlightPlaylistAlbum,
   playlistAlbumSongUi,
   playlistArtistSongUi,
 } from "./audioScreen.js";
@@ -192,6 +191,9 @@ let isArtistPlaylist = false; //Tracking artist song playlist
 let albumIndex = 0; //Tracking album index
 let artistIndex = 0; //Tracking artist index
 
+let albumSongIndex = 0; //Tracking album song index
+let artistSongIndex = 0; //Tracking artist song index
+
 //for playing topSongs fetch
 export function playSong(index) {
   const fileRef = ref(storage, topSongsUrl[index]);
@@ -251,32 +253,31 @@ function pauseSong() {
 
 //for artist songs
 let artists = document.querySelectorAll(".card2");
-
+//Artist clickable images
 artists.forEach((art, idx) => {
-  isArtistPlaylist = true;
   art.addEventListener("click", () => {
+    isArtistPlaylist = true;
     artistIndex = idx;
     playlistArtistSongUi(idx);
-
     //play artist songs
     let songsUi = document.querySelectorAll(".songs");
-    songsUi.forEach((song, idx) => {
+    songsUi.forEach((song, idx2) => {
       if (isArtistPlaylist) {
         song.addEventListener("click", () => {
           let song = artistSongs[artistIndex];
           // audio.pause();
           let musicName = song.songsName;
           let songCover = song.cover;
-          songImg.src = songCover[idx];
-          playArtistSong(artistIndex, idx);
+          songImg.src = songCover[idx2];
+          playArtistSong(artistIndex, idx2);
           //img for audio screen
-          audioScreenImg.src = songCover[idx];
-          songName.innerHTML = musicName[idx];
+          audioScreenImg.src = songCover[idx2];
+          songName.innerHTML = musicName[idx2];
           artistName.innerHTML = song.name;
-          let songIndex = idx;
-          if (idx === songIndex) {
-            song.style.backgroundColor = "rgb(138, 45, 138)";
-          }
+          artistSongIndex = idx2;
+          // if (idx === idx2) {
+          //   song.style.backgroundColor = "rgb(138, 45, 138)";
+          // }
         });
         if (idx === currentSongIndex) {
           song.style.backgroundColor = "rgb(138, 45, 138)";
@@ -316,6 +317,36 @@ function highlightPlaylistSong(index) {
   });
 }
 
+function highlightPlaylistAlbum(albumIndex, index) {
+  //playlistUi static Hover effect
+  let songsUi = document.querySelectorAll(".songs");
+  songsUi.forEach((song, idx) => {
+    song.addEventListener("click", () => {
+      isPlayingAlbum = true;
+      let album = albums[albumIndex];
+      // audio.pause();
+      albumSongIndex = idx;
+      playAlbum(albumIndex, albumSongIndex);
+      songImg.src = album.cover;
+      //img for audio screen
+      audioScreenImg.src = album.cover;
+      songName.innerHTML = album.songsName[idx];
+      artistName.innerHTML = album.artist;
+      // if (idx === index) {
+      //   song.style.backgroundColor = "rgb(138, 45, 138)";
+      // } else {
+      //   song.style.backgroundColor = "";
+      // }
+    });
+    if (idx === index) {
+      song.style.backgroundColor = "rgb(138, 45, 138)";
+    } else {
+      // Reset the background color for other songs
+      song.style.backgroundColor = "";
+    }
+  });
+}
+
 // Add event listeners to play buttons
 // let albumCard = document.querySelectorAll(".albumCover");
 export let audioScreenImg = document.getElementById("screen");
@@ -329,57 +360,57 @@ playButton.forEach((btn, idx) => {
       let album = albums[0];
       songImg.src = album.cover;
       audioScreenImg.src = album.cover;
-      songName.innerHTML = album.songsName[0];
+      songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 0; // Update the current song index
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
-      highlightPlaylistAlbum(albumIndex, 0);
-      playAlbum(albumIndex, 0);
+      highlightPlaylistAlbum(albumIndex, albumSongIndex);
+      playAlbum(albumIndex, albumSongIndex);
     } else if (idx === 6) {
       let album = albums[1];
       songImg.src = album.cover;
       audioScreenImg.src = album.cover;
-      songName.innerHTML = album.songsName[0];
+      songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 1; // Update the current song index
       isPlaying = true;
       playlistAlbumSongUi(albumIndex);
-      highlightPlaylistAlbum(albumIndex, 0);
-      playAlbum(albumIndex, 0);
+      highlightPlaylistAlbum(albumIndex, albumSongIndex);
+      playAlbum(albumIndex, albumSongIndex);
     } else if (idx === 7) {
       let album = albums[2];
       songImg.src = album.cover;
       audioScreenImg.src = album.cover;
-      songName.innerHTML = album.songsName[0];
+      songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 2; // Update the current song index
       isPlaying = true;
       playlistAlbumSongUi(albumIndex);
-      highlightPlaylistAlbum(albumIndex, 0);
-      playAlbum(albumIndex, 0);
+      highlightPlaylistAlbum(albumIndex, albumSongIndex);
+      playAlbum(albumIndex, albumSongIndex);
     } else if (idx === 8) {
       let album = albums[3];
       songImg.src = album.cover;
       audioScreenImg.src = album.cover;
-      songName.innerHTML = album.songsName[0];
+      songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 3; // Update the current song index
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
-      highlightPlaylistAlbum(albumIndex, 0);
-      playAlbum(albumIndex, 0);
+      highlightPlaylistAlbum(albumIndex, albumSongIndex);
+      playAlbum(albumIndex, albumSongIndex);
     } else if (idx === 9) {
       let album = albums[4];
       songImg.src = album.cover;
       audioScreenImg.src = album.cover;
-      songName.innerHTML = album.songsName[0];
+      songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 4; // Update the current song index
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
-      highlightPlaylistAlbum(albumIndex, 0);
-      playAlbum(albumIndex, 0);
+      highlightPlaylistAlbum(albumIndex, albumSongIndex);
+      playAlbum(albumIndex, albumSongIndex);
     } else {
       songImg.src = songCover[idx];
       //img for audio screen
@@ -402,6 +433,94 @@ repeatBtn.addEventListener("click", () => {
     : "./ICONS/replay.png";
 });
 
+//previous button to go to the previoua song
+previousBtn.addEventListener("click", () => {
+  audio.pause();
+  if (isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumSongName = album.songsName;
+    let albumArtist = album.artist;
+    let albumCover = album.cover;
+    let albumUrl = album.url;
+    if (albumSongIndex === 0) {
+      albumSongIndex = albumUrl.length - 1;
+    } else {
+      albumSongIndex = (albumSongIndex - 1) % albumUrl.length;
+    }
+    songName.innerHTML = albumSongName[albumSongIndex];
+    songImg.src = albumCover;
+    artistName.innerHTML = albumArtist;
+    highlightPlaylistAlbum(albumIndex, albumSongIndex);
+    playAlbum(albumIndex, albumSongIndex);
+  } else if (isArtistPlaylist) {
+    let artist = artistSongs[artistIndex];
+    let artistSongName = artist.songsName; //Array
+    let artist_name = artist.name;
+    let artist_song_cover = artist.cover; //Array
+    let artistSongUrl = artist.url; //Array
+    if (artistSongIndex === 0) {
+      artistSongIndex = artistSongUrl.length - 1;
+    } else {
+      artistSongIndex = (artistSongIndex - 1) % artistSongUrl.length;
+    }
+    songName.innerText = artistSongName[artistSongIndex];
+    songImg.src = artist_song_cover[artistSongIndex];
+    audioScreenImg.src = artist_song_cover[artistSongIndex];
+    artistSongName.innerText = artist_name;
+    playArtistSong(artistIndex, artistSongIndex);
+  } else {
+    // decrement the current song index and play the next song
+    if (currentSongIndex === 0) {
+      currentSongIndex = topSongsUrl.length - 1;
+    } else {
+      currentSongIndex = (currentSongIndex - 1) % topSongsUrl.length;
+    }
+    songName.innerHTML = topSongName[currentSongIndex];
+    songImg.src = songCover[currentSongIndex];
+    artistName.innerHTML = topSongArtist[currentSongIndex];
+    highlightPlaylistSong(currentSongIndex);
+    playSong(currentSongIndex);
+  }
+});
+
+//next button to go to the next song
+nextBtn.addEventListener("click", () => {
+  audio.pause();
+  if (isPlayingAlbum) {
+    let album = albums[albumIndex];
+    let albumSongName = album.songsName;
+    let albumArtist = album.artist;
+    let albumCover = album.cover;
+    let albumUrl = album.url;
+    albumSongIndex = (albumSongIndex + 1) % albumUrl.length;
+    songName.innerHTML = albumSongName[albumSongIndex];
+    songImg.src = albumCover;
+    artistName.innerHTML = albumArtist;
+    highlightPlaylistAlbum(albumIndex, albumSongIndex);
+    playAlbum(albumIndex, albumSongIndex);
+  } else if (isArtistPlaylist) {
+    let artist = artistSongs[artistIndex];
+    let artistSongName = artist.songsName; //Array
+    let artist_name = artist.name;
+    let artist_song_cover = artist.cover; //Array
+    let artistSongUrl = artist.url; //Array
+    artistSongIndex = (artistSongIndex + 1) % artistSongUrl.length;
+    songName.innerText = artistSongName[artistSongIndex];
+    songImg.src = artist_song_cover[artistSongIndex];
+    audioScreenImg.src = artist_song_cover[artistSongIndex];
+    artistSongName.innerText = artist_name;
+    playArtistSong(artistIndex, artistSongIndex);
+  } else {
+    // Increment the current song index and play the next song
+    currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;
+    songName.innerHTML = topSongName[currentSongIndex];
+    songImg.src = songCover[currentSongIndex];
+    artistName.innerHTML = topSongArtist[currentSongIndex];
+    highlightPlaylistSong(currentSongIndex);
+    playSong(currentSongIndex);
+  }
+});
+
 // Listen for the 'ended' event on the audio element to play the next song
 //Autoplay handler
 audio.addEventListener("ended", () => {
@@ -420,16 +539,28 @@ audio.addEventListener("ended", () => {
     let albumArtist = album.artist;
     let albumCover = album.cover;
     let albumUrl = album.url;
-    currentSongIndex = (currentSongIndex + 1) % albumUrl.length;
-    songName.innerHTML = albumSongName[currentSongIndex];
+    albumSongIndex = (albumSongIndex + 1) % albumUrl.length;
+    songName.innerText = albumSongName[albumSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
-    highlightPlaylistAlbum(albumIndex, currentSongIndex);
-    playAlbum(albumIndex, currentSongIndex);
+    highlightPlaylistAlbum(albumIndex, albumSongIndex);
+    playAlbum(albumIndex, albumSongIndex);
+  } else if (isArtistPlaylist) {
+    let artist = artistSongs[artistIndex];
+    let artistSongName = artist.songsName; //Array
+    let artist_name = artist.name;
+    let artist_song_cover = artist.cover; //Array
+    let artistSongUrl = artist.url; //Array
+    artistSongIndex = (artistSongIndex + 1) % artistSongUrl.length;
+    songName.innerText = artistSongName[artistSongIndex];
+    songImg.src = artist_song_cover[artistSongIndex];
+    audioScreenImg.src = artist_song_cover[artistSongIndex];
+    artistSongName.innerText = artist_name;
+    playArtistSong(artistIndex, artistSongIndex);
   } else {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;
-    songName.innerHTML = topSongName[currentSongIndex];
+    songName.innerText = topSongName[currentSongIndex];
     audioScreenImg.src = songCover[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
@@ -458,68 +589,6 @@ shuffleBtn.addEventListener("click", () => {
       const j = Math.floor(Math.random() * (i + 1));
       [topSongsUrl[i], topSongsUrl[j]] = [topSongsUrl[j], topSongsUrl[i]];
     }
-  }
-});
-
-//previous button to go to the previoua song
-previousBtn.addEventListener("click", () => {
-  audio.pause();
-  if (isPlayingAlbum) {
-    let album = albums[albumIndex];
-    let albumSongName = album.songsName;
-    let albumArtist = album.artist;
-    let albumCover = album.cover;
-    let albumUrl = album.url;
-    if (currentSongIndex === 0) {
-      currentSongIndex = albumUrl.length - 1;
-    } else {
-      currentSongIndex = (currentSongIndex - 1) % albumUrl.length;
-    }
-    songName.innerHTML = albumSongName[currentSongIndex];
-    songImg.src = albumCover;
-    artistName.innerHTML = albumArtist;
-    highlightPlaylistAlbum(albumIndex, currentSongIndex);
-    playAlbum(albumIndex, currentSongIndex);
-  } else {
-    // decrement the current song index and play the next song
-    if (currentSongIndex === 0) {
-      currentSongIndex = topSongsUrl.length - 1;
-    } else {
-      currentSongIndex = (currentSongIndex - 1) % topSongsUrl.length;
-    }
-    songName.innerHTML = topSongName[currentSongIndex];
-    songImg.src = songCover[currentSongIndex];
-    artistName.innerHTML = topSongArtist[currentSongIndex];
-    highlightPlaylistSong(currentSongIndex);
-    playSong(currentSongIndex);
-  }
-});
-
-//next button to go to the next song
-nextBtn.addEventListener("click", () => {
-  audio.pause();
-  if (isPlayingAlbum) {
-    let album = albums[albumIndex];
-    let albumSongName = album.songsName;
-    let albumArtist = album.artist;
-    let albumCover = album.cover;
-    let albumUrl = album.url;
-    currentSongIndex =
-      (currentSongIndex - 1 + albumUrl.length) % albumUrl.length;
-    songName.innerHTML = albumSongName[currentSongIndex];
-    songImg.src = albumCover;
-    artistName.innerHTML = albumArtist;
-    highlightPlaylistAlbum(albumIndex, currentSongIndex);
-    playAlbum(albumIndex, currentSongIndex);
-  } else {
-    // Increment the current song index and play the next song
-    currentSongIndex =
-      (currentSongIndex - 1 + topSongsUrl.length) % topSongsUrl.length;
-    songName.innerHTML = topSongName[currentSongIndex];
-    songImg.src = songCover[currentSongIndex];
-    artistName.innerHTML = topSongArtist[currentSongIndex];
-    highlightPlaylistSong(currentSongIndex);
-    playSong(currentSongIndex);
   }
 });
 

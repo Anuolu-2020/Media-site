@@ -38,7 +38,7 @@ export const artistSongs = [
     name: songArtists.art1,
     cover: [musicCovers.calmDown, musicCovers.charm, musicCovers.holiday],
     songsName: ["Calm Down ft Selena Gomez", "Charm", "Holiday"],
-    songDuration: [],
+    songDuration: ["3:59", "3:24", "2:39"],
     url: [musicLinks.calmDown, musicLinks.charm, musicLinks.holiday],
   },
   {
@@ -57,7 +57,7 @@ export const artistSongs = [
       "Remember",
       "Sunshine",
     ],
-    songDuration: [],
+    songDuration: ["2:14", "2:37", "2:18", "3:02", "3:05"],
     url: [
       musicLinks.basquiat,
       musicLinks.lonelyAtTheTop,
@@ -80,7 +80,7 @@ export const artistSongs = [
       "Belle Full ft Victony & Ktizo",
       "Ijo (Laba Laba)",
     ],
-    songDuration: [],
+    songDuration: ["3:41", "2:55", "3:11", "3:06"],
     url: [
       musicLinks.Ngozi,
       musicLinks.modupe,
@@ -92,7 +92,7 @@ export const artistSongs = [
     name: songArtists.art5,
     cover: [musicCovers.manOfTheYear, musicCovers.dejavu, musicCovers.karma],
     songsName: ["Man Of The Year", "Dejavu", "Karma"],
-    songDuration: [],
+    songDuration: ["2:24", "2:41", "2:34"],
     url: [musicLinks.manOfTheYear, musicLinks.dejavu, musicLinks.karma],
   },
   {
@@ -109,7 +109,7 @@ export const artistSongs = [
       "No Competition ft Asake",
       "In The Garden ft Morravey",
     ],
-    songDuration: [],
+    songDuration: ["2:49", "2:34", "2:36", "2:45"],
     url: [
       musicLinks.unavailable,
       musicLinks.feel,
@@ -126,7 +126,7 @@ export const artistSongs = [
       musicCovers.soso,
     ],
     songsName: ["Reason", "Come Closer", "It's Yours", "Soso ft Ozuna"],
-    songDuration: [],
+    songDuration: ["2:27", "2:35", "2:45", "3:22"],
     url: [
       musicLinks.reason,
       musicLinks.comeCloser,
@@ -143,7 +143,7 @@ export const artistSongs = [
       musicCovers.sunflower,
     ],
     songsName: ["Chemical", "Better Now", "Circles", "Sunflower ft Swae Lee"],
-    songDuration: [],
+    songDuration: ["3:04", "3:23", "3:34", "2:41"],
     url: [
       musicLinks.chemical,
       musicLinks.betterNow,
