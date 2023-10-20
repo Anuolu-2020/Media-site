@@ -24,6 +24,9 @@ import {
   playlistArtistSongUi,
   playlistGospelSongUi,
 } from "./audioScreen.js";
+
+import { hideLoader } from "./loading.js";
+
 import { artistSongs } from "./artistPlaylist.js";
 
 import { firebaseConfig } from "./fireStoreConnect.js";
@@ -311,6 +314,7 @@ let artists = document.querySelectorAll(".card2");
 //Artist clickable images
 artists.forEach((art, idx) => {
   art.addEventListener("click", () => {
+    hideLoader();
     isArtistPlaylist = true;
     artistIndex = idx;
     playlistArtistSongUi(idx);

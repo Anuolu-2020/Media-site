@@ -8,7 +8,7 @@ function showLoader() {
   playPauseBtn.style.display = "none";
 }
 
-function hideLoader() {
+export function hideLoader() {
   // Hide the loader
   loader.style.display = "none";
   playPauseBtn.style.display = "block";
