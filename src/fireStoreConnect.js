@@ -31,13 +31,3 @@ const analytics = getAnalytics(app);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 const fileRef = ref(storage, "/Songs/Ngozi - Crayon&Ayra Starr.m4a");
-
-// getBlob(fileRef).then((blob) => {
-//   let url = URL.createObjectURL(blob);
-//   let audioPlayer = document.getElementById("audio");
-//   audioPlayer.src = url;
-//   let playPauseBtn = document.getElementById("playPauseBtn");
-//   playPauseBtn.addEventListener("click", () => {
-//     audioPlayer.play();
-//   });
-// });

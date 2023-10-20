@@ -3,6 +3,9 @@ import {
   topSongName,
   topSongArtist,
   albums,
+  gospelSongCover,
+  gospelSongName,
+  gospelSongArtist,
   audioScreenImg,
   artistName,
   songName,
@@ -230,6 +233,70 @@ export function playlistArtistSongUi(songIndex) {
   }
   isPlaylistVisible = true;
 }
+
+let gospelSongDuration = ["4:55", "5:32", "4:54", "8:31", "5:24"];
+
+export function playlistGospelSongUi() {
+  if (isPlaylistVisible) {
+    // Playlist UI is already visible, so return early
+    let songsUi = document.querySelectorAll(".songs");
+    songsUi.forEach((song) => {
+      song.remove();
+    });
+  }
+
+  let playlist = document.getElementById("playlist");
+  audioScreen.style.display = "flex";
+  document.body.style.overflowY = "hidden";
+  playlistOrigin.innerText = "Playing from Gospel Songs";
+
+  //Rotating animation of the collapse button
+  audioCollapse.style.transform = `rotate(${rotationDegree}deg)`;
+
+  sidebarTexts.forEach((text) => {
+    text.style.display = "none";
+  });
+
+  //Creating Songs ui based on the amount of songs available
+  for (let i = 0; i < gospelSongCover.length; i++) {
+    let songs = document.createElement("div");
+    songs.classList.add("songs");
+    playlist.appendChild(songs);
+    let playlistImg = document.createElement("img");
+    playlistImg.classList.add("playlist-img");
+
+    //images source for the playlist images
+    playlistImg.src = gospelSongCover[i];
+    songs.appendChild(playlistImg);
+
+    let playlistInfo = document.createElement("div");
+    playlistInfo.classList.add("playlist-info");
+    songs.appendChild(playlistInfo);
+
+    let playlistSongName = document.createElement("div");
+    playlistSongName.classList.add("playlist-songName");
+
+    //playlist song name
+    playlistSongName.innerText = gospelSongName[i];
+    playlistInfo.appendChild(playlistSongName);
+
+    let playlistSongArtist = document.createElement("div");
+    playlistSongArtist.classList.add("playlist-songArtist");
+
+    //Names of artist of the playlist
+    playlistSongArtist.innerText = gospelSongArtist[i];
+    playlistInfo.appendChild(playlistSongArtist);
+
+    let playlistDuration = document.createElement("div");
+    playlistDuration.classList.add("playlist-duration");
+
+    //Songs duration for top songs
+    playlistDuration.innerText = gospelSongDuration[i];
+    songs.appendChild(playlistDuration);
+  }
+  isPlaylistVisible = true;
+}
+
 // function highlightPlaylistSong(index) {
 //   //playlistUi static Hover effect
 //   let songsUi = document.querySelectorAll(".songs");
@@ -255,7 +322,6 @@ export function playlistArtistSongUi(songIndex) {
 //     }
 //   });
 // }
-
 
 // export function highlightPlaylistSong(songIndex) {
 //   //playlistUi static Hover effect

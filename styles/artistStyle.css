@@ -25,7 +25,8 @@
   align-self: center;
 }
 
-.favorite-button {
+.favorite-button,
+.gosFave {
   position: relative;
   height: var(--icon-height--);
   width: var(--icon-width--);
@@ -34,7 +35,8 @@
   flex-shrink: 1;
 }
 
-.add-button {
+.add-button,
+.gosAdd {
   position: relative;
   height: var(--icon-height--);
   width: var(--icon-width--);
@@ -43,7 +45,8 @@
   flex-grow: 1;
 }
 
-.play-button {
+.play-button,
+.gosPlay {
   position: relative;
   height: var(--play-height--);
   width: var(--play-width--);
@@ -55,11 +58,16 @@
 
 .play-button,
 .favorite-button,
-.add-button {
+.add-button,
+.gosFave,
+.gosAdd,
+.gosPlay {
   transition: 0.2s ease-in;
 }
 
 .favorite-button:hover,
-.add-button:hover {
+.add-button:hover,
+.gosFave:hover,
+.gosAdd:hover {
   transform: scale(1.1);
 }

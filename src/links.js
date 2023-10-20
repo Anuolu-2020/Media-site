@@ -73,6 +73,30 @@ export const artistImage = {
   postMalone: "./Artists/postMalone.jpeg",
 };
 
+export const gospelSongs = {
+  goodnessOfGod: "./songs-cover/Goodness-of-God.jpeg",
+  recklessLove: "./songs-cover/RecklessLove.jpeg",
+  ebenezeri: "./songs-cover/Ebenezeri.jpeg",
+  ebenezer: "./songs-cover/Ebenezer.jpeg",
+  bola: "./songs-cover/Bola.jpeg",
+};
+
+export const gospelSongTitle = {
+  num1: "Goodness Of God",
+  num2: "Reckless love",
+  num3: "Ebenezeri",
+  num4: "Ebenezer",
+  num5: "B'ola",
+};
+
+export const gospelArtist = {
+  num1: "Cece Winans",
+  num2: "Cory Asbury",
+  num3: "Kent Edunjobi ft Apex-Choir",
+  num4: "Natheniel Bassey ft Victoria Orenze",
+  num5: "Sunmisola Agbebi",
+};
+
 //link to profile icon
 export const otherLinks = {
   profile_pic: "https://reqres.in/img/faces/7-image.jpg",

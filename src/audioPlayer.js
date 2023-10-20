@@ -6,6 +6,9 @@ import {
   albumLinks,
   albumArtists,
   albumName,
+  gospelSongs,
+  gospelSongTitle,
+  gospelArtist,
 } from "./links.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import {
@@ -19,6 +22,7 @@ import {
   playlistTopSongUi,
   playlistAlbumSongUi,
   playlistArtistSongUi,
+  playlistGospelSongUi,
 } from "./audioScreen.js";
 import { artistSongs } from "./artistPlaylist.js";
 
@@ -37,6 +41,12 @@ let shuffleBtn = document.getElementById("shuffleBtn");
 let audioCollaspe = document.getElementById("audioCollapse");
 let audioPlayer = document.getElementById("audioPlayer");
 let songImg = document.getElementById("songImg");
+
+//play buttons
+let playButton = document.querySelectorAll(".play-button");
+
+//Play buttons for gospel song
+let gospelPlay = document.querySelectorAll(".gosPlay");
 
 //link the icons to the button
 previousBtn.src = "./ICONS/previous.png";
@@ -66,9 +76,6 @@ if (hasAccelerometer() && isTouchDevice()) {
     volume.style.visibility = "hidden";
   });
 }
-
-//play buttons
-let playButton = document.querySelectorAll(".play-button");
 
 //Top songs url arrray
 export let topSongsUrl = [
@@ -175,6 +182,39 @@ export const albums = [
   },
 ];
 
+export let gospelSongCover = [
+  gospelSongs.goodnessOfGod,
+  gospelSongs.recklessLove,
+  gospelSongs.ebenezeri,
+  gospelSongs.ebenezer,
+  gospelSongs.bola,
+];
+
+export let gospelSongName = [
+  gospelSongTitle.num1,
+  gospelSongTitle.num2,
+  gospelSongTitle.num3,
+  gospelSongTitle.num4,
+  gospelSongTitle.num5,
+];
+
+export let gospelSongArtist = [
+  gospelArtist.num1,
+  gospelArtist.num2,
+  gospelArtist.num3,
+  gospelArtist.num4,
+  gospelArtist.num5,
+];
+
+//Url Array for gospel songs
+let gospelSongUrl = [
+  musicLinks.goodnessOfGod,
+  musicLinks.recklessLove,
+  musicLinks.ebenezeri,
+  musicLinks.ebenezer,
+  musicLinks.bola,
+];
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -188,11 +228,14 @@ let isPlaying = false; //Track Playing state
 let isShuffleActive = false; //Track Shuffle state
 let isPlayingAlbum = false; //Tracking for playing album
 let isArtistPlaylist = false; //Tracking artist song playlist
+let isPlayingGospel = false; //Tracking Gospel song
+
 let albumIndex = 0; //Tracking album index
 let artistIndex = 0; //Tracking artist index
 
 let albumSongIndex = 0; //Tracking album song index
 let artistSongIndex = 0; //Tracking artist song index
+let gospelSongIndex = 0;
 
 //for playing topSongs fetch
 export function playSong(index) {
@@ -225,6 +268,18 @@ export function playArtistSong(index, songIndex) {
   let song = artistSongs[index];
   let songUrl = song.url;
   const fileRef = ref(storage, songUrl[songIndex]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
+
+//for playing gospel song
+export function playGospelSong(index) {
+  const fileRef = ref(storage, gospelSongUrl[index]);
   getBlob(fileRef).then((blob) => {
     let url = URL.createObjectURL(blob);
     audio.src = url;
@@ -347,10 +402,37 @@ function highlightPlaylistAlbum(albumIndex, index) {
   });
 }
 
+function highlightPlaylistGospel(index) {
+  //playlistUi static Hover effect
+  let songsUi = document.querySelectorAll(".songs");
+  songsUi.forEach((song, idx) => {
+    song.addEventListener("click", () => {
+      audio.pause();
+      // isPlayingAlbum = true;
+      playGospelSong(idx);
+      songImg.src = gospelSongCover[idx];
+      //img for audio screen
+      audioScreenImg.src = gospelSongCover[idx];
+      songName.innerHTML = gospelSongName[idx];
+      artistName.innerHTML = gospelSongArtist[idx];
+      if (idx === index) {
+        song.style.backgroundColor = "rgb(138, 45, 138)";
+      }
+    });
+    if (idx === index) {
+      song.style.backgroundColor = "rgb(138, 45, 138)";
+    } else {
+      // Reset the background color for other songs
+      song.style.backgroundColor = "";
+    }
+  });
+}
+
 // Add event listeners to play buttons
 // let albumCard = document.querySelectorAll(".albumCover");
 export let audioScreenImg = document.getElementById("screen");
 
+//Play button for topsong and album
 playButton.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
     // audio.pause();
@@ -363,6 +445,8 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 0; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
       highlightPlaylistAlbum(albumIndex, albumSongIndex);
@@ -374,6 +458,8 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 1; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlaying = true;
       playlistAlbumSongUi(albumIndex);
       highlightPlaylistAlbum(albumIndex, albumSongIndex);
@@ -385,6 +471,8 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 2; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlaying = true;
       playlistAlbumSongUi(albumIndex);
       highlightPlaylistAlbum(albumIndex, albumSongIndex);
@@ -396,6 +484,8 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 3; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
       highlightPlaylistAlbum(albumIndex, albumSongIndex);
@@ -407,6 +497,8 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = album.songsName[albumSongIndex];
       artistName.innerHTML = album.artist;
       albumIndex = 4; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlayingAlbum = true;
       playlistAlbumSongUi(albumIndex);
       highlightPlaylistAlbum(albumIndex, albumSongIndex);
@@ -418,10 +510,30 @@ playButton.forEach((btn, idx) => {
       songName.innerHTML = topSongName[idx];
       artistName.innerHTML = topSongArtist[idx];
       currentSongIndex = idx; // Update the current song index
+      isArtistPlaylist = false;
+      isPlayingGospel = false;
       isPlayingAlbum = false;
       highlightPlaylistSong(currentSongIndex);
       playSong(currentSongIndex);
     }
+  });
+});
+
+gospelPlay.forEach((play, idx) => {
+  play.addEventListener("click", () => {
+    displayAudioBar();
+    playlistGospelSongUi();
+    songImg.src = gospelSongCover[idx];
+    //img for audio screen
+    audioScreenImg.src = gospelSongCover[idx];
+    songName.innerHTML = gospelSongName[idx];
+    artistName.innerHTML = gospelSongArtist[idx];
+    gospelSongIndex = idx; // Update the current song index
+    isPlayingAlbum = false;
+    isArtistPlaylist = false;
+    isPlayingGospel = true;
+    highlightPlaylistGospel(gospelSongIndex);
+    playGospelSong(gospelSongIndex);
   });
 });
 
@@ -468,6 +580,17 @@ previousBtn.addEventListener("click", () => {
     audioScreenImg.src = artist_song_cover[artistSongIndex];
     artistSongName.innerText = artist_name;
     playArtistSong(artistIndex, artistSongIndex);
+  } else if (isPlayingGospel) {
+    if (gospelSongIndex === 0) {
+      gospelSongIndex = gospelSongUrl.length - 1;
+    } else {
+      gospelSongIndex = (gospelSongIndex - 1) % gospelSongUrl.length;
+    }
+    songName.innerHTML = gospelSongName[gospelSongIndex];
+    songImg.src = gospelSongCover[gospelSongIndex];
+    artistName.innerHTML = topSongArtist[gospelSongIndex];
+    highlightPlaylistGospel(gospelSongIndex);
+    playGospelSong(gospelSongIndex);
   } else {
     // decrement the current song index and play the next song
     if (currentSongIndex === 0) {
@@ -510,6 +633,14 @@ nextBtn.addEventListener("click", () => {
     audioScreenImg.src = artist_song_cover[artistSongIndex];
     artistSongName.innerText = artist_name;
     playArtistSong(artistIndex, artistSongIndex);
+  } else if (isPlayingGospel) {
+    // Increment the gospel song index and play the next song
+    gospelSongIndex = (gospelSongIndex + 1) % gospelSongUrl.length;
+    songName.innerHTML = gospelSongName[gospelSongIndex];
+    songImg.src = gospelSongCover[gospelSongIndex];
+    artistName.innerHTML = gospelSongArtist[gospelSongIndex];
+    highlightPlaylistGospel(gospelSongIndex);
+    playGospelSong(gospelSongIndex);
   } else {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;
@@ -557,6 +688,15 @@ audio.addEventListener("ended", () => {
     audioScreenImg.src = artist_song_cover[artistSongIndex];
     artistSongName.innerText = artist_name;
     playArtistSong(artistIndex, artistSongIndex);
+  } else if (isPlayingGospel) {
+    // Increment the gospel song index and play the next song
+    gospelSongIndex = (gospelSongIndex + 1) % gospelSongUrl.length;
+    songName.innerText = gospelSongName[gospelSongIndex];
+    audioScreenImg.src = gospelSongCover[gospelSongIndex];
+    songImg.src = gospelSongCover[gospelSongIndex];
+    artistName.innerHTML = gospelSongArtist[gospelSongIndex];
+    highlightPlaylistGospel(gospelSongIndex);
+    playGospelSong(gospelSongIndex);
   } else {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;

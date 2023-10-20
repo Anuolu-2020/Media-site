@@ -269,7 +269,8 @@ a {
   flex-wrap: wrap;
 }
 
-.card {
+.card,
+.gospel {
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -288,7 +289,8 @@ a {
 }
 
 .songCover,
-.albumCover {
+.albumCover,
+.gospelCover {
   display: flex;
   gap: 0;
   border-radius: 4px;
@@ -299,20 +301,23 @@ a {
 }
 
 .songCover:hover,
-.albumCover:hover {
+.albumCover:hover,
+.gospelCover:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
 .topSongsName,
-.albumName {
+.albumName,
+.gospelName {
   font-family: "Gabarito", cursive;
   color: wheat;
   font-size: 23px;
 }
 
 .topSongsArtist,
-.albumArtist {
+.albumArtist,
+.gospelArtist {
   font-family: "Roboto", sans-serif;
   color: white;
   font-size: 15px;
@@ -321,7 +326,9 @@ a {
 .topSongsName,
 .topSongsArtist,
 .albumArtist,
-.albumName {
+.albumName,
+.gospelName,
+.gospelArtist {
   margin: 0;
 }
 
@@ -332,7 +339,7 @@ a {
     justify-items: center;
   }
   .card,
-  .card2 {
+  .card2,.gospel {
     flex: 2;
   }
 }
@@ -395,4 +402,14 @@ a {
   margin-bottom: 5px;
   font-size: 20px;
   font-family: "Gabarito", cursive;
+}
+
+#gospelTitle {
+  margin: 8px;
+  font-size: 20px;
+  font-family: "Gabarito", cursive;
+}
+
+.gospel {
+  margin-bottom: 40px;
 }

@@ -7,6 +7,9 @@ import {
   albumArtists,
   albumName,
   artistImage,
+  gospelSongs,
+  gospelSongTitle,
+  gospelArtist,
 } from "./links.js";
 
 // console.log(songLinks.reason, albumLinks.trenchToTriumph);
@@ -28,6 +31,10 @@ let albumsNameTxt = document.querySelectorAll(".albumName");
 let albumArtistTxt = document.querySelectorAll(".albumArtist");
 let artistImages = document.querySelectorAll(".artist");
 let artistNames = document.querySelectorAll(".artistName");
+
+let gospelCards = document.querySelectorAll(".gospelCover");
+let gospelSongName = document.querySelectorAll(".gospelName");
+let gospelArtistName = document.querySelectorAll(".gospelArtist");
 
 //arrays of links to images of top songs
 let topSongs = [
@@ -105,6 +112,31 @@ let artists = [
   songArtists.art8,
 ];
 
+//Arrays of links to gospel songs cover
+let gospelSongCover = [
+  gospelSongs.goodnessOfGod,
+  gospelSongs.recklessLove,
+  gospelSongs.ebenezeri,
+  gospelSongs.ebenezer,
+  gospelSongs.bola,
+];
+
+let gospelArtists = [
+  gospelArtist.num1,
+  gospelArtist.num2,
+  gospelArtist.num3,
+  gospelArtist.num4,
+  gospelArtist.num5,
+];
+
+let gospelTitle = [
+  gospelSongTitle.num1,
+  gospelSongTitle.num2,
+  gospelSongTitle.num3,
+  gospelSongTitle.num4,
+  gospelSongTitle.num5,
+];
+
 //looping over top song cards to display image
 songCards.forEach((card, idx) => {
   card.style.backgroundImage = `url(${topSongs[idx]})`;
@@ -142,6 +174,18 @@ artistImages.forEach((artist, idx) => {
 
 artistNames.forEach((names, idx) => {
   names.innerHTML = artists[idx];
+});
+
+gospelCards.forEach((gospelCard, idx) => {
+  gospelCard.style.backgroundImage = `url(${gospelSongCover[idx]})`;
+});
+
+gospelSongName.forEach((name, idx) => {
+  name.innerHTML = gospelTitle[idx];
+});
+
+gospelArtistName.forEach((songName, idx) => {
+  songName.innerHTML = gospelArtists[idx];
 });
 
 //sidebar collapse function
@@ -191,6 +235,13 @@ document
 let playIcon = document.querySelectorAll(".play-button");
 let favoriteIcon = document.querySelectorAll(".favorite-button");
 let libraryIcon = document.querySelectorAll(".add-button");
+
+/* Play, favourite and add to libray buttons fo gospel
+songs*/
+let gosPlay = document.querySelectorAll(".gosPlay");
+let gosFave = document.querySelectorAll(".gosFave");
+let gosAdd = document.querySelectorAll(".gosAdd");
+
 let isHovered = false;
 
 playIcon.forEach((play) => {
@@ -209,8 +260,32 @@ playIcon.forEach((play) => {
   });
 });
 
+gosPlay.forEach((play) => {
+  play.src = "./ICONS/play-icon.png";
+
+  play.addEventListener("mouseover", () => {
+    isHovered = true;
+    if (isHovered) {
+      play.src = "./ICONS/play-checked.png";
+    }
+  });
+
+  play.addEventListener("mouseout", () => {
+    play.src = "./ICONS/play-icon.png";
+    isHovered = false;
+  });
+});
+
 favoriteIcon.forEach((favorite) => {
   favorite.src = "./ICONS/favourite-icon.png";
+});
+
+gosFave.forEach((favorite) => {
+  favorite.src = "./ICONS/favourite-icon.png";
+});
+
+gosAdd.forEach((library) => {
+  library.src = "./ICONS/library.png";
 });
 
 libraryIcon.forEach((library) => {
@@ -268,6 +343,30 @@ albumsCards.forEach((albmCard) => {
     });
 
     albmCard.addEventListener("mouseleave", () => {
+      playIcon.style.opacity = "0";
+      favoriteIcon.style.opacity = "0";
+      libraryIcon.style.opacity = "0";
+    });
+  }
+});
+
+gospelCards.forEach((gospelCard) => {
+  let playIcon = gospelCard.querySelector(".gosPlay");
+  let favoriteIcon = gospelCard.querySelector(".gosFave");
+  let libraryIcon = gospelCard.querySelector(".gosAdd");
+
+  if (hasAccelerometer() && isTouchDevice()) {
+    playIcon.style.opacity = "1";
+    favoriteIcon.style.opacity = "1";
+    libraryIcon.style.opacity = "1";
+  } else {
+    gospelCard.addEventListener("mouseenter", () => {
+      playIcon.style.opacity = "0.7";
+      favoriteIcon.style.opacity = "0.7";
+      libraryIcon.style.opacity = "0.7";
+    });
+
+    gospelCard.addEventListener("mouseleave", () => {
       playIcon.style.opacity = "0";
       favoriteIcon.style.opacity = "0";
       libraryIcon.style.opacity = "0";

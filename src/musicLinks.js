@@ -26,4 +26,9 @@ export const musicLinks = {
   betterNow: "/Songs/Post Malone - Better Now.mp3",
   circles: "/Songs/Post malone - Circles.mp3",
   sunflower: "/Songs/Post Malone, Swae Lee - Sunflower.mp3",
+  goodnessOfGod: "/Songs/CeCe Winans - Goodness of God.mp3",
+  recklessLove: "/Songs/Cory Asbury - Reckless Love.mp3",
+  ebenezeri: "/Songs/Kent Edunjobi - Ebenezeri ft Apex-Choir.m4a",
+  ebenezer: "/Songs/Nathaniel Bassey - EBENEZER feat. VICTORIA ORENZE.mp3",
+  bola: "/Songs/Sunmisola Agbebi - B'OLA.mp3",
 };
