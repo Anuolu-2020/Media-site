@@ -409,6 +409,7 @@ function highlightPlaylistGospel(index) {
     song.addEventListener("click", () => {
       audio.pause();
       // isPlayingAlbum = true;
+      // index = idx;
       playGospelSong(idx);
       songImg.src = gospelSongCover[idx];
       //img for audio screen
@@ -588,7 +589,7 @@ previousBtn.addEventListener("click", () => {
     }
     songName.innerHTML = gospelSongName[gospelSongIndex];
     songImg.src = gospelSongCover[gospelSongIndex];
-    artistName.innerHTML = topSongArtist[gospelSongIndex];
+    artistName.innerHTML = gospelSongArtist[gospelSongIndex];
     highlightPlaylistGospel(gospelSongIndex);
     playGospelSong(gospelSongIndex);
   } else {
