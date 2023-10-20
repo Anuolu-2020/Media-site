@@ -353,6 +353,7 @@ function highlightPlaylistSong(index) {
     song.addEventListener("click", () => {
       audio.pause();
       // isPlayingAlbum = true;
+      currentSongIndex = idx;
       playSong(idx);
       songImg.src = songCover[idx];
       //img for audio screen
@@ -410,6 +411,7 @@ function highlightPlaylistGospel(index) {
       audio.pause();
       // isPlayingAlbum = true;
       // index = idx;
+      gospelSongIndex = idx;
       playGospelSong(idx);
       songImg.src = gospelSongCover[idx];
       //img for audio screen
