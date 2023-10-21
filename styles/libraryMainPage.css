@@ -10,6 +10,26 @@ body {
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1f122e;
+  border-radius: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: #2a2036;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #686464d2;
+  width: 3px;
+}
+
 @font-face {
   font-family: "Futura Bold";
   src: url(./fonts/Futura\ Bold\ font.ttf) format("truetype");
@@ -21,13 +41,10 @@ body {
   min-width: 100px;
   height: 25px;
   flex: 1;
-  /* flex-shrink: 1;
-  flex-grow: 1; */
 }
 
 #main-header {
   display: flex;
-  /* justify-content: space-between; */
   position: fixed;
   align-items: center;
   height: 70px;
@@ -240,6 +257,7 @@ a {
   align-items: center;
   margin-left: 8px;
 }
+
 .sidebar-text {
   color: white;
   margin: 5px;
@@ -248,15 +266,83 @@ a {
   font-family: "Gabarito", cursive;
 }
 
+#favoritePage {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 2;
+  margin-left: 180px;
+  margin-right: 10px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  height: 100%;
+}
+
+#favTitle {
+  margin: 8px;
+  font-size: 20px;
+  font-family: "Gabarito", cursive;
+  color: whitesmoke;
+}
+
+.music-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  justify-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-self: flex-start;
+  align-content: flex-start;
+  width: max-content;
+  height: 250px;
+}
+
+.favoriteCover {
+  display: flex;
+  gap: 0;
+  border-radius: 4px;
+  width: 200px;
+  height: 400px;
+  background-repeat: no-repeat;
+  flex: 1;
+}
+
+.favoriteCover:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.songName {
+  font-family: "Gabarito", cursive;
+  color: wheat;
+  font-size: 23px;
+}
+
+.songArtist {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 15px;
+}
+
+.songName,
+.songArtist {
+  margin: 0;
+}
+
 @media (min-width: 1080px) {
   .music-card {
     flex: 2;
     align-items: center;
     justify-items: center;
   }
-  .card,
-  .card2,
-  .gospel {
+  .card {
     flex: 2;
   }
 }
@@ -295,11 +381,10 @@ a {
     display: none;
   }
 
-  #music-page {
+  #favoritePage {
     display: flex;
     flex-direction: column;
     flex-shrink: 1;
-    /* align-items: center; */
     margin-left: 90px;
     margin-right: 10px;
     margin-top: 80px;
