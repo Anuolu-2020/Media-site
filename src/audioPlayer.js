@@ -315,7 +315,6 @@ let artists = document.querySelectorAll(".card2");
 artists.forEach((art, idx) => {
   art.addEventListener("click", () => {
     hideLoader();
-    isArtistPlaylist = true;
     artistIndex = idx;
     playlistArtistSongUi(idx);
     //play artist songs
@@ -323,6 +322,9 @@ artists.forEach((art, idx) => {
     songsUi.forEach((song, idx2) => {
       if (isArtistPlaylist) {
         song.addEventListener("click", () => {
+          isArtistPlaylist = false;
+          isPlayingGospel = false;
+          isArtistPlaylist = true;
           let song = artistSongs[artistIndex];
           // audio.pause();
           let musicName = song.songsName;
