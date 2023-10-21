@@ -276,8 +276,15 @@ gosPlay.forEach((play) => {
   });
 });
 
-favoriteIcon.forEach((favorite) => {
-  favorite.src = "./ICONS/favourite-icon.png";
+favoriteIcon.forEach((favorite, id) => {
+  let btnState = JSON.parse(localStorage.getItem("faveStates"));
+
+  //  let favoriteIcon = card.querySelector(".favorite-button");
+  if (btnState[id] === true) {
+    favorite.src = "./ICONS/favourite-checked.png";
+  } else {
+    favorite.src = "./ICONS/favourite-icon.png";
+  }
 });
 
 gosFave.forEach((favorite) => {
@@ -307,6 +314,7 @@ songCards.forEach((card) => {
   let favoriteIcon = card.querySelector(".favorite-button");
   let libraryIcon = card.querySelector(".add-button");
 
+  //Display buttons if on mobile device
   if (hasAccelerometer() && isTouchDevice()) {
     playIcon.style.opacity = "1";
     favoriteIcon.style.opacity = "1";
