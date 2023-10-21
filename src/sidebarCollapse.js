@@ -11,14 +11,14 @@ settingsImg.src = otherLinks.profile_pic;
 //sidebar collapse function
 function sidebarCollapse() {
   let sidebarTexts = document.querySelectorAll(".sidebar-text");
-  //   let marginIncrease = document.getElementById("music-page");
+  let marginIncrease = document.getElementById("favoritePage");
   sidebarTexts.forEach(function (sidebarText) {
     if (sidebarText.style.display === "none") {
       sidebarText.style.display = "flex";
-      //   marginIncrease.style.marginLeft = "180px";
+      marginIncrease.style.marginLeft = "180px";
     } else {
       sidebarText.style.display = "none";
-      //   marginIncrease.style.marginLeft = "90px";
+      marginIncrease.style.marginLeft = "90px";
     }
   });
 }
