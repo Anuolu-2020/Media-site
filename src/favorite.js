@@ -1,26 +1,198 @@
-let musicCard = document.querySelector(".music-card");
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 
-let card = document.createElement("section");
-card.classList.add("card");
+import {
+  getStorage,
+  ref,
+  getBlob,
+} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
-let favoriteCover = document.createElement("section");
-favoriteCover.classList.add("favoriteCover");
+import { firebaseConfig } from "./fireStoreConnect.js";
 
-let playButton = document.createElement("img");
-playButton.classList.add("play-button");
+import {
+  topSongsUrl,
+  gospelSongUrl,
+  artistName,
+  songName,
+  songImg,
+} from "./audioPlayer.js";
 
-favoriteCover.appendChild(playButton);
+let audioPlayer = document.getElementById("audioPlayer");
+let audio = document.getElementById("audio");
+let progressSlide = document.getElementById("progressSlide");
+let isPlaying = false;
 
-let songName = document.createElement("h3");
-songName.classList.add("songName");
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-card.appendChild(songName);
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
 
-let songArtist = document.createElement("h3");
-songArtist.classList.add("songName");
+function playSong(index) {
+  const fileRef = ref(storage, topSongsUrl[index]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
 
-card.appendChild(songArtist);
+//Retrieve button saved properties
+let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
 
-musicCard.appendChild(card);
+//Retrieve button saved properties
+let gosProperties = JSON.parse(localStorage.getItem("gosFaveProperties"));
 
+if (
+  (properties == null || properties.length == []) &&
+  (gosProperties == null || gosProperties.length == [])
+) {
+  let page = document.getElementById("favoritePage");
 
+  let message = document.createElement("h3");
+  message.classList.add("message");
+
+  message.innerText = "NO FAVORITES";
+
+  page.appendChild(message);
+} else {
+  //Create favorite ui card based on number of saved favorites
+  for (let i = 0; i < properties.length; i++) {
+    let faveBtnProperty = properties[i];
+
+    let musicCard = document.querySelector(".music-card");
+
+    let card = document.createElement("section");
+    card.classList.add("card");
+
+    let favoriteCover = document.createElement("section");
+    favoriteCover.classList.add("favoriteCover");
+
+    //Song cover
+    favoriteCover.style.backgroundImage = `url(${faveBtnProperty.cover}`;
+
+    let playButton = document.createElement("img");
+    playButton.classList.add("play-button");
+
+    playButton.src = "./ICONS/play-arrow.png";
+
+    favoriteCover.appendChild(playButton);
+
+    card.appendChild(favoriteCover);
+
+    let songName = document.createElement("h3");
+    songName.classList.add("songName");
+
+    //Artist song
+    songName.innerText = faveBtnProperty.name;
+
+    card.appendChild(songName);
+
+    let songArtist = document.createElement("h3");
+    songArtist.classList.add("songArtist");
+    //Artist name
+    songArtist.innerText = faveBtnProperty.artist;
+
+    card.appendChild(songArtist);
+
+    musicCard.appendChild(card);
+  }
+}
+//reference for playing top songs and albums
+let play = document.querySelectorAll(".play-button");
+
+play.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    let prop = properties[idx];
+    audioPlayer.style.display = "flex";
+    progressSlide.style.display = "block";
+    artistName.innerText = prop.artist;
+    songName.innerText = prop.name;
+    songImg.src = prop.cover;
+    playSong(prop.id);
+  });
+});
+
+if (
+  (gosProperties == null || gosProperties.length == []) &&
+  (properties == null || properties.length == [])
+) {
+  let page = document.getElementById("favoritePage");
+
+  let message = document.createElement("h3");
+  message.classList.add("message");
+
+  message.innerText = "NO FAVORITES";
+
+  page.appendChild(message);
+} else {
+  //Create favorite ui card based on number of saved favorites
+  for (let i = 0; i < gosProperties.length; i++) {
+    let faveBtnProperty = gosProperties[i];
+
+    let musicCard = document.querySelector(".music-card");
+
+    let card = document.createElement("section");
+    card.classList.add("card");
+
+    let favoriteCover = document.createElement("section");
+    favoriteCover.classList.add("favoriteCover");
+
+    //Song cover
+    favoriteCover.style.backgroundImage = `url(${faveBtnProperty.cover}`;
+
+    let playButton = document.createElement("img");
+    playButton.classList.add("gosPlay");
+
+    playButton.src = "./ICONS/play-arrow.png";
+
+    favoriteCover.appendChild(playButton);
+
+    card.appendChild(favoriteCover);
+
+    let songName = document.createElement("h3");
+    songName.classList.add("songName");
+
+    //Artist song
+    songName.innerText = faveBtnProperty.name;
+
+    card.appendChild(songName);
+
+    let songArtist = document.createElement("h3");
+    songArtist.classList.add("songArtist");
+    //Artist name
+    songArtist.innerText = faveBtnProperty.artist;
+
+    card.appendChild(songArtist);
+
+    musicCard.appendChild(card);
+  }
+}
+
+//play gospel song
+function playGospelSong(index) {
+  const fileRef = ref(storage, gospelSongUrl[index]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
+
+//Play buttons for gospel song
+let gospelPlay = document.querySelectorAll(".gosPlay");
+
+gospelPlay.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    let prop = gosProperties[idx];
+    audioPlayer.style.display = "flex";
+    progressSlide.style.display = "block";
+    artistName.innerText = prop.artist;
+    songName.innerText = prop.name;
+    songImg.src = prop.cover;
+    playGospelSong(prop.id);
+  });
+});
