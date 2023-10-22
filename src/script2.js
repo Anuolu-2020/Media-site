@@ -279,11 +279,14 @@ gosPlay.forEach((play) => {
 favoriteIcon.forEach((favorite, id) => {
   let btnState = JSON.parse(localStorage.getItem("faveStates"));
 
-  //  let favoriteIcon = card.querySelector(".favorite-button");
-  if (btnState[id] === true) {
-    favorite.src = "./ICONS/favourite-checked.png";
-  } else {
+  if (btnState === null) {
     favorite.src = "./ICONS/favourite-icon.png";
+  } else {
+    if (btnState[id] === true) {
+      favorite.src = "./ICONS/favourite-checked.png";
+    } else {
+      favorite.src = "./ICONS/favourite-icon.png";
+    }
   }
 });
 
