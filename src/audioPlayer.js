@@ -43,7 +43,7 @@ let repeatBtn = document.getElementById("repeatBtn");
 let shuffleBtn = document.getElementById("shuffleBtn");
 let audioCollaspe = document.getElementById("audioCollapse");
 let audioPlayer = document.getElementById("audioPlayer");
-let songImg = document.getElementById("songImg");
+export let songImg = document.getElementById("songImg");
 
 //play buttons
 let playButton = document.querySelectorAll(".play-button");
@@ -210,7 +210,7 @@ export let gospelSongArtist = [
 ];
 
 //Url Array for gospel songs
-let gospelSongUrl = [
+export let gospelSongUrl = [
   musicLinks.goodnessOfGod,
   musicLinks.recklessLove,
   musicLinks.ebenezeri,
