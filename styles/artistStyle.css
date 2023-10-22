@@ -35,6 +35,32 @@
   flex-shrink: 1;
 }
 
+.favorite-button {
+  transition: transform 0.2s, color 0.2s;
+}
+
+.favorite-button.clicked,
+.gosFave.clicked {
+  transform: scale(1.1);
+}
+
+.favorite-button.pulse,
+.gosFave.pulse {
+  animation: pulse 0.5s 2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 .add-button,
 .gosAdd {
   position: relative;
