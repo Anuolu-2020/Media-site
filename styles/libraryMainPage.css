@@ -315,7 +315,6 @@ a {
 }
 
 .favoriteCover:hover {
-  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -336,14 +335,31 @@ a {
   margin: 0;
 }
 
+.play-button,
+.gosPlay {
+  position: relative;
+  height: 80px;
+  width: 110px;
+  align-self: flex-end;
+  left: 100px;
+}
+
+.play-button:hover {
+  opacity: 0.8;
+}
+
+.message {
+  font-family: "Gabarito", cursive;
+  color: wheat;
+  align-self: center;
+  font-size: 30px;
+}
+
 @media (min-width: 1080px) {
   .music-card {
     flex: 2;
     align-items: center;
     justify-items: center;
-  }
-  .card {
-    flex: 2;
   }
 }
 
