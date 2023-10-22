@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anusic</title>
     <link href="./styles/libraryMainPage.css" rel="stylesheet" />
+    <link href="./styles/favoriteAudioplayer.css" rel="stylesheet" />
     <script src="./src/sidebarCollapse.js" type="module"></script>
     <script src="./src/favorite.js" type="module"></script>
   </head>
@@ -70,7 +71,7 @@
       </nav>
     </header>
     <section class="sidebar-container">
-      <a class="sidebar-link" id="home"
+      <a class="sidebar-link" id="home" href="./index3.html"
         ><img src="./ICONS/home icon.png" class="sidebar" />
         <b class="sidebar-text">HOME</b></a
       >
@@ -80,7 +81,7 @@
           >LIBRARY</b
         ></a
       >
-      <a class="sidebar-link"
+      <a class="sidebar-link" href="./favorite.html"
         ><img src="./ICONS/favourite-icon-sidebar.png" class="sidebar" /><b
           class="sidebar-text"
           >FAVORITES</b
@@ -90,14 +91,51 @@
     <main id="favoritePage">
       <h1 id="favTitle">Favorites</h1>
       <section class="music-card">
-        <section class="card">
+        <!-- <section class="card">
           <section class="favoriteCover">
             <img class="play-button" />
           </section>
           <h3 class="songName">Song Name</h3>
           <h3 class="songArtist">Song Artist</h3>
-        </section>
+        </section> -->
       </section>
     </main>
+    <input
+      id="progressSlide"
+      min="0"
+      max="100"
+      step="0.01"
+      value="0"
+      type="range" />
+    <section id="audioPlayer">
+      <audio id="audio"></audio>
+      <div id="left-items">
+        <img id="previousBtn" />
+        <div id="Loading"></div>
+        <img id="playPauseBtn" />
+        <img id="nextBtn" />
+        <h4 id="songDuration">NaN / NaN</h4>
+      </div>
+      <div id="songInfo">
+        <img id="songImg" width="70px" height="40px" />
+        <div id="audioSongInfo">
+          <div id="audioName">SONG NAME</div>
+          <div id="audioArtist">ARTIST</div>
+        </div>
+      </div>
+      <div id="right-items">
+        <input
+          id="volumeBtn"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.5" />
+        <img id="volumeIcon" />
+        <img id="repeatBtn" />
+        <img id="shuffleBtn" />
+        <img id="audioCollapse" style="display: none" />
+      </div>
+    </section>
   </body>
 </html>
