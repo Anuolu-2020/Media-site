@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anusic</title>
-    <link href="./styles/libraryMainPage.css" rel="stylesheet" />
+    <link href="./styles/favoriteMainPage.css" rel="stylesheet" />
     <link href="./styles/favoriteAudioplayer.css" rel="stylesheet" />
     <script src="./src/sidebarCollapse.js" type="module"></script>
     <script src="./src/favorite.js" type="module"></script>
@@ -89,16 +89,10 @@
       >
     </section>
     <main id="favoritePage">
-      <h1 id="favTitle">Favorites</h1>
-      <section class="music-card">
-        <!-- <section class="card">
-          <section class="favoriteCover">
-            <img class="play-button" />
-          </section>
-          <h3 class="songName">Song Name</h3>
-          <h3 class="songArtist">Song Artist</h3>
-        </section> -->
-      </section>
+      <h1 class="favTitle">Favorites</h1>
+      <section class="music-card"></section>
+      <h1 class="favTitle" id="favAlbum">Favorites Album</h1>
+      <section class="albumMusic"></section>
     </main>
     <input
       id="progressSlide"
@@ -133,7 +127,7 @@
           value="0.5" />
         <img id="volumeIcon" />
         <img id="repeatBtn" />
-        <img id="shuffleBtn" />
+        <img id="shuffleBtn" style="display: none" />
         <img id="audioCollapse" style="display: none" />
       </div>
     </section>
