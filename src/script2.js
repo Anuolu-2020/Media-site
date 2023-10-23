@@ -279,13 +279,31 @@ gosPlay.forEach((play) => {
 favoriteIcon.forEach((favorite, id) => {
   let btnState = JSON.parse(localStorage.getItem("faveStates"));
 
-  if (btnState === null) {
-    favorite.src = "./ICONS/favourite-icon.png";
-  } else {
-    if (btnState[id] === true) {
-      favorite.src = "./ICONS/favourite-checked.png";
-    } else {
+  let albumBtnState = JSON.parse(localStorage.getItem("albumFaveStates"));
+
+  //Loading favorite state icon for albums
+  if (id >= 5) {
+    if (albumBtnState === null) {
       favorite.src = "./ICONS/favourite-icon.png";
+    } else {
+      if (albumBtnState[id - 5] === true) {
+        favorite.src = "./ICONS/favourite-checked.png";
+      } else {
+        favorite.src = "./ICONS/favourite-icon.png";
+      }
+    }
+  }
+
+  //Loading Favorite state icons for top song
+  if (id <= 4) {
+    if (btnState === null) {
+      favorite.src = "./ICONS/favourite-icon.png";
+    } else {
+      if (btnState[id] === true) {
+        favorite.src = "./ICONS/favourite-checked.png";
+      } else {
+        favorite.src = "./ICONS/favourite-icon.png";
+      }
     }
   }
 });
