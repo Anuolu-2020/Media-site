@@ -319,12 +319,12 @@ artists.forEach((art, idx) => {
     playlistArtistSongUi(idx);
     //play artist songs
     let songsUi = document.querySelectorAll(".songs");
+    isPlayingGospel = false;
+    isPlayingAlbum = false;
+    isArtistPlaylist = true;
     songsUi.forEach((song, idx2) => {
       if (isArtistPlaylist) {
         song.addEventListener("click", () => {
-          isArtistPlaylist = false;
-          isPlayingGospel = false;
-          isArtistPlaylist = true;
           let song = artistSongs[artistIndex];
           // audio.pause();
           let musicName = song.songsName;
