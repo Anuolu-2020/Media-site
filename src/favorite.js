@@ -196,3 +196,57 @@ gospelPlay.forEach((btn, idx) => {
     playGospelSong(prop.id);
   });
 });
+
+//Favorite page Ablum section
+let albumProperties = JSON.parse(localStorage.getItem("favoriteAlbumProp"));
+let albumMusic = document.querySelector(".albumMusic");
+
+if (albumProperties === null || albumProperties.length == []) {
+  let message = document.createElement("h3");
+  message.classList.add("message");
+
+  message.innerText = "NO FAVORITE ALBUM";
+
+  albumMusic.append(message);
+} else {
+  for (let i = 0; i < albumProperties.length; i++) {
+    let faveBtnProperty = albumProperties[i];
+
+    let musicCard = document.querySelector(".albumMusic");
+
+    let card = document.createElement("section");
+    card.classList.add("card");
+
+    let favoriteCover = document.createElement("section");
+    favoriteCover.classList.add("favoriteCover");
+
+    //Song cover
+    favoriteCover.style.backgroundImage = `url(${faveBtnProperty.cover}`;
+
+    let playButton = document.createElement("img");
+    playButton.classList.add("gosPlay");
+
+    playButton.src = "./ICONS/play-arrow.png";
+
+    favoriteCover.appendChild(playButton);
+
+    card.appendChild(favoriteCover);
+
+    let songName = document.createElement("h3");
+    songName.classList.add("songName");
+
+    //Artist song
+    songName.innerText = faveBtnProperty.name;
+
+    card.appendChild(songName);
+
+    let songArtist = document.createElement("h3");
+    songArtist.classList.add("songArtist");
+    //Artist name
+    songArtist.innerText = faveBtnProperty.artist;
+
+    card.appendChild(songArtist);
+
+    musicCard.appendChild(card);
+  }
+}
