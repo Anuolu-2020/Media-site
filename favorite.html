@@ -6,6 +6,7 @@
     <title>Anusic</title>
     <link href="./styles/favoriteMainPage.css" rel="stylesheet" />
     <link href="./styles/favoriteAudioplayer.css" rel="stylesheet" />
+    <link href="./styles/loading.css" rel="stylesheet" />
     <script src="./src/sidebarCollapse.js" type="module"></script>
     <script src="./src/favorite.js" type="module"></script>
   </head>
@@ -20,19 +21,22 @@
           <img
             id="mobile-searchbar"
             src="./ICONS/search icon.png
-          " />
+          "
+          />
           <input
             type="search"
             id="mobile-search-input"
             style="height: 40px; width: 350px; border-radius: 2px; flex: 1"
-            placeholder="Search songs, artist, albums" />
+            placeholder="Search songs, artist, albums"
+          />
         </div>
 
         <input
           type="search"
           id="search-bar"
           style="height: 40px; width: 350px; border-radius: 2px; flex: 1"
-          placeholder="Search songs, artist, albums" />
+          placeholder="Search songs, artist, albums"
+        />
       </section>
       <nav class="right-items" id="profile-pic">
         <img id="profile-img" class="profile" />
@@ -46,14 +50,16 @@
             ><img
               src="./ICONS/profile.png"
               class="profile-icon"
-              alt="profile pic" />
+              alt="profile pic"
+            />
             <h4>Profile</h4></a
           >
           <a href="#" class="profile-link"
             ><img
               src="./ICONS/setting.png"
               class="profile-icon"
-              alt="settings icon" />
+              alt="settings icon"
+            />
             <h4>Settings</h4></a
           >
           <a href="#" class="profile-link"
@@ -64,7 +70,8 @@
             ><img
               src="./ICONS/logout.png"
               class="profile-icon"
-              alt="logout icon" />
+              alt="logout icon"
+            />
             <h4>Log out</h4></a
           >
         </nav>
@@ -100,7 +107,8 @@
       max="100"
       step="0.01"
       value="0"
-      type="range" />
+      type="range"
+    />
     <section id="audioPlayer">
       <audio id="audio"></audio>
       <div id="left-items">
@@ -124,7 +132,8 @@
           min="0"
           max="1"
           step="0.1"
-          value="0.5" />
+          value="0.5"
+        />
         <img id="volumeIcon" />
         <img id="repeatBtn" />
         <img id="shuffleBtn" style="display: none" />
