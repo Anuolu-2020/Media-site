@@ -44,11 +44,10 @@ let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
 //Retrieve button saved properties
 let gosProperties = JSON.parse(localStorage.getItem("gosFaveProperties"));
 
-if (
-  (properties == null || properties.length == []) &&
-  (gosProperties == null || gosProperties.length == [])
-) {
-  let page = document.getElementById("favoritePage");
+let favoriteAppeared = false;
+
+if (properties === null || properties.length === 0) {
+  let page = document.querySelector(".music-card");
 
   let message = document.createElement("h3");
   message.classList.add("message");
@@ -57,6 +56,7 @@ if (
 
   page.appendChild(message);
 } else {
+  favoriteAppeared = true;
   //Create favorite ui card based on number of saved favorites
   for (let i = 0; i < properties.length; i++) {
     let faveBtnProperty = properties[i];
@@ -99,26 +99,9 @@ if (
     musicCard.appendChild(card);
   }
 }
-//reference for playing top songs and albums
-let play = document.querySelectorAll(".play-button");
 
-play.forEach((btn, idx) => {
-  btn.addEventListener("click", () => {
-    let prop = properties[idx];
-    audioPlayer.style.display = "flex";
-    progressSlide.style.display = "block";
-    artistName.innerText = prop.artist;
-    songName.innerText = prop.name;
-    songImg.src = prop.cover;
-    playSong(prop.id);
-  });
-});
-
-if (
-  (gosProperties == null || gosProperties.length == []) &&
-  (properties == null || properties.length == [])
-) {
-  let page = document.getElementById("favoritePage");
+if (gosProperties === null || gosProperties.length === 0) {
+  let page = document.querySelector(".music-card");
 
   let message = document.createElement("h3");
   message.classList.add("message");
@@ -127,6 +110,7 @@ if (
 
   page.appendChild(message);
 } else {
+  favoriteAppeared = true;
   //Create favorite ui card based on number of saved favorites
   for (let i = 0; i < gosProperties.length; i++) {
     let faveBtnProperty = gosProperties[i];
@@ -170,6 +154,26 @@ if (
   }
 }
 
+if (favoriteAppeared) {
+  let message = document.querySelector(".message");
+  message.style.display = "none";
+}
+
+//reference for playing top songs and albums
+let play = document.querySelectorAll(".play-button");
+
+play.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    let prop = properties[idx];
+    audioPlayer.style.display = "flex";
+    progressSlide.style.display = "block";
+    artistName.innerText = prop.artist;
+    songName.innerText = prop.name;
+    songImg.src = prop.cover;
+    playSong(prop.id);
+  });
+});
+
 //play gospel song
 function playGospelSong(index) {
   const fileRef = ref(storage, gospelSongUrl[index]);
@@ -201,7 +205,7 @@ gospelPlay.forEach((btn, idx) => {
 let albumProperties = JSON.parse(localStorage.getItem("favoriteAlbumProp"));
 let albumMusic = document.querySelector(".albumMusic");
 
-if (albumProperties === null || albumProperties.length == []) {
+if (albumProperties === null || albumProperties.length === 0) {
   let message = document.createElement("h3");
   message.classList.add("message");
 
