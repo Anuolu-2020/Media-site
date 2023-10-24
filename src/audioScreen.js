@@ -6,11 +6,6 @@ import {
   gospelSongCover,
   gospelSongName,
   gospelSongArtist,
-  audioScreenImg,
-  artistName,
-  songName,
-  audio,
-  playAlbum,
 } from "./audioPlayer.js";
 import { artistSongs } from "./artistPlaylist.js";
 
@@ -26,38 +21,6 @@ let progressSlide = document.getElementById("progressSlide");
 
 let rotationDegree = 180;
 let isPlaylistVisible = false;
-
-let upNextSelect = document.getElementById("upNext-select");
-let lyricsSelect = document.getElementById("lyrics-select");
-
-let playlist = document.getElementById("playlist");
-let lyrics = document.getElementById("lyrics");
-
-//Is upnext currently selected
-let isPlaylistUpNext = true;
-
-if (isPlaylistUpNext) {
-  upNextSelect.style.borderBottom = "2px solid white";
-}
-
-//when u click on lyrics
-lyricsSelect.addEventListener("click", () => {
-  isPlaylistUpNext = false;
-  lyricsSelect.style.borderBottom = "2px solid white";
-  upNextSelect.style.borderBottom = "";
-  playlist.style.display = "none";
-  lyrics.style.display = "flex";
-  console.log("click");
-});
-
-//When u click on up next
-upNextSelect.addEventListener("click", () => {
-  isPlaylistUpNext = true;
-  upNextSelect.style.borderBottom = "2px solid white";
-  playlist.style.display = "flex";
-  lyrics.style.display = "none";
-  lyricsSelect.style.borderBottom = "";
-});
 
 //For constructing of songs ui in the playlist sidebar
 export function playlistTopSongUi() {
