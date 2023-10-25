@@ -339,7 +339,8 @@ a {
     justify-items: center;
   }
   .card,
-  .card2,.gospel {
+  .card2,
+  .gospel {
     flex: 2;
   }
 }
@@ -412,4 +413,32 @@ a {
 
 .gospel {
   margin-bottom: 40px;
+}
+
+#notifyAction {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 80px;
+  left: 160px;
+  background-color: #2e2d45;
+  border-radius: 5px;
+  height: 60px;
+  width: 300px;
+}
+
+#closeNotify {
+  margin-left: auto;
+}
+
+#closeNotify:hover {
+  cursor: pointer;
+}
+
+#notifyText {
+  color: wheat;
+  margin-left: 10px;
+  font-size: 20px;
+  font-family: "Gabarito", cursive;
 }
