@@ -55,6 +55,8 @@ if (properties === null || properties.length === 0) {
   message.innerText = "NO FAVORITES";
 
   page.appendChild(message);
+
+  favoriteAppeared = false;
 } else {
   favoriteAppeared = true;
   //Create favorite ui card based on number of saved favorites
@@ -109,6 +111,8 @@ if (gosProperties === null || gosProperties.length === 0) {
   message.innerText = "NO FAVORITES";
 
   page.appendChild(message);
+
+  favoriteAppeared = false;
 } else {
   favoriteAppeared = true;
   //Create favorite ui card based on number of saved favorites
@@ -152,11 +156,6 @@ if (gosProperties === null || gosProperties.length === 0) {
 
     musicCard.appendChild(card);
   }
-}
-
-if (favoriteAppeared) {
-  let message = document.querySelector(".message");
-  message.style.display = "none";
 }
 
 //reference for playing top songs and albums
@@ -253,4 +252,9 @@ if (albumProperties === null || albumProperties.length === 0) {
 
     musicCard.appendChild(card);
   }
+}
+
+if (favoriteAppeared) {
+  let message = document.querySelector(".message");
+  message.style.display = "none";
 }
