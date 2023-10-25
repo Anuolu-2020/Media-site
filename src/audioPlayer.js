@@ -31,6 +31,8 @@ import { artistSongs } from "./artistPlaylist.js";
 
 import { firebaseConfig } from "./fireStoreConnect.js";
 
+import { topSongLyricHandler } from "./playlistSwitch.js";
+
 // Get all the references to the audio player button
 let previousBtn = document.getElementById("previousBtn");
 let playPauseBtn = document.getElementById("playPauseBtn");
@@ -364,8 +366,8 @@ function highlightPlaylistSong(index) {
       songImg.src = songCover[idx];
       //img for audio screen
       audioScreenImg.src = songCover[idx];
-      songName.innerHTML = topSongName[idx];
-      artistName.innerHTML = topSongArtist[idx];
+      songName.innerText = topSongName[idx];
+      artistName.innerText = topSongArtist[idx];
       if (idx === index) {
         song.style.backgroundColor = "rgb(138, 45, 138)";
       }
@@ -523,6 +525,7 @@ playButton.forEach((btn, idx) => {
       isPlayingGospel = false;
       isPlayingAlbum = false;
       highlightPlaylistSong(currentSongIndex);
+      topSongLyricHandler(currentSongIndex);
       playSong(currentSongIndex);
     }
   });
@@ -597,6 +600,7 @@ previousBtn.addEventListener("click", () => {
     }
     songName.innerHTML = gospelSongName[gospelSongIndex];
     songImg.src = gospelSongCover[gospelSongIndex];
+    audioScreenImg.src = gospelSongCover[gospelSongIndex];
     artistName.innerHTML = gospelSongArtist[gospelSongIndex];
     highlightPlaylistGospel(gospelSongIndex);
     playGospelSong(gospelSongIndex);
@@ -607,10 +611,12 @@ previousBtn.addEventListener("click", () => {
     } else {
       currentSongIndex = (currentSongIndex - 1) % topSongsUrl.length;
     }
+    audioScreenImg.src = songCover[currentSongIndex];
     songName.innerHTML = topSongName[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
     highlightPlaylistSong(currentSongIndex);
+    topSongLyricHandler(currentSongIndex);
     playSong(currentSongIndex);
   }
 });
@@ -625,6 +631,7 @@ nextBtn.addEventListener("click", () => {
     let albumCover = album.cover;
     let albumUrl = album.url;
     albumSongIndex = (albumSongIndex + 1) % albumUrl.length;
+    audioScreenImg.src = albumCover;
     songName.innerHTML = albumSongName[albumSongIndex];
     songImg.src = albumCover;
     artistName.innerHTML = albumArtist;
@@ -645,6 +652,7 @@ nextBtn.addEventListener("click", () => {
   } else if (isPlayingGospel) {
     // Increment the gospel song index and play the next song
     gospelSongIndex = (gospelSongIndex + 1) % gospelSongUrl.length;
+    audioScreenImg.src = gospelSongCover[gospelSongIndex];
     songName.innerHTML = gospelSongName[gospelSongIndex];
     songImg.src = gospelSongCover[gospelSongIndex];
     artistName.innerHTML = gospelSongArtist[gospelSongIndex];
@@ -653,10 +661,12 @@ nextBtn.addEventListener("click", () => {
   } else {
     // Increment the current song index and play the next song
     currentSongIndex = (currentSongIndex + 1) % topSongsUrl.length;
+    audioScreenImg.src = songCover[currentSongIndex];
     songName.innerHTML = topSongName[currentSongIndex];
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
     highlightPlaylistSong(currentSongIndex);
+    topSongLyricHandler(currentSongIndex);
     playSong(currentSongIndex);
   }
 });
@@ -714,6 +724,7 @@ audio.addEventListener("ended", () => {
     songImg.src = songCover[currentSongIndex];
     artistName.innerHTML = topSongArtist[currentSongIndex];
     highlightPlaylistSong(currentSongIndex);
+    topSongLyricHandler(currentSongIndex);
     playSong(currentSongIndex);
   }
 });
@@ -810,3 +821,9 @@ function displayAudioBar() {
   audioPlayer.style.display = "flex";
   progressSlide.style.display = "block";
 }
+
+// //For Top song Lyrics
+// export function lyricHandler({ Basquiat, Ngozi, Modupe, Charm, Reason }) {
+//   let topSongLyrics = [Basquiat, Ngozi, Modupe, Charm, Reason];
+//   lyrics.innerText = JSON.stringify(topSongLyrics[currentSongIndex], 2);
+// }
