@@ -107,6 +107,8 @@ function savedAlbumFavProp(index) {
 
 faveBtn.forEach((btn, id) => {
   btn.addEventListener("click", () => {
+    let notify = document.getElementById("notifyAction");
+    let notifyText = document.getElementById("notifyText");
     //if its an album
     if (id >= 4) {
       if (localStorage.getItem("albumFaveStates") === null) {
@@ -132,6 +134,9 @@ faveBtn.forEach((btn, id) => {
         localStorage.setItem("favoriteAlbumProp", arrayProperties);
 
         btn.src = "./ICONS/favourite-checked.png";
+
+        notify.style.display = "flex";
+        notifyText.innerText = "Saved To Favorites";
         //state found
       } else {
         //Retrieve saved state
@@ -163,6 +168,9 @@ faveBtn.forEach((btn, id) => {
 
           btn.src = "./ICONS/favourite-icon.png";
 
+          notify.style.display = "flex";
+          notifyText.innerText = "Removed From Favorites";
+
           //button state is false
         } else {
           btn.classList.add("clicked");
@@ -178,6 +186,9 @@ faveBtn.forEach((btn, id) => {
           );
 
           btn.src = "./ICONS/favourite-checked.png";
+
+          notify.style.display = "flex";
+          notifyText.innerText = "Saved To Favorites";
         }
 
         //change button state
@@ -213,6 +224,9 @@ faveBtn.forEach((btn, id) => {
         localStorage.setItem("favoriteProperties", arrayProperties);
 
         btn.src = "./ICONS/favourite-checked.png";
+
+        notify.style.display = "flex";
+        notifyText.innerText = "Saved To Favorites";
         //state found
       } else {
         //Retrieve saved state
@@ -242,6 +256,9 @@ faveBtn.forEach((btn, id) => {
 
           btn.src = "./ICONS/favourite-icon.png";
 
+          notify.style.display = "flex";
+          notifyText.innerText = "Removed From Favorites";
+
           //button state is false
         } else {
           btn.classList.add("clicked");
@@ -254,6 +271,9 @@ faveBtn.forEach((btn, id) => {
           localStorage.setItem("favoriteAlbumProp", JSON.stringify(properties));
 
           btn.src = "./ICONS/favourite-checked.png";
+
+          notify.style.display = "flex";
+          notifyText.innerText = "Saved To Favorites";
         }
 
         //change button state
@@ -266,113 +286,13 @@ faveBtn.forEach((btn, id) => {
   });
 });
 
-//      //change state of button
-//      favBtnStates[id] = !favBtnStates[id];
-
-//      //Save new button state to a variable
-//      let jsonFaveBtnStates = JSON.stringify(favBtnStates);
-
-//      //Store the new button state
-//      localStorage.setItem("faveStates", jsonFaveBtnStates);
-//   }else{
-//    //Retrieve saved state
-//     let faveBtnData = localStorage.getItem("faveStates");
-
-//     //Parse state to javascript object
-//     let retrievedFaveBtnData = JSON.parse(faveBtnData);
-
-//   //change button state
-//   retrievedFaveBtnData[id] = !retrievedFaveBtnData[id];
-//   let jsonFaveBtnData = JSON.stringify(retrievedFaveBtnData);
-//   //store the state
-//   localStorage.setItem("faveStates", jsonFaveBtnData);
-
-//   //Retrieve button saved properties
-//   let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
-
-//    //if button state is true/favorite already
-//    if (retrievedFaveBtnData[id] === true) {
-//      btn.classList.remove("clicked");
-//      btn.classList.remove("pulse");
-
-//              //return array without the removed item
-//        let newArrayProperty = albumProperties.filter((prop) => {
-//          return prop.id !== id;
-//        });
-
-//        //Save the modified retrieved properties properties back
-//        localStorage.setItem(
-//          "favoriteAlbumProp",
-//          JSON.stringify(newArrayProperty)
-//        );
-//        btn.src = "./ICONS/favourite-icon.png";
-//      } else {
-//        //return array without the removed item
-//        let newArrayProperty = properties.filter((prop) => {
-//          return prop.id !== id;
-//        });
-
-//        //Save the modified retrieved properties properties back
-//        localStorage.setItem(
-//          "favoriteProperties",
-//          JSON.stringify(newArrayProperty)
-//        );
-//        btn.src = "./ICONS/favourite-icon.png";
-//      }
-
-//      //If button state is false/ not favorite yet
-
-//      btn.classList.add("clicked");
-//      btn.classList.add("pulse");
-
-//     } else {
-//        //Add property to retrived properties
-//        properties.push(savedFavoriteProperties(id));
-
-//        //Save the modified retrieved properties
-//        localStorage.setItem(
-//          "favoriteProperties",
-//          JSON.stringify(properties)
-//        );
-//        btn.src = "./ICONS/favourite-checked.png";
-//      }
-//    }
-
-//  }
-//   }
-
-//   if(id > 4 && localStorage.getItem("favoriteAlbumProp") === null){
-
-//   }
-//                }
-//     } else {
-//       let newProperty = savedFavoriteProperties(id);
-//       savedFavoriteArray.push(newProperty);
-
-//       //Set property for the first time
-//       let properties = JSON.stringify(savedFavoriteArray);
-
-//       btn.src = "./ICONS/favourite-checked.png";
-
-//       //store the new property
-//       localStorage.setItem("favoriteProperties", properties);
-//     }
-
-//     //If saved State found
-//   } else {
-
-//     //Retrieve button saved album properties
-//     let albumProperties = JSON.parse(
-//       localStorage.getItem("favoriteAlbumProp")
-//     );
-
-// ));
-
 //////////////////////////////////
 
 //Gospel song favourite button
 gosFaveBtn.forEach((btn, id) => {
   btn.addEventListener("click", () => {
+    let notify = document.getElementById("notifyAction");
+    let notifyText = document.getElementById("notifyText");
     //If no states found in localStorage
     if (localStorage.getItem("gosFaveStates") === null) {
       btn.classList.add("clicked");
@@ -384,6 +304,10 @@ gosFaveBtn.forEach((btn, id) => {
       let properties = JSON.stringify(savedGosFaveArray);
 
       btn.src = "./ICONS/favourite-checked.png";
+
+      notify.style.display = "flex";
+      notifyText.innerText = "Saved To Favorites";
+
       //change state of button
       gosFaveBtnStates[id] = !gosFaveBtnStates[id];
 
@@ -424,6 +348,9 @@ gosFaveBtn.forEach((btn, id) => {
         );
         btn.src = "./ICONS/favourite-icon.png";
 
+        notify.style.display = "flex";
+        notifyText.innerText = "Removed From Favorites";
+
         //If button state is false/ not favorite yet
       } else {
         btn.classList.add("clicked");
@@ -435,6 +362,9 @@ gosFaveBtn.forEach((btn, id) => {
         //Save the modified retrieved properties
         localStorage.setItem("gosFaveProperties", JSON.stringify(properties));
         btn.src = "./ICONS/favourite-checked.png";
+
+        notify.style.display = "flex";
+        notifyText.innerText = "Saved To Favorites";
       }
       //Modify state of gospel button
       retrievedFaveBtnData[id] = !retrievedFaveBtnData[id];
@@ -443,7 +373,14 @@ gosFaveBtn.forEach((btn, id) => {
       //save state
       localStorage.setItem("gosFaveStates", jsonFaveBtnData);
     }
-    // console.log(favBtnStates[id], id);
-    // console.log(JSON.parse(localStorage.getItem("faveStates")));
   });
+});
+
+//Close notification for favorites
+let closeNotify = document.getElementById("closeNotify");
+
+closeNotify.addEventListener("click", () => {
+  let notify = document.getElementById("notifyAction");
+
+  notify.style.display = "none";
 });
