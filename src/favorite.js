@@ -52,8 +52,6 @@ if (properties === null || properties.length === 0) {
   let message = document.createElement("h3");
   message.classList.add("message");
 
-  message.innerText = "NO FAVORITES";
-
   page.appendChild(message);
 
   favoriteAppeared = false;
@@ -107,8 +105,6 @@ if (gosProperties === null || gosProperties.length === 0) {
 
   let message = document.createElement("h3");
   message.classList.add("message");
-
-  message.innerText = "NO FAVORITES";
 
   page.appendChild(message);
 
@@ -257,4 +253,7 @@ if (albumProperties === null || albumProperties.length === 0) {
 if (favoriteAppeared) {
   let message = document.querySelector(".message");
   message.style.display = "none";
+} else {
+  let message = document.querySelector(".message");
+  message.innerText = "NO FAVORITES";
 }
