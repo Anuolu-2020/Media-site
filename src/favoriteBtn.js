@@ -110,7 +110,7 @@ faveBtn.forEach((btn, id) => {
     let notify = document.getElementById("notifyAction");
     let notifyText = document.getElementById("notifyText");
     //if its an album
-    if (id >= 4) {
+    if (id >= 5) {
       if (localStorage.getItem("albumFaveStates") === null) {
         btn.classList.add("clicked");
         btn.classList.add("pulse");
