@@ -30,8 +30,10 @@ import { hideLoader } from "./loading.js";
 import { artistSongs } from "./artistPlaylist.js";
 
 import { firebaseConfig } from "./fireStoreConnect.js";
-
-import { topSongLyricHandler } from "./playlistSwitch.js";
+import {
+  topSongLyricHandler,
+  gospelSongLyricHandler,
+} from "./lyricsHandler.js";
 
 // Get all the references to the audio player button
 let previousBtn = document.getElementById("previousBtn");
@@ -544,6 +546,7 @@ gospelPlay.forEach((play, idx) => {
     isPlayingAlbum = false;
     isArtistPlaylist = false;
     isPlayingGospel = true;
+    gospelSongLyricHandler(gospelSongIndex);
     highlightPlaylistGospel(gospelSongIndex);
     playGospelSong(gospelSongIndex);
   });
@@ -603,6 +606,7 @@ previousBtn.addEventListener("click", () => {
     audioScreenImg.src = gospelSongCover[gospelSongIndex];
     artistName.innerHTML = gospelSongArtist[gospelSongIndex];
     highlightPlaylistGospel(gospelSongIndex);
+    gospelSongLyricHandler(gospelSongIndex);
     playGospelSong(gospelSongIndex);
   } else {
     // decrement the current song index and play the next song
@@ -657,6 +661,7 @@ nextBtn.addEventListener("click", () => {
     songImg.src = gospelSongCover[gospelSongIndex];
     artistName.innerHTML = gospelSongArtist[gospelSongIndex];
     highlightPlaylistGospel(gospelSongIndex);
+    gospelSongLyricHandler(gospelSongIndex);
     playGospelSong(gospelSongIndex);
   } else {
     // Increment the current song index and play the next song
@@ -715,6 +720,7 @@ audio.addEventListener("ended", () => {
     songImg.src = gospelSongCover[gospelSongIndex];
     artistName.innerHTML = gospelSongArtist[gospelSongIndex];
     highlightPlaylistGospel(gospelSongIndex);
+    gospelSongLyricHandler(gospelSongIndex);
     playGospelSong(gospelSongIndex);
   } else {
     // Increment the current song index and play the next song
