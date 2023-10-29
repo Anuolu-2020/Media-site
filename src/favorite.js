@@ -45,6 +45,7 @@ let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
 let gosProperties = JSON.parse(localStorage.getItem("gosFaveProperties"));
 
 let favoriteAppeared = false;
+let gosFavoriteAppeared = false;
 
 if (properties === null || properties.length === 0) {
   let page = document.querySelector(".music-card");
@@ -108,9 +109,9 @@ if (gosProperties === null || gosProperties.length === 0) {
 
   page.appendChild(message);
 
-  favoriteAppeared = false;
+  gosFavoriteAppeared = false;
 } else {
-  favoriteAppeared = true;
+  gosFavoriteAppeared = true;
   //Create favorite ui card based on number of saved favorites
   for (let i = 0; i < gosProperties.length; i++) {
     let faveBtnProperty = gosProperties[i];
@@ -250,10 +251,16 @@ if (albumProperties === null || albumProperties.length === 0) {
   }
 }
 
-if (favoriteAppeared) {
+if (!favoriteAppeared && !gosFavoriteAppeared) {
+  let message = document.querySelector(".message");
+  message.innerText = "NO FAVORITES";
+} else if (favoriteAppeared && gosFavoriteAppeared) {
+  let message = document.querySelector(".message");
+  message.style.display = "none";
+} else if (favoriteAppeared && !gosFavoriteAppeared) {
   let message = document.querySelector(".message");
   message.style.display = "none";
 } else {
   let message = document.querySelector(".message");
-  message.innerText = "NO FAVORITES";
+  message.style.display = "none";
 }
