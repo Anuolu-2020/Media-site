@@ -308,8 +308,17 @@ favoriteIcon.forEach((favorite, id) => {
   }
 });
 
-gosFave.forEach((favorite) => {
-  favorite.src = "./ICONS/favourite-icon.png";
+gosFave.forEach((favorite, id) => {
+  let btnState = JSON.parse(localStorage.getItem("gosFaveStates"));
+  if (btnState === null) {
+    favorite.src = "./ICONS/favourite-icon.png";
+  } else {
+    if (btnState[id] === true) {
+      favorite.src = "./ICONS/favourite-checked.png";
+    } else {
+      favorite.src = "./ICONS/favourite-icon.png";
+    }
+  }
 });
 
 gosAdd.forEach((library) => {
