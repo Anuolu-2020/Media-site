@@ -256,8 +256,8 @@ if (!favoriteAppeared && !gosFavoriteAppeared) {
   message.innerText = "NO FAVORITES";
 } else if (favoriteAppeared && gosFavoriteAppeared) {
   let message = document.querySelector(".message");
-  message.style.display = "none";
-} else if (favoriteAppeared && !gosFavoriteAppeared) {
+  // message.style.display = "none";
+} else if (!favoriteAppeared && gosFavoriteAppeared) {
   let message = document.querySelector(".message");
   message.style.display = "none";
 } else {
