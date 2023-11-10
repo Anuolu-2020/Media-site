@@ -109,8 +109,99 @@ faveBtn.forEach((btn, id) => {
   btn.addEventListener("click", () => {
     let notify = document.getElementById("notifyAction");
     let notifyText = document.getElementById("notifyText");
-    //if its an album
+
+    //its top songs
+    if (id <= 4) {
+      //For favorite top songs
+      if (localStorage.getItem("faveStates") === null) {
+        btn.classList.add("clicked");
+        btn.classList.add("pulse");
+
+        //change state of button
+        favBtnStates[id] = !favBtnStates[id];
+
+        //Save new button state to a variable
+        let jsonFaveBtnStates = JSON.stringify(favBtnStates);
+
+        //Store the new button state
+        localStorage.setItem("faveStates", jsonFaveBtnStates);
+
+        let newProperty = savedFavoriteProperties(id);
+        savedFavoriteArray.push(newProperty);
+
+        //Set property for the first time
+        let arrayProperties = JSON.stringify(savedFavoriteArray);
+
+        //store the new property for topsongs
+        localStorage.setItem("favoriteProperties", arrayProperties);
+
+        btn.src = "./ICONS/favourite-checked.png";
+
+        notify.style.display = "flex";
+        notifyText.innerText = "Saved To Favorites";
+        //state found
+      } else {
+        //Retrieve saved state
+        let faveBtnData = localStorage.getItem("faveStates");
+
+        //Parse state to javascript object
+        let retrievedFaveBtnData = JSON.parse(faveBtnData);
+
+        //Retrieve button saved properties
+        let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
+
+        //if button state is true
+        if (retrievedFaveBtnData[id] === true) {
+          btn.classList.remove("clicked");
+          btn.classList.remove("pulse");
+
+          //return array without the removed item
+          let newArrayProperty = properties.filter((prop) => {
+            return prop.id !== id;
+          });
+
+          //Save the modified retrieved properties properties back
+          localStorage.setItem(
+            "favoriteProperties",
+            JSON.stringify(newArrayProperty)
+          );
+
+          btn.src = "./ICONS/favourite-icon.png";
+
+          notify.style.display = "flex";
+          notifyText.innerText = "Removed From Favorites";
+
+          //button state is false
+        } else {
+          btn.classList.add("clicked");
+          btn.classList.add("pulse");
+
+          //Add album property to retrived properties
+          properties.push(savedFavoriteProperties(id));
+
+          //Save the modified retrieved top songs properties
+          localStorage.setItem(
+            "favoriteProperties",
+            JSON.stringify(properties)
+          );
+
+          btn.src = "./ICONS/favourite-checked.png";
+
+          notify.style.display = "flex";
+          notifyText.innerText = "Saved To Favorites";
+        }
+
+        //change button state
+        retrievedFaveBtnData[id] = !retrievedFaveBtnData[id];
+        let jsonFaveBtnData = JSON.stringify(retrievedFaveBtnData);
+        //store the state
+        localStorage.setItem("faveStates", jsonFaveBtnData);
+      }
+    }
+
+    //its an album
     if (id >= 5) {
+      //create album properties
       if (localStorage.getItem("albumFaveStates") === null) {
         btn.classList.add("clicked");
         btn.classList.add("pulse");
@@ -196,91 +287,6 @@ faveBtn.forEach((btn, id) => {
         let jsonFaveBtnData = JSON.stringify(retrievedFaveBtnData);
         //store the state
         localStorage.setItem("albumFaveStates", jsonFaveBtnData);
-      }
-    }
-
-    if (id <= 4) {
-      //For favorite top songs
-      if (localStorage.getItem("faveStates") === null) {
-        btn.classList.add("clicked");
-        btn.classList.add("pulse");
-
-        //change state of button
-        favBtnStates[id] = !favBtnStates[id];
-
-        //Save new button state to a variable
-        let jsonFaveBtnStates = JSON.stringify(favBtnStates);
-
-        //Store the new button state
-        localStorage.setItem("faveStates", jsonFaveBtnStates);
-
-        let newProperty = savedFavoriteProperties(id);
-        savedFavoriteArray.push(newProperty);
-
-        //Set property for the first time
-        let arrayProperties = JSON.stringify(savedFavoriteArray);
-
-        //store the new property for albums
-        localStorage.setItem("favoriteProperties", arrayProperties);
-
-        btn.src = "./ICONS/favourite-checked.png";
-
-        notify.style.display = "flex";
-        notifyText.innerText = "Saved To Favorites";
-        //state found
-      } else {
-        //Retrieve saved state
-        let faveBtnData = localStorage.getItem("faveStates");
-
-        //Parse state to javascript object
-        let retrievedFaveBtnData = JSON.parse(faveBtnData);
-
-        //Retrieve button saved properties
-        let properties = JSON.parse(localStorage.getItem("favoriteProperties"));
-
-        //if button state is true
-        if (retrievedFaveBtnData[id] === true) {
-          btn.classList.remove("clicked");
-          btn.classList.remove("pulse");
-
-          //return array without the removed item
-          let newArrayProperty = properties.filter((prop) => {
-            return prop.id !== id;
-          });
-
-          //Save the modified retrieved properties properties back
-          localStorage.setItem(
-            "favoriteProperties",
-            JSON.stringify(newArrayProperty)
-          );
-
-          btn.src = "./ICONS/favourite-icon.png";
-
-          notify.style.display = "flex";
-          notifyText.innerText = "Removed From Favorites";
-
-          //button state is false
-        } else {
-          btn.classList.add("clicked");
-          btn.classList.add("pulse");
-
-          //Add album property to retrived properties
-          properties.push(savedFavoriteProperties(id));
-
-          //Save the modified retrieved album properties
-          localStorage.setItem("favoriteAlbumProp", JSON.stringify(properties));
-
-          btn.src = "./ICONS/favourite-checked.png";
-
-          notify.style.display = "flex";
-          notifyText.innerText = "Saved To Favorites";
-        }
-
-        //change button state
-        retrievedFaveBtnData[id] = !retrievedFaveBtnData[id];
-        let jsonFaveBtnData = JSON.stringify(retrievedFaveBtnData);
-        //store the state
-        localStorage.setItem("faveStates", jsonFaveBtnData);
       }
     }
   });
