@@ -1,42 +1,46 @@
-body 
-{
-    background-image: linear-gradient(to right top, #051937, #1d223e, #2e2d45, #3d384c, #4b4453);
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+body {
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #1d223e,
+    #2e2d45,
+    #3d384c,
+    #4b4453
+  );
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-.Registration 
-{
+.Registration {
   background-color: #4a4057;
-    /*background-color:  #02373b;*/
-    width: 300px;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-    padding: 50px;
-    margin: 8% auto 8% auto;
-    text-align: center;
-    height: 470px
+  /*background-color:  #02373b;*/
+  width: 300px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  padding: 50px;
+  margin: 8% auto 8% auto;
+  text-align: center;
+  height: 470px;
 }
 
-.Nav, .forpas, .stay
-{
- color: #fff;
- text-decoration: none; 
- line-height: 30px;
+.Nav,
+.forpas,
+.stay {
+  color: #fff;
+  text-decoration: none;
+  line-height: 30px;
 }
 
-.input-box
-{
-   border-radius: 20px;
-   padding: 10px;
-   margin: 10px 0;
-   width: 100%;
-   border: 1px solid #B0A8B9;
-   outline: none;
+.input-box {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #b0a8b9;
+  outline: none;
 }
 
-button
-{
+button {
   color: #fff;
   width: 100%;
   padding: 10px;
@@ -46,92 +50,77 @@ button
   border: none;
   outline: none;
   cursor: pointer;
-  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
-.signup-btn
-{
-  background-color: #294D46;
+.signup-btn {
+  background-color: #294d46;
   position: relative;
-  bottom: 40px
+  bottom: 40px;
 }
 
-.signin-btn
-{
+.signin-btn {
   background-color: #3b5998;
 }
 
-.Nav:hover
-{
+.Nav:hover {
   border-bottom: 3px solid #fff;
   transform: scaleX(0);
 }
 
-
-.forpas:hover
-{
-  color: #B0A8B9;
+.forpas:hover {
+  color: #b0a8b9;
 }
-.signup-btn:hover
-{
+.signup-btn:hover {
   opacity: 0.7;
 }
 
-.signin-btn:hover
-{
+.signin-btn:hover {
   opacity: 0.7;
 }
 
-#space
-{
+#space {
   margin-right: 15px;
 }
 
-#space2
-{
- margin-left: 15px;
+#space2 {
+  margin-left: 15px;
 }
 
-.stay
-{
+.stay {
   position: relative;
   bottom: 30px;
   right: 85px;
 }
 
-.signin-btn
-{
-  background-image: url(./facelogo.png);
+.signin-btn {
+  background-image: url(./Logo/facelogo.png);
   background-repeat: no-repeat;
   background-size: 25px;
   background-position-x: 20px;
   background-position-y: 5px;
 }
 
-hr
-{
+hr {
   margin-top: 20px;
   width: 80%;
 }
 
-.or
-{
-  background: #4B4453;
+.or {
+  background: #4b4453;
   width: 30px;
   margin: -17px auto 10px;
-  color: #B0A8B9;
+  color: #b0a8b9;
   font-weight: bold;
 }
 
-.eye
-{
+.eye {
   position: relative;
   bottom: 38px;
   left: 155px;
 }
 
-.forpas
-{
+.forpas {
   position: relative;
   bottom: 40px;
 }
