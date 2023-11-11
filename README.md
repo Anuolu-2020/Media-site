@@ -14,7 +14,8 @@ Media site is a music website for streaming selected songs. It's built entirely 
 - Displays loading spinner while audio loads.
 - Can collapse sidebar.
 - Collapse audio screen while playing audio (behaves like an SPA site).
-- Like favourite songs.
+- Like favourite songs and albums.
+- Play favourite songs and albums.
 - Save song to library (still in progress).
 - Search for songs (still in progress).
 - Has Autoplay built in.
