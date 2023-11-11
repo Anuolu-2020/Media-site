@@ -14,6 +14,7 @@ import {
   artistName,
   songName,
   songImg,
+  albums,
 } from "./audioPlayer.js";
 
 let audioPlayer = document.getElementById("audioPlayer");
@@ -167,6 +168,10 @@ play.forEach((btn, idx) => {
     songName.innerText = prop.name;
     songImg.src = prop.cover;
     playSong(prop.id);
+
+    audio.addEventListener("ended", () => {
+      songName.innerText = prop.name;
+    });
   });
 });
 
@@ -194,10 +199,14 @@ gospelPlay.forEach((btn, idx) => {
     songName.innerText = prop.name;
     songImg.src = prop.cover;
     playGospelSong(prop.id);
+
+    audio.addEventListener("ended", () => {
+      songName.innerText = prop.name;
+    });
   });
 });
 
-//Favorite page Ablum section
+//Favorite page Album section
 let albumProperties = JSON.parse(localStorage.getItem("favoriteAlbumProp"));
 let albumMusic = document.querySelector(".albumMusic");
 
@@ -224,7 +233,7 @@ if (albumProperties === null || albumProperties.length === 0) {
     favoriteCover.style.backgroundImage = `url(${faveBtnProperty.cover}`;
 
     let playButton = document.createElement("img");
-    playButton.classList.add("gosPlay");
+    playButton.classList.add("albumPlay");
 
     playButton.src = "./ICONS/play-arrow.png";
 
@@ -251,6 +260,79 @@ if (albumProperties === null || albumProperties.length === 0) {
   }
 }
 
+//Album songs ui creation
+let albumPlayButton = document.querySelectorAll(".albumPlay");
+let displayCard = document.querySelector(".playFaveAlbum");
+let albumName = document.querySelector(".faveAlbumName");
+let isPlaylistVisible = false;
+let albumIndex = 0;
+
+albumPlayButton.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    displayCard.style.display = "flex";
+
+    let albumProperties = JSON.parse(localStorage.getItem("favoriteAlbumProp"));
+    let prop = albumProperties[idx];
+    let songsName = prop.songsName;
+    let album = prop.name;
+
+    albumIndex = idx;
+
+    albumName.textContent = `${album} Songs`;
+
+    if (isPlaylistVisible) {
+      // Playlist UI is already visible, so return early
+      let songsUi = document.querySelectorAll(".song");
+      songsUi.forEach((song) => {
+        song.remove();
+      });
+    }
+
+    for (let i = 0; i < songsName.length; i++) {
+      let song = document.createElement("section");
+      song.classList.add("song");
+
+      let songImage = document.createElement("img");
+      songImage.classList.add("songImage");
+      songImage.src = prop.cover;
+      song.appendChild(songImage);
+
+      let info = document.createElement("section");
+      info.classList.add("info");
+
+      let name = document.createElement("section");
+      name.classList.add("name");
+      name.textContent = songsName[i];
+
+      info.appendChild(name);
+
+      let artist = document.createElement("section");
+      artist.classList.add("artist");
+      artist.textContent = prop.artist;
+
+      info.appendChild(artist);
+
+      song.appendChild(info);
+
+      let playButton = document.createElement("img");
+
+      playButton.classList.add("playButton");
+
+      playButton.src = "./ICONS/play-arrow.png";
+
+      playButton.addEventListener("click", () => {
+        playAlbumSong(i);
+      });
+
+      song.appendChild(playButton);
+
+      displayCard.appendChild(song);
+    }
+
+    isPlaylistVisible = true;
+  });
+});
+
 if (!favoriteAppeared && !gosFavoriteAppeared) {
   let message = document.querySelector(".message");
   message.innerText = "NO FAVORITES";
@@ -263,4 +345,42 @@ if (!favoriteAppeared && !gosFavoriteAppeared) {
 } else {
   let message = document.querySelector(".message");
   message.style.display = "none";
+}
+
+//close favorite album display card
+let closeBtn = document.querySelector(".close");
+closeBtn.addEventListener("click", () => {
+  displayCard.style.display = "none";
+});
+
+function playAlbum(index, songIndex) {
+  let album = albums[index];
+  let albumUrl = album.url;
+  const fileRef = ref(storage, albumUrl[songIndex]);
+  getBlob(fileRef).then((blob) => {
+    let url = URL.createObjectURL(blob);
+    audio.src = url;
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.src = "./ICONS/pause.png";
+  });
+}
+
+let songIndex = 0;
+function playAlbumSong(idx) {
+  let albumProperties = JSON.parse(localStorage.getItem("favoriteAlbumProp"));
+  let prop = albumProperties[albumIndex];
+  let trackName = prop.songsName;
+  let index = prop.id - 5;
+  audioPlayer.style.display = "flex";
+  progressSlide.style.display = "block";
+  artistName.innerText = prop.name;
+  songName.innerText = trackName[idx];
+  songIndex = idx;
+  songImg.src = prop.cover;
+  playAlbum(index, idx);
+
+  audio.addEventListener("ended", () => {
+    songName.innerText = trackName[idx];
+  });
 }
