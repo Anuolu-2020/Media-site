@@ -360,7 +360,8 @@ a {
 }
 
 .play-button,
-.gosPlay {
+.gosPlay,
+.albumPlay {
   position: relative;
   height: 80px;
   width: 110px;
@@ -369,7 +370,8 @@ a {
 }
 
 .play-button:hover,
-.gosPlay:hover {
+.gosPlay:hover,
+.albumPlay:hover {
   opacity: 0.8;
 }
 
@@ -378,6 +380,72 @@ a {
   color: wheat;
   align-self: center;
   font-size: 30px;
+}
+
+.playFaveAlbum {
+  display: none;
+  flex-direction: column;
+  padding: 5px;
+  align-self: center;
+  width: 300px;
+  height: 350px;
+  position: absolute;
+  background-color: #2e2d45;
+  border-radius: 5px;
+  top: 150px;
+  gap: 5px;
+  /*left: 400px; */
+}
+
+.header {
+  display: flex;
+}
+
+.close {
+  margin-left: auto;
+  height: 30px;
+  width: 30px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.song {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  border-radius: 5px;
+  background-color: wheat;
+  align-items: center;
+}
+
+.songImage {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.name,
+.faveAlbumName {
+  font-family: "Gabarito", cursive;
+  color: goldenrod;
+}
+
+.artist {
+  font-family: "Roboto", sans-serif;
+  color: brown;
+}
+
+.playButton {
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+}
+
+.playButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media (min-width: 1080px) {
