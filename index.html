@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)chrome://newtab/ -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANUSIC</title>
+    <link href="./favicon.png" rel="short cut" type="image/x-icon" />
+    <link href="./favicon.png" rel="icon" type="image/x-icon" />
+    <link href="./styles/mainPage.css" rel="stylesheet" />
+    <link href="./styles/artistStyle.css" rel="stylesheet" />
+    <link href="./styles/audioPlayer.css" rel="stylesheet" />
+    <link href="./styles/audio-screen.css" rel="stylesheet" />
+    <link href="./styles/loading.css" rel="stylesheet" />
+    <script src="./src/links.js" type="module"></script>
+    <script src="./src/audioPlayer.js" type="module"></script>
+    <script src="./src/script2.js" type="module"></script>
+    <script src="./src/musicLinks.js" type="module"></script>
+    <script src="./src/fireStoreConnect.js" type="module"></script>
+    <script src="./src/audioScreen.js" type="module"></script>
+    <script src="./src/loading.js" type="module"></script>
+    <script src="./src/artistPlaylist.js" type="module"></script>
+    <script src="./src/favoriteBtn.js" type="module"></script>
+    <script src="./src/lyricsHandler.js" type="module"></script>
+    <script src="./src/playlistSwitch.js"></script>
+    <!-- <script src="./src/libraryBtn.js"></script> -->
+  </head>
+  <body>
+    <header id="main-header">
+      <button class="left-items" id="main-menu"></button>
+      <a class="left-items" href="index.html" id="logo-link"
+        ><img src="./Logo/musiclogo.png" class="logo"
+      /></a>
+      <section class="left-items">
+        <div id="mobile-search-container">
+          <img
+            id="mobile-searchbar"
+            src="./ICONS/search icon.png
+        "
+          />
+          <input
+            type="search"
+            id="mobile-search-input"
+            style="height: 40px; width: 350px; border-radius: 2px; flex: 1"
+            placeholder="Search songs, artist, albums"
+          />
+        </div>
+
+        <input
+          type="search"
+          id="search-bar"
+          style="height: 40px; width: 350px; border-radius: 2px; flex: 1"
+          placeholder="Search songs, artist, albums"
+        />
+      </section>
+      <nav class="right-items" id="profile-pic">
+        <img id="profile-img" class="profile" />
+
+        <nav id="settings-container">
+          <a href="#"
+            ><img id="settings-profile" />
+            <h4>Anonymous</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/profile.png"
+              class="profile-icon"
+              alt="profile pic"
+            />
+            <h4>Profile</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img
+              src="./ICONS/setting.png"
+              class="profile-icon"
+              alt="settings icon"
+            />
+            <h4>Settings</h4></a
+          >
+          <a href="#" class="profile-link"
+            ><img src="./ICONS/help.png" class="profile-icon" alt="help icon" />
+            <h4>Help</h4></a
+          >
+          <a href="./index.html" class="profile-link"
+            ><img
+              src="./ICONS/logout.png"
+              class="profile-icon"
+              alt="logout icon"
+            />
+            <h4>Log out</h4></a
+          >
+        </nav>
+      </nav>
+    </header>
+    <section class="sidebar-container">
+      <a class="sidebar-link" id="home" href="index.html"
+        ><img src="./ICONS/home icon.png" class="sidebar" />
+        <b class="sidebar-text">HOME</b></a
+      >
+      <a class="sidebar-link" href="library.html"
+        ><img src="./ICONS/library-sidebar.png" class="sidebar" /><b
+          class="sidebar-text"
+          >LIBRARY</b
+        ></a
+      >
+      <a class="sidebar-link" href="favorite.html"
+        ><img src="./ICONS/favourite-icon-sidebar.png" class="sidebar" /><b
+          class="sidebar-text"
+          >FAVORITES</b
+        ></a
+      >
+    </section>
+    <main id="music-page">
+      <h4 id="top-songs" style="color: whitesmoke">Today's Top Songs</h4>
+      <section class="music-card">
+        <section class="card">
+          <section class="songCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <section class="songCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <section class="songCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <section class="songCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+        <section class="card">
+          <section class="songCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="topSongsName">Song Name</h3>
+          <h3 class="topSongsArtist">Song Artist</h3>
+        </section>
+      </section>
+      <h4 id="albumsTitle" style="color: whitesmoke">Albums</h4>
+      <section class="music-card">
+        <section class="card">
+          <section class="albumCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="albumName">Album Name</h3>
+          <h3 class="albumArtist">Album Artist</h3>
+        </section>
+        <section class="card">
+          <section class="albumCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="albumName">Album Name</h3>
+          <h3 class="albumArtist">Album Artist</h3>
+        </section>
+        <section class="card">
+          <section class="albumCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="albumName">Album Name</h3>
+          <h3 class="albumArtist">Album Artist</h3>
+        </section>
+        <section class="card">
+          <section class="albumCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="albumName">Album Name</h3>
+          <h3 class="albumArtist">Album Artist</h3>
+        </section>
+        <section class="card">
+          <section class="albumCover">
+            <img class="favorite-button" />
+            <img class="add-button" />
+            <img class="play-button" />
+          </section>
+          <h3 class="albumName">Album Name</h3>
+          <h3 class="albumArtist">Album Artist</h3>
+        </section>
+      </section>
+      <h4 id="albumsTitle" style="color: whitesmoke">Artists</h4>
+      <section class="music-card">
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+        <section class="card2">
+          <img class="artist" />
+          <h3 class="artistName">Artist Name</h3>
+        </section>
+      </section>
+      <h4 id="gospelTitle" style="color: whitesmoke">Gospel Songs</h4>
+      <section class="music-card">
+        <section class="gospel">
+          <section class="gospelCover">
+            <img class="gosFave" />
+            <img class="gosAdd" />
+            <img class="gosPlay" />
+          </section>
+          <h3 class="gospelName">Song Name</h3>
+          <h3 class="gospelArtist">Gospel Artist</h3>
+        </section>
+        <section class="gospel">
+          <section class="gospelCover">
+            <img class="gosFave" />
+            <img class="gosAdd" />
+            <img class="gosPlay" />
+          </section>
+          <h3 class="gospelName">Song Name</h3>
+          <h3 class="gospelArtist">Gospel Artist</h3>
+        </section>
+        <section class="gospel">
+          <section class="gospelCover">
+            <img class="gosFave" />
+            <img class="gosAdd" />
+            <img class="gosPlay" />
+          </section>
+          <h3 class="gospelName">Song Name</h3>
+          <h3 class="gospelArtist">Gospel Artist</h3>
+        </section>
+        <section class="gospel">
+          <section class="gospelCover">
+            <img class="gosFave" />
+            <img class="gosAdd" />
+            <img class="gosPlay" />
+          </section>
+          <h3 class="gospelName">Song Name</h3>
+          <h3 class="gospelArtist">Gospel Artist</h3>
+        </section>
+        <section class="gospel">
+          <section class="gospelCover">
+            <img class="gosFave" />
+            <img class="gosAdd" />
+            <img class="gosPlay" />
+          </section>
+          <h3 class="gospelName">Song Name</h3>
+          <h3 class="gospelArtist">Gospel Artist</h3>
+        </section>
+      </section>
+    </main>
+    <input
+      id="progressSlide"
+      min="0"
+      max="100"
+      step="0.01"
+      value="0"
+      type="range"
+    />
+    <section id="audioPlayer">
+      <audio id="audio"></audio>
+      <div id="left-items">
+        <img id="previousBtn" />
+        <div id="Loading"></div>
+        <img id="playPauseBtn" />
+        <img id="nextBtn" />
+        <h4 id="songDuration">NaN / NaN</h4>
+      </div>
+      <div id="songInfo">
+        <img id="songImg" width="70px" height="40px" />
+        <div id="audioSongInfo">
+          <div id="audioName">SONG NAME</div>
+          <div id="audioArtist">ARTIST</div>
+        </div>
+      </div>
+      <div id="right-items">
+        <input
+          id="volumeBtn"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.5"
+        />
+        <img id="volumeIcon" />
+        <img id="repeatBtn" />
+        <img id="shuffleBtn" />
+        <img id="audioCollapse" />
+      </div>
+    </section>
+    <section id="audio-screen">
+      <img id="screen" />
+      <section id="audio-screen-sidebar">
+        <div id="sidebar-select">
+          <div class="sidebar-select-txt" id="upNext-select">UP NEXT</div>
+          <div class="sidebar-select-txt" id="lyrics-select">LYRICS</div>
+        </div>
+        <div id="playlist-origin"></div>
+        <div id="playlist"></div>
+        <div id="lyrics"></div>
+      </section>
+    </section>
+    <section id="notifyAction">
+      <div id="notifyText"></div>
+      <img
+        src="./ICONS/close-icon.png"
+        id="closeNotify"
+        width="40px"
+        height="40px"
+      />
+    </section>
+  </body>
+</html>
