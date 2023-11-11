@@ -18,4 +18,4 @@ Media site is a music website for streaming selected songs. It's built entirely 
 - Save song to library (still in progress).
 - Search for songs (still in progress).
 - Has Autoplay built in.
-- Views lyrics of song while playing.
+- View lyrics of song while playing.
